@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.5)  18 DEC 2022 01:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.5)  18 DEC 2022 01:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -914,17 +914,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathsl' in version `bold'
 
 LaTeX Warning: \include should only be used after \begin{document} on input line 8.
 
-(./title.tex) (./main.aux
-
-LaTeX Warning: Label `exa:compdetrowred' multiply defined.
-
-
-LaTeX Warning: Label `thm:transposedot' multiply defined.
-
-
-LaTeX Warning: Label `exa:weirdbasis1' multiply defined.
-
-)
+(./title.tex) (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
@@ -1028,7 +1018,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 25.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<Graphics/CU.png, id=340, 1003.75pt x 202.7575pt>
+<Graphics/CU.png, id=67, 1003.75pt x 202.7575pt>
 File: Graphics/CU.png Graphic file (type png)
 <use Graphics/CU.png>
 Package pdftex.def Info: Graphics/CU.png  used on input line 31.
@@ -1037,7 +1027,7 @@ Package pdftex.def Info: Graphics/CU.png  used on input line 31.
 
 
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Graphics/CU.png>]
-<Graphics/latex.png, id=352, 273.72263pt x 299.9205pt>
+<Graphics/latex.png, id=79, 273.72263pt x 299.9205pt>
 File: Graphics/latex.png Graphic file (type png)
 <use Graphics/latex.png>
 Package pdftex.def Info: Graphics/latex.png  used on input line 39.
@@ -1053,431 +1043,84 @@ LaTeX Font Info:    Font shape `OT1/pbk/b/n' in size <20.74> not available
 (Font)              Font shape `OT1/pbk/db/n' tried instead on input line 44.
 LaTeX Font Info:    Font shape `OT1/pbk/b/n' in size <100> not available
 (Font)              Font shape `OT1/pbk/db/n' tried instead on input line 44.
- (./main.toc
-
-LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <10> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 33.
-
-[2
-
-])
+ (./main.toc)
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [3] (./Chapters/preface.tex
+ [2
+
+] (./Chapters/preface.tex
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <10> not available
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 4.
+
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <8> not available
 (Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 4.
 
 
-LaTeX Warning: Reference `appendix:a' on page iv undefined on input line 7.
-
-
-LaTeX Warning: Reference `appendix:a' on page iv undefined on input line 7.
-
-
-LaTeX Warning: Reference `appendix:b' on page iv undefined on input line 10.
-
-
-LaTeX Warning: Reference `chapter:lintrans' on page iv undefined on input line 10.
-
-
-LaTeX Warning: Reference `appendix:b' on page iv undefined on input line 10.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1--14
+Underfull \hbox (badness 10000) in paragraph at lines 1--8
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1--14
+Underfull \hbox (badness 10000) in paragraph at lines 1--8
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1--14
+Underfull \hbox (badness 10000) in paragraph at lines 13--23
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1--14
+Underfull \hbox (badness 10000) in paragraph at lines 13--23
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 21--31
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 21--31
-
- []
-
-) [4
+) [3
 
 ]
 Chapter 1.
-(./Chapters/firstOrderDiffEq.tex
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-LaTeX Font Info:    Trying to load font information for U+mvs on input line 44.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/marvosym/umvs.fd)
-Underfull \hbox (badness 10000) in paragraph at lines 40--51
-
- []
-
-
+(./Chapters/firstOrderDiffEq.tex)
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.51     \end{definition}
-                          [1
+l.68 \chapter
+             {Second Order Differential Equations} \label{chapter:secondorder} [1
 
-
-] [2] [3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 163--167
-
- []
-
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-
-Underfull \hbox (badness 10000) in paragraph at lines 184--188
-
- []
-
-[5]
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-
-Underfull \hbox (badness 10000) in paragraph at lines 240--265
-
- []
-
-[6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 307--311
-
- []
-
-[8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 450--454
-
- []
-
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 463--467
-
- []
-
-[11] [12] [13]
-Underfull \hbox (badness 10000) in paragraph at lines 617--621
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 625--629
-
- []
-
-[14] [15] [16]
-Underfull \hbox (badness 10000) in paragraph at lines 806--810
-
- []
-
-[17] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 896--900
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 907--911
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 918--922
-
- []
-
-[19]
-Underfull \hbox (badness 10000) in paragraph at lines 929--933
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 940--944
-
- []
-
-[20]) [21]
-Chapter 2.
-(./Chapters/secondOrderDiffEq.tex [22
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 63--67
+Chapter 2.
+(./Chapters/secondOrderDiffEq.tex) [2
 
- []
-
-[23]
-Underfull \hbox (badness 10000) in paragraph at lines 79--83
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 93--97
-
- []
-
-[24] [25] [26] [27] [28] [29]
-Underfull \hbox (badness 10000) in paragraph at lines 388--403
-
- []
-
-[30] [31]
-Underfull \hbox (badness 10000) in paragraph at lines 465--480
-
- []
-
-[32]
-Underfull \hbox (badness 10000) in paragraph at lines 505--508
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 508--512
-
- []
-
-[33] [34]
-Underfull \hbox (badness 10000) in paragraph at lines 594--598
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 627--631
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 619--672
-
- []
-
-[35] [36]
-Underfull \hbox (badness 10000) in paragraph at lines 676--680
-
- []
-
-[37]
-Underfull \hbox (badness 10000) in paragraph at lines 749--753
-
- []
-
-[38] [39] [40]
-
-LaTeX Warning: Reference `chapter:lintrans' on page 41 undefined on input line 943.
-
-[41] [42] [43] [44] [45] [46] [47]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1240.
-
-
-LaTeX Font Warning: Font shape `OT1/cmss/bx/it' undefined
-(Font)              using `OT1/cmss/bx/n' instead on input line 1242.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1256--1260
-
- []
-
-) [48]
+]
 Chapter 3.
-(./Chapters/systemsOfDiffEq.tex [49
+(./Chapters/systemsOfDiffEq.tex) [3
 
-] [50] (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2020/03/24 1.8d listings language file
-)
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 69.
- (./Graphics/matrixdet.py) [51] [52]
-Underfull \hbox (badness 10000) in paragraph at lines 139--143
-
- []
-
-[53]
-Underfull \hbox (badness 10000) in paragraph at lines 170--174
-
- []
-
-[54] [55] [56] [57]
-Underfull \hbox (badness 10000) in paragraph at lines 346--350
-
- []
-
-[58]
-Underfull \hbox (badness 10000) in paragraph at lines 366--370
-
- []
-
-[59] [60] [61] [62] [63] [64]
-Underfull \hbox (badness 10000) in paragraph at lines 639--643
-
- []
-
-[65] [66] [67] [68] [69]) [70]
+]
 Chapter 4.
-(./Chapters/qualitativeTheoryOfDiffEq.tex [71
+(./Chapters/qualitativeTheoryOfDiffEq.tex) [4
 
-] [72] [73] [74] [75]
-Underfull \hbox (badness 10000) in paragraph at lines 190--195
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 210--216
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 240--246
-
- []
-
-[76] [77] [78] [79]
-Underfull \hbox (badness 10000) in paragraph at lines 373--377
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 385--389
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 401--405
-
- []
-
-[80] [81] [82]
-Underfull \hbox (badness 10000) in paragraph at lines 514--518
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 532--536
-
- []
-
-[83] [84] [85] [86] [87] [88]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 788.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 788.
-
-[89] [90]
-Underfull \hbox (badness 10000) in paragraph at lines 893--897
-
- []
-
-[91]
-Underfull \hbox (badness 10000) in paragraph at lines 914--918
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 961--966
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1015--1019
-
- []
-
-[92]
-Underfull \hbox (badness 10000) in paragraph at lines 1027--1031
-
- []
-
-[93]
-Underfull \hbox (badness 10000) in paragraph at lines 1036--1040
-
- []
-
-[94]
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1083
-
- []
-
-[95] [96] [97] [98] [99]
-Underfull \hbox (badness 10000) in paragraph at lines 1248--1254
-
- []
-
-[100] [101] [102] [103]
-Underfull \hbox (badness 10000) in paragraph at lines 1415--1419
-
- []
-
-[104] [105] [106]
-Underfull \hbox (badness 10000) in paragraph at lines 1584--1588
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1623--1628
-
- []
-
-[107]
-Underfull \hbox (badness 10000) in paragraph at lines 1652--1657
-
- []
-
-[108]
-Underfull \hbox (badness 10000) in paragraph at lines 1712--1717
-
- []
-
-[109] [110]) [111] [112
+] [5
 
 ] (./main.aux)
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 4D139BBA2E35D259B8EE9BCD3D623ED4;15427.
+(rerunfilecheck)             Checksum: E6A35AD1AC0B857379F5147D80409438;1269.
  ) 
 Here is how much of TeX's memory you used:
- 49989 strings out of 478268
- 1167400 string characters out of 5846348
- 1917168 words of memory out of 5000000
- 66681 multiletter control sequences out of 15000+600000
- 485505 words of font info for 85 fonts, out of 8000000 for 9000
+ 47986 strings out of 478268
+ 1138043 string characters out of 5846348
+ 1574218 words of memory out of 5000000
+ 65288 multiletter control sequences out of 15000+600000
+ 481827 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 91i,19n,101p,1548b,1404s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/marvosym/marvosym.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/bookman/ubkd8a.pfb>
-Output written on main.pdf (117 pages, 625524 bytes).
+ 91i,10n,101p,816b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/bookman/ubkd8a.pfb>
+Output written on main.pdf (9 pages, 159373 bytes).
 PDF statistics:
- 1634 PDF objects out of 1728 (max. 8388607)
- 1424 compressed objects within 15 object streams
- 617 named destinations out of 1000 (max. 500000)
- 759 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 184 PDF objects out of 1000 (max. 8388607)
+ 124 compressed objects within 2 object streams
+ 19 named destinations out of 1000 (max. 500000)
+ 215 words of extra memory for PDF output out of 10000 (max. 10000000)
 
