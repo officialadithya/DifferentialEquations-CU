@@ -1,0 +1,116 @@
+\documentclass[oneside]{book}
+
+\include{preamble}
+\geometry{left=2.54cm}
+\geometry{right=2.54cm}
+\colorlet{chaptergrey}{black}
+
+\include{title}
+
+\begin{comment}
+\usepackage{draftwatermark}
+
+\SetWatermarkText{Draft: \today}
+\SetWatermarkColor[gray]{0.5}
+\SetWatermarkFontSize{1cm}
+\SetWatermarkAngle{90}
+\SetWatermarkHorCenter{20cm}
+\end{comment}
+
+\begin{document}
+
+\begin{center} 
+    \begin{minipage}{\textwidth}
+        \maketitle
+        \begin{center}
+        \begin{tabular}{c}
+            UNIVERSITY OF COLORADO BOULDER \\
+            \hline \\
+        \end{tabular}
+        \\
+        \includegraphics[scale=0.2]{Graphics/CU.png}
+        \end{center}
+    \end{minipage}
+\end{center}
+
+\frontmatter
+
+\begin{center}
+    \includegraphics[scale=1.5, width=\textwidth]{Graphics/latex.png}
+\end{center}
+
+\pagebreak
+
+\tableofcontents
+
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+
+\pagebreak
+
+\chapter*{Preface}
+\addcontentsline{toc}{chapter}{Preface}
+
+\input{Chapters/preface.tex}
+
+\mainmatter
+
+\begin{savequote}
+
+\end{savequote}
+\chapter{First Order Differential Equations} \label{chapter:firstorder}
+
+    \input{Chapters/firstOrderDiffEq.tex}
+
+\begin{savequote}
+
+\end{savequote}
+\chapter{Second Order Differential Equations} \label{chapter:secondorder}
+
+    \input{Chapters/secondOrderDiffEq.tex}
+
+\begin{savequote}
+
+\end{savequote}
+\chapter{Systems of Differential Equations} \label{chapter:systems}
+
+    \input{Chapters/systemsOfDiffEq.tex}
+
+\begin{savequote}
+
+\end{savequote}
+\chapter{Qualitative Theory of Differential Equations} \label{chapter:qualitativetheory}
+
+    \input{Chapters/qualitativeTheoryOfDiffEq.tex}
+
+
+\pagebreak
+
+\chapter*{}
+\addcontentsline{toc}{chapter}{Differential Equations as a Word Cloud}
+
+\vspace*{\fill}
+\begin{center}
+
+\end{center}
+\vspace*{\fill}
+
+\begin{comment}
+
+\pagebreak
+
+\appendix
+\appendixpage
+\noappendicestocpagenum
+\addappheadtotoc
+\begin{savequote}
+    
+\end{savequote}
+\chapter{} \label{appendix:}
+
+    \input{Chapters/}
+
+
+\end{comment}
+
+\end{document}
