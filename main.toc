@@ -1,7 +1,0 @@
-\babel@toc {english}{}\relax 
-\contentsline {chapter}{Preface}{iii}{chapter*.2}%
-\contentsline {chapter}{\numberline {1}First Order Differential Equations}{1}{chapter.1}%
-\contentsline {chapter}{\numberline {2}Second Order Differential Equations}{2}{chapter.2}%
-\contentsline {chapter}{\numberline {3}Systems of Differential Equations}{3}{chapter.3}%
-\contentsline {chapter}{\numberline {4}Qualitative Theory of Differential Equations}{4}{chapter.4}%
-\contentsline {chapter}{Differential Equations as a Word Cloud}{5}{chapter*.3}%
