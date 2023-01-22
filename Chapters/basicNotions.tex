@@ -1,0 +1,52 @@
+\section{Lecture 1: January 20, 2023}
+
+    \subsection{Definition of an Ordinary Differential Equation}
+
+        Consider the following definitions.
+        \begin{definition}{\Stop\,\,Ordinary Differential Equations}{odes}
+
+            An ordinary differential equation is an equation of the form
+            \begin{equation*}
+                F(x,y(x),y'(x),\ldots,y^{(n)}(x))=0
+            \end{equation*}
+            where \(x\) is an independent variable and \(y\) is \(n\)th order differentiable.
+            
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        We remark that every ordinary differential equation is valid as an expression only when we specify the values of \(x\) for which it is defined.
+        \begin{definition}{\Stop\,\,Order of a Differential Equation}{orderde}
+
+            The order of an ordinary differential equation is the highest nontrivial derivative present in the equation.
+            
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        Consider the following ordinary differential equations. From now on, we will omit the term ``ordinary,'' as partial differential equations are not considered in this text.
+        \begin{enumerate}
+            \item \(F(x,y,y')=y'+y=0\) is a first order differential equation.
+            \item \(F(x,y,y')=\cos(xy')+y^2y'+x^2=0\) is a first order differential equation.
+            \item \(F(x,y,y',y'')=-\frac{1}{1-x^2}+y''=0\) is a second order differential equation.
+            \item \(F(x,y,y',y'',y''',y'''')=e^{xy}y''''-x^2y''-\sin x=0\) is a fourth order differential equation.
+        \end{enumerate}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        We will now consider explicit and implicit solutions to differential equations.
+        \begin{definition}{\Stop\,\,Explicit Solutions to Ordinary Differential Equations}{expsolode}
+            
+            Let \(F(\cdots)=0\) be a differential equation defined on the interval \(I\). Then, an explicit solution to \(F\) is a function
+            \begin{equation*}
+                y:\mathbb{R}\to\mathbb{C}
+            \end{equation*}
+            for which \(y(x)\) is well-defined on some set \(X\) such that \(I\cap X\neq\emptyset\) and \(y\) satisfies the differential equation for all \(x \in I\)
+
+        \end{definition}
+        \begin{definition}{\Stop\,\,Implicit Solutions to Ordinary Differential Equations}{impsolode}
+            
+            Let \(F(\cdots)=0\) be a differential equation defined on the interval \(I\). Then, an implicit solution to \(F\) is a relation \(F(x,y)=0\) if and only if it defines \(y\) as an implicit function of \(x\) on \(I\), and if \(y(x)\) satisfies the differential equation for all \(x \in I\).
+
+        \end{definition}
