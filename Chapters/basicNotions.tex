@@ -24,17 +24,18 @@
         \vphantom
         \\
         \\
-        Consider the following ordinary differential equations. From now on, we will omit the term ``ordinary,'' as partial differential equations are not considered in this text.
+        Consider the following ordinary differential equations. From now on, we may omit the term ``ordinary,'' as partial differential equations are not considered in this text.
         \begin{enumerate}
-            \item \(F(x,y,y')=y'+y=0\) is a first order differential equation.
             \item \(F(x,y,y')=\cos(xy')+y^2y'+x^2=0\) is a first order differential equation.
             \item \(F(x,y,y',y'')=-\frac{1}{1-x^2}+y''=0\) is a second order differential equation.
             \item \(F(x,y,y',y'',y''',y'''')=e^{xy}y''''-x^2y''-\sin x=0\) is a fourth order differential equation.
         \end{enumerate}
         \pagebreak
-        \vphantom
-        \\
-        \\
+        
+\section{Lecture 2: January 23, 2023}
+
+    \subsection{Explicit and Implicit Solutions}
+
         We will now consider explicit and implicit solutions to differential equations.
         \begin{definition}{\Stop\,\,Explicit Solutions to Ordinary Differential Equations}{expsolode}
             
@@ -42,11 +43,96 @@
             \begin{equation*}
                 y:\mathbb{R}\to\mathbb{C}
             \end{equation*}
-            for which \(y(x)\) is well-defined on some set \(X\) such that \(I\cap X\neq\emptyset\) and \(y\) satisfies the differential equation for all \(x \in I\)
+            for which \(y(x)\) is well-defined on some set \(X\) such that \(I\cap X\neq\emptyset\) and \(y\) satisfies the differential equation for all \(x \in I\).
 
+        \end{definition}
+        \begin{definition}{\Stop\,\,Implicit Functions}{impfunc}
+
+            Let \(f:\mathbb{R}^2\to\mathbb{R}\) satisfying \(f(x,y)=0\). Then, \(f\) defines \(y\) as an implicit function of \(x\) if and only if
+            \begin{enumerate}
+                \item There exists an explicit function \(g(x)\) such that \(y=g(x)\) on some interval \(I\subseteq \mathbb{R}\).
+                \item For all \(x\in I\), \(f(x,g(x))=0\).
+            \end{enumerate}
+            
         \end{definition}
         \begin{definition}{\Stop\,\,Implicit Solutions to Ordinary Differential Equations}{impsolode}
             
-            Let \(F(\cdots)=0\) be a differential equation defined on the interval \(I\). Then, an implicit solution to \(F\) is a relation \(F(x,y)=0\) if and only if it defines \(y\) as an implicit function of \(x\) on \(I\), and if \(y(x)\) satisfies the differential equation for all \(x \in I\).
+            Let \(F(\cdots)=0\) be a differential equation defined on the interval \(I\). Then, an implicit solution to \(F\) is a relation \(f(x,y)=0\) if and only if \(f\) defines \(y\) as an implicit function of \(x\) on \(I\), and if \(y(x)\) is an explicit solution to the differential equation.
 
         \end{definition}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        Consider the following examples.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Verifying Explicit Solutions 1}{verexpsol1}
+        
+            Show that \(y(x)\) is an explicit solution to the differential equation
+            \begin{equation*}
+                F(x,y,y',y'')=x^2y''+xy'=0.
+            \end{equation*}
+            Provide the domain of definition for \(y(x)\) along with the solution set. Let \(y(x)=\log x\), where \(\log x=\log_e x\).
+            \begin{proof}
+                We first take the derivative of \(y(x)\) to obtain \(y'(x)=\frac{1}{x}\). The second derivative of \(y(x)\) is \(y''(x)=-\frac{1}{x^2}\). Then, we have
+                \begin{align*}
+                    x^2y''(x)+xy'(x)&=x^2\cdot-\frac{1}{x^2}+x\cdot\frac{1}{x} \\
+                    &=-1+1=0,\quad x\neq0,
+                \end{align*}
+                as desired. The domain of definition for \(y(x)\) is \(\{x:x\in \mathbb{R}:x>0\}\). The differential equation is defined on \(\{x:x\in\mathbb{R}\}\). Additionally, we have the restriction \(x\neq 0\). Therefore, the solution set is 
+                \begin{equation*}
+                    \{x:x\in\mathbb{R}\}\cap\{x:x\in\mathbb{R}:x>0\}\cap\{x:x\in\mathbb{R}:x\neq0\}=\{x:x\in\mathbb{R}:x>0\}.
+                \end{equation*}
+                We can then state that \(y(x)=\log x\) is an explicit solution for \(F\) on \(\{x:x\in\mathbb{R}:x>0\}\).
+            \end{proof}
+
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Verifying Explicit Solutions 2}{verexpsol2}
+        
+            Show that \(y(x)\) is an explicit solution to the differential equation
+            \begin{equation*}
+                F(x,y,y')=yy'-4=0.
+            \end{equation*}
+            Provide the domain of definition for \(y(x)\) along with the solution set. Let \(y(x)=2\sqrt{2x}\).
+            \begin{proof}
+                We first take the derivative of \(y(x)\) to obtain \(y'(x)=\frac{2}{\sqrt{2x}}\). Then, we have
+                \begin{align*}
+                    y(x)y'(x)-4&=2\sqrt{2x}\cdot\frac{2}{\sqrt{2x}}-4 \\
+                    &=4-4=0,\quad x\neq0,
+                \end{align*}
+                as desired. The domain of definition for \(y(x)\) is \(\{x:x\in\mathbb{R}:x\geq0\}\). The differential equation is defined on \(\{x:x\in\mathbb{R}\}\). Additionally, we have the restriction \(x\neq 0\). Therefore, the solution set is 
+                \begin{equation*}
+                    \{x:x\in\mathbb{R}\}\cap\{x:x\in\mathbb{R}:x\geq0\}\cap\{x:x\in\mathbb{R}:x\neq0\}=\{x:x\in\mathbb{R}:x>0\}.
+                \end{equation*}
+                We can then state that \(y(x)=2\sqrt{2x}\) is an explicit solution for \(F\) on \(\{x:x\in\mathbb{R}:x>0\}\).
+            \end{proof}
+            
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Verifying Implicit Solutions 1}{verimpsol1}
+            
+            Determine whether \(f(x,y)=x^2+y^2+4=0\) provides an implicit solution to
+            \begin{equation*}
+                F(x,y,y')=2x+2y''=0.
+            \end{equation*}
+            Provide the intervals of solution.
+            \\
+            \\
+            First, we determine whether \(f(x,y)\) defines \(y\) as an implicit function of \(x\). Consider the functions \(g_1(x)=\sqrt{-x^2-4}\) and \(g_2(x)=-\sqrt{-x^2-4}\); these functions are defined nowhere on \(\mathbb{R}\). Thus, \(f(x,y)=0\) does not provide an implicit solution to the differential equation.
+
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Verifying Implicit Solutions 2}{verimpsol2}
+            
+            Determine whether \(f(x,y)=xy-y^2=0\) provides an implicit solution to
+            \begin{equation*}
+                F(x,y,y',y'')=\frac{1}{y-x^2}y''+yy'-y=0.
+            \end{equation*}
+            Provide the intervals of solution.
+            \\
+            \\
+            First, we determine whether \(f(x,y)=xy-y^2=y(x-y)\) defines \(y\) as an implicit function of \(x\). Consider the functions \(g_1(x)=0\) and \(g_2(x)=x\). Both \(g_1\) and \(g_2\) are defined on \(\mathbb{R}\). We see that \(f(x,g_1(x))=0\) for all \(x\in\mathbb{R}\) and \(f(x,g_2(x))=x^2-x^2=0\) for all \(x\in\mathbb{R}\). Therefore, \(f\) defines \(y\) as an implicit function of \(x\).
+
+
+        \end{example}
+        \vphantom
+        \\
+        \\
+        Note that it is bad practice to immediately differentiate the relation \(f(x,y)\). For example, in Example \ref{exa:verimpsol1}, if we immediately differentiated \(f\), we would indeed obtain a symbolic equivalent to the differential equation, but we would not account for the domain restrictions.
