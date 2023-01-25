@@ -128,11 +128,73 @@
             Provide the intervals of solution.
             \\
             \\
-            First, we determine whether \(f(x,y)=xy-y^2=y(x-y)\) defines \(y\) as an implicit function of \(x\). Consider the functions \(g_1(x)=0\) and \(g_2(x)=x\). Both \(g_1\) and \(g_2\) are defined on \(\mathbb{R}\). We see that \(f(x,g_1(x))=0\) for all \(x\in\mathbb{R}\) and \(f(x,g_2(x))=x^2-x^2=0\) for all \(x\in\mathbb{R}\). Therefore, \(f\) defines \(y\) as an implicit function of \(x\).
-
-
+            First, we determine whether \(f(x,y)=xy-y^2=y(x-y)\) defines \(y\) as an implicit function of \(x\). Consider the functions \(g_1(x)=0\) and \(g_2(x)=x\). Both \(g_1\) and \(g_2\) are defined on \(\mathbb{R}\). Note that \(F\) has the restriction \(y-x^2\neq0\). We see that \(f(x,g_1(x))=0\) for all \(x\in\mathbb{R}\) and \(f(x,g_2(x))=x^2-x^2=0\) for all \(x\in\mathbb{R}\). Therefore, \(f\) defines \(y\) as an implicit function of \(x\). Taking \(y=g_1(x)\) gives
+            \begin{equation*}
+                F(x,g_1(x),g_1'(x),g_1''(x))=\frac{1}{0-x^2}(0)+(0)(0)-(0)=-\frac{1}{x^2}=0,\quad x\neq0.
+            \end{equation*}
+            Then, if we take \(y=g_2(x)\), we have
+            \begin{equation*}
+                F(x,g_2(x),g_2'(x),g_2''(x))=\frac{1}{x-x^2}y''+xy'-x=\frac{1}{x(1-x)}(0)+x(1)-x=0, \quad x\neq 0,x\neq 1.
+            \end{equation*}
+            Therefore, \(f(x,y)\) provides an implicit solution to the differential equation. When providing the intervals of solution, we must explicitly pick which solution, \(g_1\) or \(g_2\), to provide the interval with respect to. For \(g_1(x)\), this is 
+            \begin{equation*}
+                \{x:x\in\mathbb{R}:x\neq0\}.
+            \end{equation*}
+            and for \(g_2(x)\), it is
+            \begin{equation*}
+                \{x:x\in\mathbb{R}:x\neq0,x\neq 1\}.
+            \end{equation*}
+            Note that we did not need to consider \(y=g_2(x)\) to show that \(f(x,y)\) provides an implicit solution.
         \end{example}
         \vphantom
         \\
         \\
         Note that it is bad practice to immediately differentiate the relation \(f(x,y)\). For example, in Example \ref{exa:verimpsol1}, if we immediately differentiated \(f\), we would indeed obtain a symbolic equivalent to the differential equation, but we would not account for the domain restrictions.
+
+\pagebreak
+
+\section{Lecture 3: January 25, 2023}
+
+    \subsection{General and Particular Solutions}
+    
+        Consider the following definitions.
+        \begin{definition}{\Stop\,\,\(n\)-Parameter Families of Solutions}{nparamfam}
+
+            A differential equation \(F(x,y,y',\ldots,y^{(n)})=0\) possesses an \(n\)-parameter family of solutions \(y(x,c_1,\ldots,c_n)\) if and only if \(y\) is a solution for any choice of \(c_1,\ldots,c_n\in\mathbb{F}\).
+            
+        \end{definition}
+        \begin{definition}{\Stop\,\,Particular Solutions of Differential Equations}{parsoldiffeq}
+
+            Let \(y(x,c_1,\ldots,c_n)\) be an \(n\)-parameter family of solutions to \(F(x,y,y',\ldots,y^{(n)})=0\). Then, for each choice of \(c_1,\ldots,c_n\), we obtain one particular solution.
+            
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        Consider the following example.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Finding an \(n\)-Parameter Family of Solutions}{findingnparamsol}
+
+            Consider \(F(x,y,y',y'')=y''=0\). Note that \(F\) has solutions \(y(x)=x\) and \(y(x)=\pi\) on \(\mathbb{R}\). Both these solutions are particular, as they contain no arbitrary constants. If we take the linear combination of the solutions to obtain
+            \begin{equation*}
+                y(x,c_1,c_2)=c_1x+c_2,
+            \end{equation*}
+            we have a \(2\)-parameter family of solutions.
+            
+        \end{example}
+        \vphantom
+        \\
+        \\
+        Note that we will often rewrite \(y(x,c_1,\ldots,c_n)\) as \(y(x)\) even though this is an abuse of notation.
+        \begin{definition}{\Stop\,\,General Solutions of Differential Equations}{gensoldiffeq}
+
+            Let \(y(x,c_1,\ldots,c_n)\) be an \(n\)-parameter family of solutions to \(F(x,y,y',\ldots,y^{(n)})=0\). Then, \(y\) is a general solution if and only if every solution to \(F\) can be obtained from some choice of \(c_1,\ldots,c_n\).
+            
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        In various engineering applications, the terms defined in Definition \ref{def:nparamfam} and Definition \ref{def:gensoldiffeq} are equivalent; however, this construction can break. Consider the following examples.
+       \begin{enumerate}
+            \item The differential equation \(F(x,y,y',y'')=y''=0\) has the general solution \(y(x,c_1,c_2)=c_1x+c_2\).
+            \item The differential equation \(F(x,y,y')=y'^2+y^2=0\) has only one particular solution \(y(x)=0\).
+       \end{enumerate}
