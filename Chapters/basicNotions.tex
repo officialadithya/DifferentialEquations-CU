@@ -178,7 +178,7 @@
             \begin{equation*}
                 y(x,c_1,c_2)=c_1x+c_2,
             \end{equation*}
-            we have a \(2\)-parameter family of solutions.
+            as our \(2\)-parameter family of solutions.
             
         \end{example}
         \vphantom
@@ -198,3 +198,80 @@
             \item The differential equation \(F(x,y,y',y'')=y''=0\) has the general solution \(y(x,c_1,c_2)=c_1x+c_2\).
             \item The differential equation \(F(x,y,y')=y'^2+y^2=0\) has only one particular solution \(y(x)=0\).
        \end{enumerate}
+       \pagebreak
+       \vphantom
+       \\
+       \\
+       Consider the following examples.
+       \begin{example}{\Stop\,\,\(n\)-Parameter Families and General Solutions 1}{nparamgensol1}
+
+            Show that \(F(x,y,y')=y'^2-3y'=0\) has a \(1\)-parameter family of solutions but no general solution.
+            \\
+            \\
+            Note that \(y'^2-3y'=y'(y'-3)=0\). Therefore, either \(y'=0\) or \(y'=3\). We have that \(y'=0\) implies
+            \begin{equation*}
+                y(x,c_1)=c_1.
+            \end{equation*}
+            For \(y'=1\), we have that \(y(x)=3x\). Both \(y(x)\) and \(y(x,c_1)\) are valid on \(\mathbb{R}\). The particular solution \(y(x)\) cannot be obtained from \(y(x,c_1)\). But, we can take the linear combination of both solutions \(y_?(x,c_1)=3x+c_1\) because, then, we have
+            \begin{equation*}
+                y_?'^2-3y_?'=(3)^2-3(3)=0
+            \end{equation*}
+            on \(\mathbb{R}\). Therefore, we redefine \(y(x,c_1)=y_?(x,c_1)\). Still, there is no choice of \(c_1\) which produces the particular solution \(y(x)=5\) for \(y(x,c_1)=3x+c_1\). Therefore, we have found that not all solutions to \(F\) can be obtained from \(y(x,c_1)\), so \(y\) is not a general solution.
+
+       \end{example}
+       \begin{example}{\Stop\,\,\(n\)-Parameter Families and General Solutions 2}{nparamgensol2}
+
+            Show that \(F(x,y,y')=y'^2+(y-2)y'-2y=0\) has two distinct \(1\)-parameter families of solutions. Does \(F\) have a general solution?
+            \\
+            \\
+            Note that \(y'^2+(y-2)y'-2y=(y'+y)(y'-2)=0\). Therefore, \(y'=2\) or \(y'=-y\). For \(y'=2\), we have the \(1\)-parameter family \(y_1(x,c_{1_1})=2x+c_{1_1}\). For \(y'=-y\), we have \(y_2(x,c_{1_2})=c_{1_2}e^{-x}\). Both \(1\)-parameter families are valid on \(\mathbb{R}\). Note that both \(n\)-parameter families are distinct; they cannot be obtained from each other. They cannot be combined into a single general solution.
+        \end{example}
+
+        \pagebreak
+
+\section{Lecture 4: January 27, 2023}
+
+    \subsection{Initial Conditions}
+
+        Consider the following definition.
+        \begin{definition}{\Stop\,\,Initial Conditions}{initcond}
+
+            Let \(F(x,y,y',\ldots,y^{(n)})=0\) possess an \(n\)-parameter family of solutions. Any system of \(n\) equations which determine unique values for the arbitrary constants is called a set of initial conditions.
+            
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        Consider the following example.
+        \begin{example}{\Stop\,\,Finding a Particular Solution Given Initial Conditions 1}{partsolinitcond1}
+
+            Recall that \(F(x,y,y',y'')=y''=0\) has a general solution \(y(x,c_1,c_2)=c_1x+c_2\). Find the particular solution satisfying \(y(0)=5\) and \(y'(1)=3\).
+            \\
+            \\
+            We have that \(y(0)=5\) implies that \(c_2=5\) and \(y'(1)=3\) implies that \(c_1=3\). Our particular solution is then
+            \begin{equation*}
+                y(x)=3x+5.
+            \end{equation*}
+            
+        \end{example}
+        \begin{example}{\Stop\,\,Finding a Particular Solution Given Initial Conditions 2}{partsolinitcond2}
+
+            Recall that \(F(x,y,y',y'')=y''=0\) has a general solution \(y(x,c_1,c_2)=c_1x+c_2\). Find the particular solution satisfying \(y(2)=2\) and \(y(1)=3\).
+            \\
+            \\
+            Now, we have
+            \begin{equation*}
+                \begin{bmatrix}
+                    2 & 1 & | & 2 \\
+                    1 & 1 & | & 3
+                \end{bmatrix}\underbrace{\to}_{\text{RREF}}\begin{bmatrix}
+                    1 & 0 & | & -1 \\
+                    0 & 1 & | & 4 
+                \end{bmatrix}.
+            \end{equation*}
+            Thus \(c_1=-1\) and \(c_2=4\). Here, our particular solution is
+            \begin{equation*}
+                y(x)=-x+4.
+            \end{equation*}
+            
+        \end{example}
