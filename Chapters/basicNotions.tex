@@ -275,3 +275,96 @@
             \end{equation*}
             
         \end{example}
+
+    \pagebreak
+
+\section{Lecture 5: January 30, 2023}
+
+    \subsection{Finding an \(n\)th Order Differential Equation Given an \(n\)-Parameter Family of Solutions}
+
+        We now direct our attention to finding an \(n\)th order differential equation when given an \(n\)-parameter family of solutions. To this, we will look at \(y(x,c_1,\ldots,c_n)\) and its derivatives and find relations between them. Consider the following examples.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Finding a Differential Equation Given an \(n\)-Parameter Family of Solutions 1}{diffeqgivennparamfam1}
+            
+            Find an \(n\)th order differential equation given the \(n\)-parameter family \(y(x,c_1)=c_1x\).
+            \\
+            \\
+            Note that \(y(x)\) is a \(1\)-parameter family of solutions. If \(y(x)=c_1x\), \(y'(x)=c_1\). Note that \(y(x)=xy'(x)\), which gives the differential equation \(F(x,y,y')=xy'-y=0\).
+
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Finding a Differential Equation Given an \(n\)-Parameter Family of Solutions 2}{diffeqgivennparamfam2}
+            
+            Find an \(n\)th order differential equation given the \(n\)-parameter family \(y(x,c_1,c_2)=c_1x+c_2e^x\).
+            \\
+            \\
+            Note that \(y(x)\) is a \(2\)-parameter family of solutions. If \(y(x)=c_1x+c_2e^x\), \(y'(x)=c_1+c_2e^x\), and \(y''(x)=c_2e^x\). Consider the system
+            \begin{equation*}
+                \begin{bmatrix}
+                    x & e^x & | & y(x) \\
+                    1 & e^x & | & y'(x) \\
+                    0 & e^x & | & y''(x)
+                \end{bmatrix}\underbrace{\to}_{\text{RREF}}
+                \begin{bmatrix}
+                    1 & 0 & | & -y''(x)+y'(x) \\
+                    0 & 1 & | & \frac{-xy'(x)+y(x)}{-xe^x+e^x} \\
+                    0 & 0 & | & \frac{-xy'(x)+y(x)}{x-1}+y''(x).
+                \end{bmatrix}
+            \end{equation*}
+            Thus, we have the differential equation \(F(x,y,y'')=\frac{-xy'(x)+y(x)}{x-1}+y''(x)=0\).
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Finding a Differential Equation Given an \(n\)-Parameter Family of Solutions 3}{diffeqgivennparamfam3}
+            
+            Find an \(n\)th order differential equation given the \(n\)-parameter family \(y(x,c_1,c_2)=c_1e^{3x}+c_2e^{-2x}+x\).
+            \\
+            \\
+            Note that \(y(x)\) is a \(2\)-parameter family of solutions. If \(y(x)=c_1e^{3x}+c_2e^{-2x}+x\), \(y'(x)=3c_1e^{3x}-2c_2e^{-2x}+1\), and \(y''(x)=9c_1e^{3x}+4c_2e^{-2x}\). Consider the system
+            \begin{equation*}
+                \begin{bmatrix}
+                    e^{3x} & e^{-2x} & | & -x+y(x) \\
+                    3e^{3x} & -2e^{-2x} & | & -1+y'(x) \\
+                    9e^{3x} & 4e^{-2x} & | & y''(x)
+                \end{bmatrix}\underbrace{\to}_{\text{RREF}}
+                \begin{bmatrix}
+                    e^{3x} & e^{-2x} & | & -x+y(x) \\
+                    3e^{3x} & -2e^{-2x} & | & -1+y'(x) \\
+                    9e^{3x} & 4e^{-2x} & | & y''(x)
+                \end{bmatrix}
+            \end{equation*}
+
+        \end{example}
+
+    \pagebreak
+
+    \section{An Introduction to Seperable Differential Equations}
+
+        We wish to solve differential equations of the form \(F(x,y,y')=f(y)\dd y+g(x)\dd x=0\). But, what is \(\dd x\), and what is \(\dd y\)? Consider the following definition.
+        \begin{definition}{\Stop\,\,Differentials}{differentials}
+
+            Let \(y(x)\) be a differentiable function. Then, if \(\Delta x\) represents any small change in \(x\), we define
+            \begin{equation*}
+                \dd y(x,\Delta x)=y'(x)\dd x(x,\Delta x).
+            \end{equation*}
+
+        \end{definition}
+        \begin{theorem}{\Stop\,\,Properties of Differentials}{propdiff}
+
+            Consider the function \(f(x)=x\). Then, \(\dd f(x,\Delta)=\dd x(x,\Delta x)\).
+            \begin{proof}
+                We see that \(f'(x)=1\), and by Definition \ref{def:differentials}, \(\dd f(x,\Delta x)=f'(x)\dd(x,\Delta x)\), we have that
+                \begin{equation*}
+                    \dd f(x,\Delta x)=\dd x(x,\Delta x),
+                \end{equation*}
+                as desired.
+            \end{proof}
+            We can then write
+            \begin{equation*}
+                \frac{\dd y(x,\Delta x)}{\dd x(x,\Delta x)}=y'(x).
+            \end{equation*}
+            
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        Note that if \(z(x,y)\) is a function differentiable with respect to both \(x\) and \(y\), we obtain
+        \begin{equation*}
+            \dd z(x,y,\Delta x,\Delta y)=\frac{\partial z}{\partial y}\dd y+\frac{\partial z}{\partial x}\dd x.
+        \end{equation*}
