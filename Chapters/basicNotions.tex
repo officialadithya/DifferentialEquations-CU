@@ -39,11 +39,14 @@
         We will now consider explicit and implicit solutions to differential equations.
         \begin{definition}{\Stop\,\,Explicit Solutions to Ordinary Differential Equations}{expsolode}
             
-            Let \(F(\cdots)=0\) be a differential equation defined on the interval \(I\). Then, an explicit solution to \(F\) is a function
+            Let \(F(x,y,y',\ldots,y^{(n)})=0\) be a differential equation defined on the interval \(I\). Then, an explicit solution to \(F\) is a function
             \begin{equation*}
-                y:\mathbb{R}\to\mathbb{C}
+                f:\mathbb{R}\to\mathbb{C}
             \end{equation*}
-            for which \(y(x)\) is well-defined on some set \(X\) such that \(I\cap X\neq\emptyset\) and \(y\) satisfies the differential equation for all \(x \in I\).
+            for which \(f(x)\) is well-defined on some set \(X\) such that \(I\cap X\neq\emptyset\) and \(f\) satisfies the differential equation for all \(x \in I\). That is,
+            \begin{equation*}
+                F(x,f,f',\ldots,f^{(n)})=0.
+            \end{equation*}
 
         \end{definition}
         \begin{definition}{\Stop\,\,Implicit Functions}{impfunc}
@@ -55,12 +58,44 @@
             \end{enumerate}
             
         \end{definition}
+        \vphantom
+        \\
+        \\
+        Consider the following examples.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Is it an Implicit Function? 1}{isimpfunc1}
+            
+            Does \(f(x,y)=x^2+y^2-25=0\) define an implicit function of \(x\) on \(\{x:x\in\mathbb{R}:-5\leq x\leq 5\}\)?
+            \\
+            \\
+            We consider solving for \(y\). We obtain \(y=\pm\sqrt{25-x^2}\). Therefore we define \(y_1(x)=\sqrt{25-x^2}\) and \(y_2(x)=-\sqrt{25-x^2}\). For \(y_1(x)\), we see that
+            \begin{equation*}
+                f(x,y_1(x))=x^2+(\sqrt{25-x^2})^2-25=x^2+25-x^2-25=0,
+            \end{equation*}
+            as desired. Also, \(y_1(x)\) is defined for on \(\{x:x\in\mathbb{R}:-5\leq x\leq 5\}\). Therefore, \(f(x,y)\) does define an implicit function of \(x\). Upon further inspection, \(f(x,y)\) defines more than one implicit function of \(x\).
+
+        \end{example}
+        \pagebreak
+        \begin{example}{\Difficulty\,\Difficulty\,\,Is it an Implicit Function? 2}{isimpfunc2}
+            
+            Does \(f(x,y)=\sqrt{x^2-y^2}+\arccos\left(\frac{x}{y}\right)=0,\quad y\neq0\) define an implicit function?
+            \\
+            \\
+            Here, it is too difficult to solve for \(y\). Instead, we notice that \(\arccos(1)=0\). Therefore, we try \(y(x)=x\). By substitution,
+            \begin{equation*}
+                f(x,y(x))=\sqrt{x^2-x^2}+\arccos\left(\frac{x}{x}\right)=0,
+            \end{equation*}
+            as desired. Also, \(y(x)\) is defined on \(\mathbb{R}\). Therefore, \(f(x,y)\) defines an implicit function on \(\mathbb{R}-\{0\}\).
+
+        \end{example}
+        \vphantom
+        \\
+        \\
+        Consider the following definition.
         \begin{definition}{\Stop\,\,Implicit Solutions to Ordinary Differential Equations}{impsolode}
             
-            Let \(F(\cdots)=0\) be a differential equation defined on the interval \(I\). Then, an implicit solution to \(F\) is a relation \(f(x,y)=0\) if and only if \(f\) defines \(y\) as an implicit function of \(x\) on \(I\), and if \(y(x)\) is an explicit solution to the differential equation.
+            Let \(F(x,y,y',\ldots,y^{(n)})=0\) be a differential equation defined on the interval \(I\). Then, an implicit solution to \(F\) is a relation \(f(x,y)=0\) if and only if \(f\) defines \(y\) as an implicit function of \(x\) on \(I\), and if \(y(x)\) is an explicit solution to the differential equation.
 
         \end{definition}
-        \pagebreak
         \vphantom
         \\
         \\
@@ -107,6 +142,46 @@
             \end{proof}
             
         \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Verifying Explicit Solutions 3}{verexpsol3}
+        
+            Show that \(y(x)\) is an explicit solution to the differential equation
+            \begin{equation*}
+                F(x,y,y',y'')=y''^3+y'^2-y-3x^2-8.
+            \end{equation*}
+            Provide the domain of definition for \(y(x)\) along with the solution set. Let \(y(x)=x^2\).
+            \begin{proof}
+                We first take the derivative of \(y(x)\) to obtain \(y'(x)=2x\). The second derivative of \(y(x)\) is \(y''(x)=2\). Then, we have
+                \begin{align*}
+                    y''^3+y'^2-y-3x^2-8&=(2)^3+(2x)^2-x^2-3x^2-8 \\
+                    &=8+4x^2-x^2-3x^2-8=0
+                \end{align*}
+                as desired. The domain of definition for \(y(x)\) is \(\mathbb{R}\). The differential equation is defined on \(\mathbb{R}\). We have no additional restrictions. Therefore, the solution set is \(\mathbb{R}\).
+                We can then state that \(y(x)=x^2\) is an explicit solution for \(F\) on \(\mathbb{R}\).
+            \end{proof}
+            
+        \end{example}
+        \pagebreak
+        \begin{example}{\Difficulty\,\Difficulty\,\,Verifying Explicit Solutions 4}{verexpsol4}
+        
+            Show that \(y(x)\) is an explicit solution to the differential equation
+            \begin{equation*}
+                F(x,y,y')=(x+y)^2-y'=0.
+            \end{equation*}
+            Provide the domain of definition for \(y(x)\) along with the solution set. Let \(y(x)=\tan x-x\).
+            \begin{proof}
+                We first take the derivative of \(y(x)\) to obtain \(y'(x)=\sec^2x-1=\tan^2x\). Then, we have
+                \begin{align*}
+                    (x+\tan x-x)^2-\tan^2x&=(\tan x)^2-\tan^2x \\
+                    &=\tan^2x-\tan^2x=0
+                \end{align*}
+                as desired. The domain of definition for \(y(x)\) is \(\{x:x\in \mathbb{R}:x\neq \frac{\pi}{2}+k\pi:k\in\mathbb{Z}\}\). The differential equation is defined on \(\{x:x\in\mathbb{R}\}\). We have no additional restrictions. Therefore, the solution set is 
+                \begin{equation*}
+                    \{x:x\in\mathbb{R}\}\cap\{x:x\in \mathbb{R}:x\neq \frac{\pi}{2}+k\pi:k\in\mathbb{Z}\}=\{x:x\in \mathbb{R}:x\neq \frac{\pi}{2}+k\pi:k\in\mathbb{Z}\}.
+                \end{equation*}
+                We can then state that \(y(x)=\tan x-x\) is an explicit solution for \(F\) on \(\{x:x\in \mathbb{R}:x\neq \frac{\pi}{2}+k\pi:k\in\mathbb{Z}\}\).
+            \end{proof}
+
+        \end{example}
         \begin{example}{\Difficulty\,\Difficulty\,\,Verifying Implicit Solutions 1}{verimpsol1}
             
             Determine whether \(f(x,y)=x^2+y^2+4=0\) provides an implicit solution to
@@ -119,6 +194,7 @@
             First, we determine whether \(f(x,y)\) defines \(y\) as an implicit function of \(x\). Consider the functions \(g_1(x)=\sqrt{-x^2-4}\) and \(g_2(x)=-\sqrt{-x^2-4}\); these functions are defined nowhere on \(\mathbb{R}\). Thus, \(f(x,y)=0\) does not provide an implicit solution to the differential equation.
 
         \end{example}
+        \pagebreak
         \begin{example}{\Difficulty\,\Difficulty\,\,Verifying Implicit Solutions 2}{verimpsol2}
             
             Determine whether \(f(x,y)=xy-y^2=0\) provides an implicit solution to
@@ -283,7 +359,7 @@
     \subsection{Finding an \(n\)th Order Differential Equation Given an \(n\)-Parameter Family of Solutions}
 
         We now direct our attention to finding an \(n\)th order differential equation when given an \(n\)-parameter family of solutions. To this, we will look at \(y(x,c_1,\ldots,c_n)\) and its derivatives and find relations between them. Consider the following examples.
-        \begin{example}{\Difficulty\,\Difficulty\,\,Finding a Differential Equation Given an \(n\)-Parameter Family of Solutions 1}{diffeqgivennparamfam1}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Find a Differential Equation With an \(n\)-Parameter Family of Solutions 1}{diffeqgivennparamfam1}
             
             Find an \(n\)th order differential equation given the \(n\)-parameter family \(y(x,c_1)=c_1x\).
             \\
@@ -291,7 +367,7 @@
             Note that \(y(x)\) is a \(1\)-parameter family of solutions. If \(y(x)=c_1x\), \(y'(x)=c_1\). Note that \(y(x)=xy'(x)\), which gives the differential equation \(F(x,y,y')=xy'-y=0\).
 
         \end{example}
-        \begin{example}{\Difficulty\,\Difficulty\,\,Finding a Differential Equation Given an \(n\)-Parameter Family of Solutions 2}{diffeqgivennparamfam2}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Find a Differential Equation With an \(n\)-Parameter Family of Solutions 2}{diffeqgivennparamfam2}
             
             Find an \(n\)th order differential equation given the \(n\)-parameter family \(y(x,c_1,c_2)=c_1x+c_2e^x\).
             \\
@@ -311,7 +387,7 @@
             \end{equation*}
             Thus, we have the differential equation \(F(x,y,y'')=\frac{-xy'(x)+y(x)}{x-1}+y''(x)=0\).
         \end{example}
-        \begin{example}{\Difficulty\,\Difficulty\,\,Finding a Differential Equation Given an \(n\)-Parameter Family of Solutions 3}{diffeqgivennparamfam3}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Find a Differential Equation With an \(n\)-Parameter Family of Solutions 3}{diffeqgivennparamfam3}
             
             Find an \(n\)th order differential equation given the \(n\)-parameter family \(y(x,c_1,c_2)=c_1e^{3x}+c_2e^{-2x}+x\).
             \\
