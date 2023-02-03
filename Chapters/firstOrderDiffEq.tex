@@ -1,31 +1,59 @@
 
 \section{Lecture 6: February 1, 2023}
 
-\subsection{An Introduction to Seperable Differential Equations}
+\subsection{An Introduction to Separable Differential Equations}
 
     We wish to solve differential equations of the form \(F(x,y,y')=f(y)\frac{\dd y}{\dd x}+g(x)=0\) where \(f\) and \(g\) are continuous on a common interval \(I\). But, what is \(\dd x\), and what is \(\dd y\)? Consider the following definition.
     \begin{definition}{\Stop\,\,Differentials}{differentials}
 
         Let \(y(x)\) be a differentiable function. Then, if \(\Delta x\) represents any small change in \(x\), we define
         \begin{equation*}
-            \dd y(x,\Delta x)=y'(x)\dd x(x,\Delta x).
+            \dd y(x,\Delta x)=y'(x)\Delta x
         \end{equation*}
 
     \end{definition}
-    \begin{theorem}{\Stop\,\,Properties of Differentials}{propdiff}
-
-        Consider the function \(f(x)=x\). Then, \(\dd f(x,\Delta)=\dd x(x,\Delta x)\).
+    \vphantom
+    \\
+    \\
+    We wish to apply Definiton \ref{def:differentials} to the function \(y(x)=x\). Consider the following theorem.
+    \begin{theorem}{\Stop\,\,A Useful Lemma for a Property of Differentials}{lemmapropdiff}
+        
+        If \(y(x)=x\), \(\dd y(x,\Delta x)=\dd x(x,\Delta x)=\Delta x\).
         \begin{proof}
-            We see that \(f'(x)=1\), and by Definition \ref{def:differentials}, \(\dd f(x,\Delta x)=f'(x)\dd(x,\Delta x)\), we have that
+            If \(y(x)=x\), \(y'(x)=1\), so by Definition \ref{def:differentials}, \(\dd y(x,\Delta x)=\Delta x\).
+        \end{proof}
+
+    \end{theorem}
+    \pagebreak
+    \begin{theorem}{\Stop\,\,A Useful Property of Differentials}{propdiff}
+
+        Let \(y(x)\) be a differential function. Then, \(\dd y(x,\Delta x)=y'(x)\dd x(x,\Delta x)\).
+        \begin{proof}
+            By Definition \ref{def:differentials}, \(\dd y(x,\Delta x)=y'(x)\Delta x\). But, by Theorem \ref{thm:lemmapropdiff}, \(\dd x(x,\Delta x)\), so
             \begin{equation*}
-                \dd f(x,\Delta x)=\dd x(x,\Delta x),
+                \dd y(x, \Delta x)=y'(x)\Delta x=y'(x)\dd x(x,\Delta x),
             \end{equation*}
             as desired.
         \end{proof}
-        We can then write
+        More familiarly, \(\dd y=y'(x)\dd x\).
+    \end{theorem}
+    \vphantom
+    \\
+    \\
+    We may use Theorem \ref{thm:propdiff} to prove a version of the familar chain rule.
+    \begin{theorem}{\Stop\,\,The Chain Rule for Differentials}{chainrule}
+
+        Let \(y=f(x)\) be a differentiable function, and \(x(t)=g(t)\). Therefore, \(y(x)=f(g(t))\). Then,
         \begin{equation*}
-            \frac{\dd y(x,\Delta x)}{\dd x(x,\Delta x)}=y'(x).
+            \dd y(t,\Delta t)=f'(x(t))\dd x(t,\Delta t).
         \end{equation*}
+        \begin{proof}
+            Since \(x=g(t)\), we have \(\dd x(t, \Delta t)=g'(t)\dd t(t, \Delta t)\). Then, using the chain rule for derivatives, we obtain the chain rule for differentials below
+            \begin{equation*}
+                \dd y(t,\Delta t)=f'(x(t))g'(t)(t,\Delta t),
+            \end{equation*}
+            as desired.
+        \end{proof}
         
     \end{theorem}
     \vphantom
@@ -43,7 +71,12 @@
     \begin{equation*}
         \int \dd H(x,\Delta x) = \int H'(y)\dd y(x,\Delta x)=\int -g(x)\dd x(x,\Delta x),
     \end{equation*}
-    so \(H(y)+c=\int f(y)\dd y=\int-f_0(x)\dd x\). Consider the following examples.
+    so \(H(y)+c=\int f(y)\dd y=\int-f_0(x)\dd x\).
+    \pagebreak
+    \vphantom
+    \\
+    \\
+    Consider the following examples.
     \begin{example}{\Difficulty\,\Difficulty\,\,Separation of Variables 1}{sepvar1}
 
         Consider \(F(x,y,y')=\frac{\dd y}{\dd x}+y=0\), therefore, \(\dd y=-y\dd x\). Assuming that \(y(x)\neq0\), we can divide by \(y\) to give
@@ -123,7 +156,7 @@
     \end{definition}
     \begin{definition}{\Stop\,\,Differential Equations With Homogeneous Coefficients}{diffeqhomocoeff}
 
-        A first order differential equation \(F(x,y,y')=Q(x,y)y'+P(x,y)=0\) has homogeneous coefficients if and only if both \(P(x,y)\) and \(Q(x,y)\) are both homogeneous functions of equal order.
+        A first order differential equation \(F(x,y,y')=Q(x,y)\frac{\dd y}{\dd x}+P(x,y)=0\) has homogeneous coefficients if and only if both \(P(x,y)\) and \(Q(x,y)\) are both homogeneous functions of equal order.
         
     \end{definition}
     \vphantom
@@ -167,3 +200,27 @@
         \end{align*}
         Therefore, \(f(x,y)\) is homogeneous of order \(2\).
     \end{example}
+    \vphantom
+    \\
+    \\
+    While the first condition is, usually, easiest to use to show that a function is homogeneous, the other conditions are very useful in edge cases and for proofs. Consider the following theorem.
+    \begin{theorem}{\Stop\,\,Differential Equations With Homogeneous Coefficients are Separable}{homodiffsep}
+        
+        If \(F(x,y,y')=Q(x,y)y'+P(x,y)=0\) has homogeneous coefficients, \(F\) can be solved using separation of variables.
+        \begin{proof}
+            If \(F(x,y,y')\) has homogeneous coefficients, \(Q(x,y)=x^ng_1(u)\) and \(P(x,y)=x^ng_2(u)\). We may make the substitution
+            \begin{equation*}
+                F(x,y,y')=x^ng_1(u)\frac{\dd y}{\dd x}+x^ng_2(u)=0.
+            \end{equation*}
+            Then, since \(u=\frac{y}{x}\), \(y=ux\), so \(y'=u+x\frac{\dd u}{\dd x}\). Therefore,
+            \begin{align*}
+                F(x,y,y')&=x^ng_1(u)\left(u+x\frac{\dd u}{\dd x}\right)+x^ng_2(u)=0 \\
+                &=ux^ng_1(u)+x^{n+1}g_1(u)\frac{\dd u}{\dd x}+x^ng_2(u)=0 \\
+                &=ux^ng_1(u)\dd x+x^{n+1}g_1(u)\dd u+x^ng_2(u)\dd x=0 \\
+                &=\frac{g_1(u)}{x}\dd x+\frac{g_1(u)}{u}\dd u+\frac{g_2(u)}{ux}\dd x=0,\quad ux^{n+1}\neq0 
+            \end{align*}
+            \DOTHISLATER
+            so \(F(x,y,y')\) is separable.
+        \end{proof}
+
+    \end{theorem}
