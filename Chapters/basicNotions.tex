@@ -229,6 +229,27 @@
 
 \pagebreak
 
+        \begin{example}{\Difficulty\,\Difficulty\,\,Verifying Implicit Solutions 3}{verimpsol3}
+                    
+            Determine whether \(f(x,y)=e^{2y}+e^{2x}-1=0\) provides an implicit solution to
+            \begin{equation*}
+                F(x,y,y')=e^{x-y}+y'e^{y-x}=0
+            \end{equation*}
+            Provide the intervals of solution.
+            \\
+            \\
+            First, we determine whether \(f(x,y)=e^{2y}+e^{2x}=0\) defines \(y\) as an implicit function of \(x\). Consider the function \(g(x)=\frac{1}{2}\ln(1-e^{2x})\). We see that \(g(x)\) is defined on \(\{x:x\in\mathbb{R}:x<0\}\). We see that \(f(x,g(x))=0\) for all \(\{x:x\in\mathbb{R}:x<0\}\). Therefore, \(f\) defines \(g\) as an implicit function of \(x\). Now, we have
+            \begin{align*}
+                F(x,g(x),g'(x))&=e^{x-\frac{1}{2}\ln(1-e^{2x})}-\frac{e^{2x}}{1-e^{2x}}e^{\frac{1}{2}\ln(1-e^{2x})-x} \\
+                &=\frac{e^x}{\sqrt{1-e^{2x}}}-\frac{e^{2x}}{1-e^{2x}}\frac{\sqrt{1-e^{2x}}}{e^x} \\
+                &=\frac{e^{2x}\sqrt{1-e^{2x}}}{e^x(1-e^{2x})}-\frac{e^{2x}}{1-e^{2x}}\frac{\sqrt{1-e^{2x}}}{e^x}=0.
+            \end{align*}
+            Note that \(F\) has no additional restrictions, so the interval of solution for \(g(x)\) is simply \(\{x:x\in\mathbb{R}:x<0\}\).
+            
+        \end{example}
+
+\pagebreak
+
 \section{Lecture 3: January 25, 2023}
 
     \subsection{General and Particular Solutions}
@@ -273,13 +294,14 @@
        \begin{enumerate}
             \item The differential equation \(F(x,y,y',y'')=y''=0\) has the general solution \(y(x,c_1,c_2)=c_1x+c_2\).
             \item The differential equation \(F(x,y,y')=y'^2+y^2=0\) has only one particular solution \(y(x)=0\).
+            \item Examples \ref{exa:nparamgensol1} and \ref{exa:nparamgensol2} demonstrate where the differential equations has an \(n\)-parameter family of solutions but no general solution.
        \end{enumerate}
        \pagebreak
        \vphantom
        \\
        \\
        Consider the following examples.
-       \begin{example}{\Stop\,\,\(n\)-Parameter Families and General Solutions 1}{nparamgensol1}
+       \begin{example}{\Difficulty\,\Difficulty\,\,\(n\)-Parameter Families and General Solutions 1}{nparamgensol1}
 
             Show that \(F(x,y,y')=y'^2-3y'=0\) has a \(1\)-parameter family of solutions but no general solution.
             \\
@@ -288,14 +310,14 @@
             \begin{equation*}
                 y(x,c_1)=c_1.
             \end{equation*}
-            For \(y'=1\), we have that \(y(x)=3x\). Both \(y(x)\) and \(y(x,c_1)\) are valid on \(\mathbb{R}\). The particular solution \(y(x)\) cannot be obtained from \(y(x,c_1)\). But, we can take the linear combination of both solutions \(y_?(x,c_1)=3x+c_1\) because, then, we have
+            For \(y'=3\), we have that \(y(x)=3x\). Both \(y(x)\) and \(y(x,c_1)\) are valid on \(\mathbb{R}\). The particular solution \(y(x)\) cannot be obtained from \(y(x,c_1)\). But, we can take the linear combination of both solutions \(y_?(x,c_1)=3x+c_1\) because, then, we have
             \begin{equation*}
                 y_?'^2-3y_?'=(3)^2-3(3)=0
             \end{equation*}
             on \(\mathbb{R}\). Therefore, we redefine \(y(x,c_1)=y_?(x,c_1)\). Still, there is no choice of \(c_1\) which produces the particular solution \(y(x)=5\) for \(y(x,c_1)=3x+c_1\). Therefore, we have found that not all solutions to \(F\) can be obtained from \(y(x,c_1)\), so \(y\) is not a general solution.
 
        \end{example}
-       \begin{example}{\Stop\,\,\(n\)-Parameter Families and General Solutions 2}{nparamgensol2}
+       \begin{example}{\Difficulty\,\Difficulty\,\,\(n\)-Parameter Families and General Solutions 2}{nparamgensol2}
 
             Show that \(F(x,y,y')=y'^2+(y-2)y'-2y=0\) has two distinct \(1\)-parameter families of solutions. Does \(F\) have a general solution?
             \\
@@ -319,7 +341,7 @@
         \\
         \\
         Consider the following example.
-        \begin{example}{\Stop\,\,Finding a Particular Solution Given Initial Conditions 1}{partsolinitcond1}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Finding a Particular Solution Given Initial Conditions 1}{partsolinitcond1}
 
             Recall that \(F(x,y,y',y'')=y''=0\) has a general solution \(y(x,c_1,c_2)=c_1x+c_2\). Find the particular solution satisfying \(y(0)=5\) and \(y'(1)=3\).
             \\
@@ -330,7 +352,7 @@
             \end{equation*}
             
         \end{example}
-        \begin{example}{\Stop\,\,Finding a Particular Solution Given Initial Conditions 2}{partsolinitcond2}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Finding a Particular Solution Given Initial Conditions 2}{partsolinitcond2}
 
             Recall that \(F(x,y,y',y'')=y''=0\) has a general solution \(y(x,c_1,c_2)=c_1x+c_2\). Find the particular solution satisfying \(y(2)=2\) and \(y(1)=3\).
             \\
@@ -355,6 +377,8 @@
     \pagebreak
 
 \section{Lecture 5: January 30, 2023}
+
+    \DOTHISLATER
 
     \subsection{Finding an \(n\)th Order Differential Equation Given an \(n\)-Parameter Family of Solutions}
 
@@ -400,47 +424,10 @@
                     9e^{3x} & 4e^{-2x} & | & y''(x)
                 \end{bmatrix}\underbrace{\to}_{\text{RREF}}
                 \begin{bmatrix}
-                    e^{3x} & e^{-2x} & | & -x+y(x) \\
-                    3e^{3x} & -2e^{-2x} & | & -1+y'(x) \\
-                    9e^{3x} & 4e^{-2x} & | & y''(x)
+                    1 & \frac{e^{-2x}}{e^{3x}} & | & \frac{-x+y(x)}{e^{3x}} \\
+                    0 & 1 & | & \frac{-3(-x+y(x))-1+y'(x)}{-5e^{-2x}} \\
+                    0 & 0 & | & -\frac{-3(-x+y(x))-1+y'(x)}{-5e^{-2x}}+\frac{-9(-x+y(x))+y''(x)}{e^{-2x}(4-9e^{3x})}
                 \end{bmatrix}
             \end{equation*}
-
+            \DOTHISLATER
         \end{example}
-
-    \pagebreak
-
-    \section{An Introduction to Seperable Differential Equations}
-
-        We wish to solve differential equations of the form \(F(x,y,y')=f(y)\dd y+g(x)\dd x=0\). But, what is \(\dd x\), and what is \(\dd y\)? Consider the following definition.
-        \begin{definition}{\Stop\,\,Differentials}{differentials}
-
-            Let \(y(x)\) be a differentiable function. Then, if \(\Delta x\) represents any small change in \(x\), we define
-            \begin{equation*}
-                \dd y(x,\Delta x)=y'(x)\dd x(x,\Delta x).
-            \end{equation*}
-
-        \end{definition}
-        \begin{theorem}{\Stop\,\,Properties of Differentials}{propdiff}
-
-            Consider the function \(f(x)=x\). Then, \(\dd f(x,\Delta)=\dd x(x,\Delta x)\).
-            \begin{proof}
-                We see that \(f'(x)=1\), and by Definition \ref{def:differentials}, \(\dd f(x,\Delta x)=f'(x)\dd(x,\Delta x)\), we have that
-                \begin{equation*}
-                    \dd f(x,\Delta x)=\dd x(x,\Delta x),
-                \end{equation*}
-                as desired.
-            \end{proof}
-            We can then write
-            \begin{equation*}
-                \frac{\dd y(x,\Delta x)}{\dd x(x,\Delta x)}=y'(x).
-            \end{equation*}
-            
-        \end{theorem}
-        \vphantom
-        \\
-        \\
-        Note that if \(z(x,y)\) is a function differentiable with respect to both \(x\) and \(y\), we obtain
-        \begin{equation*}
-            \dd z(x,y,\Delta x,\Delta y)=\frac{\partial z}{\partial y}\dd y+\frac{\partial z}{\partial x}\dd x.
-        \end{equation*}

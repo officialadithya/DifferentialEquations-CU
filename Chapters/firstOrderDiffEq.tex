@@ -1,0 +1,169 @@
+
+\section{Lecture 6: February 1, 2023}
+
+\subsection{An Introduction to Seperable Differential Equations}
+
+    We wish to solve differential equations of the form \(F(x,y,y')=f(y)\frac{\dd y}{\dd x}+g(x)=0\) where \(f\) and \(g\) are continuous on a common interval \(I\). But, what is \(\dd x\), and what is \(\dd y\)? Consider the following definition.
+    \begin{definition}{\Stop\,\,Differentials}{differentials}
+
+        Let \(y(x)\) be a differentiable function. Then, if \(\Delta x\) represents any small change in \(x\), we define
+        \begin{equation*}
+            \dd y(x,\Delta x)=y'(x)\dd x(x,\Delta x).
+        \end{equation*}
+
+    \end{definition}
+    \begin{theorem}{\Stop\,\,Properties of Differentials}{propdiff}
+
+        Consider the function \(f(x)=x\). Then, \(\dd f(x,\Delta)=\dd x(x,\Delta x)\).
+        \begin{proof}
+            We see that \(f'(x)=1\), and by Definition \ref{def:differentials}, \(\dd f(x,\Delta x)=f'(x)\dd(x,\Delta x)\), we have that
+            \begin{equation*}
+                \dd f(x,\Delta x)=\dd x(x,\Delta x),
+            \end{equation*}
+            as desired.
+        \end{proof}
+        We can then write
+        \begin{equation*}
+            \frac{\dd y(x,\Delta x)}{\dd x(x,\Delta x)}=y'(x).
+        \end{equation*}
+        
+    \end{theorem}
+    \vphantom
+    \\
+    \\
+    Note that if \(z(x,y)\) is a function differentiable with respect to both \(x\) and \(y\), we obtain
+    \begin{equation*}
+        \dd z(x,y,\Delta x,\Delta y)=\frac{\partial z}{\partial y}\dd y+\frac{\partial z}{\partial x}\dd x.
+    \end{equation*}
+    Suppose we have a first order differential equation in the form \(F(x,y,y')=f(y)\frac{\dd y}{\dd x}+g(x)=0\). We use that fact that \(\dd y\) and \(\dd x\) are differential functions to write \(F(x,y,y')=f(y)\dd y+g(x)\dd x=0\). Then, we have that \(f(y)\dd x=-f(x)\dd x\), on some common interval \(I\). Let \(H\) be a function such that \(H'(y)=f(y)\). By the differential chain rule,
+    \begin{equation*}
+        \dd H(x,\Delta x)=H'(y)\dd y(x,\Delta x)=-g(x)\dd x(x,\Delta x).
+    \end{equation*}
+    Integration gives
+    \begin{equation*}
+        \int \dd H(x,\Delta x) = \int H'(y)\dd y(x,\Delta x)=\int -g(x)\dd x(x,\Delta x),
+    \end{equation*}
+    so \(H(y)+c=\int f(y)\dd y=\int-f_0(x)\dd x\). Consider the following examples.
+    \begin{example}{\Difficulty\,\Difficulty\,\,Separation of Variables 1}{sepvar1}
+
+        Consider \(F(x,y,y')=\frac{\dd y}{\dd x}+y=0\), therefore, \(\dd y=-y\dd x\). Assuming that \(y(x)\neq0\), we can divide by \(y\) to give
+        \begin{equation*}
+            \frac{1}{y}\dd y=-\dd x.
+        \end{equation*} 
+        We have a separable differential equation, and by integration, we have
+        \begin{equation*}
+            \int \frac{1}{y}\dd y=\int -\dd x
+        \end{equation*}
+        meaning that
+        \begin{equation*}
+            \log|y|=-x+c_1.
+        \end{equation*}
+        This provides an implicit solution. Note that it is a \(1\)-parameter family of solutions, but is not a general function since \(y(x)=0\) is a particular solution to the differential equation, not obtainable from the family. We seek to find an explicit solution. Consider
+        \begin{equation*}
+            e^{\log|y|}=e^{-x+c_1}=e^{-x}e^{c_1}
+        \end{equation*}
+        Then, let \(c_2=e^{c_1}\). Note that \(c_2>0\). Then, we have \(|y|=c_2e^{-x}\). This \(1\)-parameter family can be made a general solution by allowing \(c_2=0\). Our general solution is then
+        \begin{equation*}
+            |y|=c_2e^{-x},\quad c_2\geq0, \quad x\in\mathbb{R}.
+        \end{equation*}
+        If we allow \(c_2\in\mathbb{R}\), we can also write that a general solution is
+        \begin{equation*}
+            y=c_2e^{-x},\quad c_2\in\mathbb{R},\quad x\in\mathbb{R}.
+        \end{equation*}
+        This method does not always work.
+        
+    \end{example}
+    \pagebreak
+    \begin{example}{\Difficulty\,\Difficulty\,\,Separation of Variables 2}{sepvar2}
+
+        Consider \(F(x,y,y')=x^2(y-2)\frac{\dd y}{\dd x}-y^3=0\). Assuming that \(x\neq0\) and \(y(x)\neq0\), we can write
+        \begin{equation*}
+            \frac{1}{x^2}\dd x=\frac{y-2}{y^3}\dd y.
+        \end{equation*}
+        We have a separable differential equation, and by integration, we have
+        \begin{equation*}
+            \int \frac{1}{x^2}\dd x=\int \frac{y-2}{y^3}\dd y
+        \end{equation*}
+        meaning that
+        \begin{align*}
+            -\frac{1}{x}&=\int \left(\frac{1}{y^2}-\frac{2}{y^3} \right)\dd y \\
+            &=-\frac{1}{y}+\frac{1}{y^2}+c_1.
+        \end{align*}
+        We may multiply by \(y^2\) to obtain
+        \begin{equation*}
+            -\frac{y^2}{x}=-y+1+c_1y^2,
+        \end{equation*}
+        and by \(x\) to obtain
+        \begin{equation*}
+            -y^2=-xy+x+c_1xy^2,
+        \end{equation*}
+        so
+        \begin{equation*}
+            y^2(c_1x+1)=x(y-1),\quad y(x)\neq 0,x\neq 0
+        \end{equation*}
+        is a \(1\)-parameter family of solutions, but it is not general because \(y(x)=0\) is a valid particular solution of \(F\) on \(\mathbb{R}\).
+    \end{example}
+
+    \pagebreak
+
+\section{Lecture 7: February 3, 2023}
+
+\subsection{Differential Equations with Homogeneous Coefficients}
+
+    Consider the following definitions.
+    \begin{definition}{\Stop\,\,Homogeneous Functions}{homofunc}
+
+        The function \(f(x,y)\) is homogeneous, of order \(n\), on some region \(B\subseteq\mathbb{R}^2\) if and only if for all \(x,y\in B\), either of the below hold.
+        \begin{enumerate}
+            \item The function \(f(tx,ty)=t^nf(x,y)\) for some \(n\in\mathbb{N}\).
+            \item The function \(f(x,y)=x^ng(u)\) for some \(u=\frac{y}{x}\) and \(n\in\mathbb{N}\).
+            \item The function \(f(x,y)=y^nh(u)\) for some \(u=\frac{x}{y}\) and \(n\in\mathbb{N}\).
+        \end{enumerate}
+
+    \end{definition}
+    \begin{definition}{\Stop\,\,Differential Equations With Homogeneous Coefficients}{diffeqhomocoeff}
+
+        A first order differential equation \(F(x,y,y')=Q(x,y)y'+P(x,y)=0\) has homogeneous coefficients if and only if both \(P(x,y)\) and \(Q(x,y)\) are both homogeneous functions of equal order.
+        
+    \end{definition}
+    \vphantom
+    \\
+    \\
+    Consider the following examples.
+    \begin{example}{\Difficulty\,\Difficulty\,\,Is it Homogeneous? 1}{isithomo1}
+
+        Determine whether \(f(x,y)=3x^2y-y^3\) is homogeneous on its domain.
+        \\
+        \\
+        Consider
+        \begin{align*}
+            f(tx,ty)&=3(tx)^2(ty)-(ty)^3 \\
+            &=3t^3x^2y-t^3y^3 \\
+            &=t^3(3x^2y-y^3) \\
+            &=t^3f(x,y).
+        \end{align*}
+        Therefore, \(f(x,y)\) is homogeneous of order \(3\).
+
+    \end{example}
+    \begin{example}{\Difficulty\,\Difficulty\,\,Is it Homogeneous? 2}{isithomo2}
+
+        Determine whether \(f(x,y)=xy\sin(xy)\) is homogeneous on its domain.
+        \\
+        \\
+        Consider \(f(tx,ty)=t^2xy\sin(t^2xy)\). There is no way in which this can be reduced to satisfy Definition \ref{def:homofunc}.
+    \end{example}
+    \pagebreak
+    \begin{example}{\Difficulty\,\Difficulty\,\,Is it Homogeneous? 3}{isithomo3}
+
+        Determine whether \(f(x,y)=xy\sin\left(\frac{x}{y}\right)-x^2\) is homogeneous on its domain.
+        \\
+        \\
+        Consider
+        \begin{align*}
+            f(tx,ty)&=(tx)(ty)\sin\left(\frac{tx}{ty}\right)-(tx)^2 \\
+            &=t^2xy\sin\left(\frac{x}{y}\right)-t^2x^2 \\
+            &=t^2(xy\sin\left(\frac{x}{y}\right)-x^2) \\
+            &=t^2f(x,y).
+        \end{align*}
+        Therefore, \(f(x,y)\) is homogeneous of order \(2\).
+    \end{example}
