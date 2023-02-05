@@ -233,7 +233,7 @@
                     
             Determine whether \(f(x,y)=e^{2y}+e^{2x}-1=0\) provides an implicit solution to
             \begin{equation*}
-                F(x,y,y')=e^{x-y}+y'e^{y-x}=0
+                F(x,y,y')=e^{x-y}+y'e^{y-x}=0.
             \end{equation*}
             Provide the intervals of solution.
             \\
@@ -245,6 +245,31 @@
                 &=\frac{e^{2x}\sqrt{1-e^{2x}}}{e^x(1-e^{2x})}-\frac{e^{2x}}{1-e^{2x}}\frac{\sqrt{1-e^{2x}}}{e^x}=0.
             \end{align*}
             Note that \(F\) has no additional restrictions, so the interval of solution for \(g(x)\) is simply \(\{x:x\in\mathbb{R}:x<0\}\).
+            
+        \end{example}
+        \pagebreak
+        \begin{example}{\Difficulty\,\Difficulty\,\,Verifying Implicit Solutions 4}{verimpsol4}
+                    
+            Determine whether \(f(x,y)=-(x+2)^2+y^2-1=0\) provides an implicit solution to
+            \begin{equation*}
+                F(x,y,y')=y^2-1-y'(2y+xy)=0.
+            \end{equation*}
+            Provide the intervals of solution.
+            \\
+            \\
+            First, we determine whether \(f(x,y)=-(x+2)^2+y^2-1=0=0\) defines \(y\) as an implicit function of \(x\). Consider the functions \(g_1(x)=\sqrt{1+(x+2)^2}\) and \(g_2(x)=-\sqrt{1+(x+2)^2}\). We see that \(g_1(x)\) and \(g_2(x)\) are defined on \(\mathbb{R}\). We see that \(f(x,g_1(x))=f(x,g_2(x))=0\) on \(\mathbb{R}\). Therefore, \(f\) defines \(g_1\) and \(g_2\) as implicit functions of \(x\). If we take \(y=g_1(x)\), we have
+            \begin{align*}
+               F(x,g_1(x),g_1'(x))&=1+(x+2)^2-1-\frac{2(x+2)}{2\sqrt{1+(x+2)^2}}(2\sqrt{1+(x+2)^2}+x\sqrt{1+(x+2)^2}) \\
+               &=(x+2)^2-\frac{x+2}{\sqrt{1+(x+2)^2}}(x+2)(\sqrt{1+(x+2)^2}) \\
+               &=(x+2)^2-(x+2)^2=0.
+            \end{align*}
+            Then, if we take \(y=g_2(x)\), we have
+            \begin{align*}
+                F(x,g_2(x),g_2''(x))&=1+(x+2)^2-1+\frac{2(x+2)}{2\sqrt{1+(x+2)^2}}(-2\sqrt{1+(x+2)^2}-x\sqrt{1+(x+2)^2}) \\
+                &=(x+2)^2-\frac{x+2}{\sqrt{1+(x+2)^2}}(x+2)(\sqrt{1+(x+2)^2}) \\
+                &=(x+2)^2-(x+2)^2=0.
+             \end{align*}
+            Note that \(F\) has no additional restrictions, so the interval of solution for both \(g_1(x)\) and \(g_2(x)\) is \(\mathbb{R}\). Note that we did not to consider \(y=g_2(x)\) to show that \(f(x,y)\) provides an implicit solution.
             
         \end{example}
 

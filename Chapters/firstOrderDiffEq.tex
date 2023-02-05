@@ -27,7 +27,7 @@
     \pagebreak
     \begin{theorem}{\Stop\,\,A Useful Property of Differentials}{propdiff}
 
-        Let \(y(x)\) be a differential function. Then, \(\dd y(x,\Delta x)=y'(x)\dd x(x,\Delta x)\).
+        Let \(y(x)\) be a differentiable function. Then, \(\dd y(x,\Delta x)=y'(x)\dd x(x,\Delta x)\).
         \begin{proof}
             By Definition \ref{def:differentials}, \(\dd y(x,\Delta x)=y'(x)\Delta x\). But, by Theorem \ref{thm:lemmapropdiff}, \(\dd x(x,\Delta x)\), so
             \begin{equation*}
@@ -63,15 +63,10 @@
     \begin{equation*}
         \dd z(x,y,\Delta x,\Delta y)=\frac{\partial z}{\partial y}\dd y+\frac{\partial z}{\partial x}\dd x.
     \end{equation*}
-    Suppose we have a first order differential equation in the form \(F(x,y,y')=f(y)\frac{\dd y}{\dd x}+g(x)=0\). We use that fact that \(\dd y\) and \(\dd x\) are differential functions to write \(F(x,y,y')=f(y)\dd y+g(x)\dd x=0\). Then, we have that \(f(y)\dd x=-f(x)\dd x\), on some common interval \(I\). Let \(H\) be a function such that \(H'(y)=f(y)\). By the differential chain rule,
+    Suppose we have a first order differential equation in the form \(F(x,y,y')=f(y)\frac{\dd y}{\dd x}+g(x)=0\). We use that fact that \(\dd y\) and \(\dd x\) are differential functions to write \(F(x,y,y')=f(y)\dd y+g(x)\dd x=0\). Then, we obtain the \(1\)-parameter family of solutions
     \begin{equation*}
-        \dd H(x,\Delta x)=H'(y)\dd y(x,\Delta x)=-g(x)\dd x(x,\Delta x).
+        \int f(y)\dd y+\int g(x)\dd x=c.
     \end{equation*}
-    Integration gives
-    \begin{equation*}
-        \int \dd H(x,\Delta x) = \int H'(y)\dd y(x,\Delta x)=\int -g(x)\dd x(x,\Delta x),
-    \end{equation*}
-    so \(H(y)+c=\int f(y)\dd y=\int-f_0(x)\dd x\).
     \pagebreak
     \vphantom
     \\
@@ -137,6 +132,42 @@
         is a \(1\)-parameter family of solutions, but it is not general because \(y(x)=0\) is a valid particular solution of \(F\) on \(\mathbb{R}\).
     \end{example}
 
+    \pagebreak
+    \begin{example}{\Difficulty\,\Difficulty\,\,Separation of Variables 3}{sepvar3}
+
+        Consider \(F(x,y,y')=x\sqrt{1-y}-y'\sqrt{1-x^2}=0\). Assuming that \(x^2\neq 1\) and \(y\neq 1\), we can write
+        \begin{equation*}
+            \frac{x}{\sqrt{1-x^2}}\dd x=\frac{1}{\sqrt{1-y}}\dd y.
+        \end{equation*}
+        We have a separable differential equation, and by integration, we have
+        \begin{equation*}
+            \int \frac{x}{\sqrt{1-x^2}}\dd x=\int \frac{1}{\sqrt{1-y}}\dd y.
+        \end{equation*}
+        meaning that
+        \begin{align*}
+            -\sqrt{1-x^2}=-2\sqrt{1-y}+c_1
+        \end{align*}
+        is our \(1\)-parameter family of solutions. We must restrict our solution for \(|x|<1\) and \(y<1\) due to the square roots. Our \(1\)-parameter family of solutions is not general because \(y(x)=1\) is a valid particular solution of \(F\) on the interval.
+        
+    \end{example}
+    \begin{example}{\Difficulty\,\Difficulty\,\,Separation of Variables 4}{sepvar4}
+
+        Consider \(F(x,y,y')=x\cos y+y'\sin y\sqrt{x+1}=0\). Assuming that \(x>-1\) and \(y\neq \frac{\pi}{2}+k\pi\), \(k\in\mathbb{Z}\), we can write
+        \begin{equation*}
+            \frac{x}{\sqrt{x+1}}\dd x=-\tan y \dd y
+        \end{equation*}
+        We have a separable differential equation, and by integration, we have
+        \begin{equation*}
+            \int \frac{x}{\sqrt{x+1}}\dd x=\int -\tan y \dd y
+        \end{equation*}
+        meaning that
+        \begin{align*}
+            \frac{2(x-2)\sqrt{x+1}}{3}=\ln|\cos y|+c_1
+        \end{align*}
+        is our \(1\)-parameter family of solutions. We must restrict our solution for \(x>-1\) and \(y=\frac{\pi}{2}+\pi k\), \(k\in\mathbb{Z}\) due to the square roots. Our \(1\)-parameter family of solutions is not general because \(y(x)=1\) is a valid particular solution of \(F\) on the interval.
+        \DOTHISLATER
+
+    \end{example}
     \pagebreak
 
 \section{Lecture 7: February 3, 2023}
