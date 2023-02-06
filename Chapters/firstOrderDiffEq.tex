@@ -127,7 +127,7 @@
         \end{equation*}
         so
         \begin{equation*}
-            y^2(c_1x+1)=x(y-1),\quad y(x)\neq 0,x\neq 0
+            y^2(c_1x+1)=x(y-1),\quad y(x)\neq 0,\quad x\neq 0
         \end{equation*}
         is a \(1\)-parameter family of solutions, but it is not general because \(y(x)=0\) is a valid particular solution of \(F\) on \(\mathbb{R}\).
     \end{example}
@@ -248,10 +248,83 @@
                 F(x,y,y')&=x^ng_1(u)\left(u+x\frac{\dd u}{\dd x}\right)+x^ng_2(u)=0 \\
                 &=ux^ng_1(u)+x^{n+1}g_1(u)\frac{\dd u}{\dd x}+x^ng_2(u)=0 \\
                 &=ux^ng_1(u)\dd x+x^{n+1}g_1(u)\dd u+x^ng_2(u)\dd x=0 \\
-                &=\frac{g_1(u)}{x}\dd x+\frac{g_1(u)}{u}\dd u+\frac{g_2(u)}{ux}\dd x=0,\quad ux^{n+1}\neq0 
+                &=\frac{g_1(u)}{x}\dd x+\frac{g_1(u)}{u}\dd u+\frac{g_2(u)}{ux}\dd x=0,\quad ux^{n+1}\neq0 \\
+                &=\frac{\dd x}{x}\left(g_1(u)+\frac{g_2(u)}{u}\right)+\frac{g_1(u)}{u}\dd u=0 \\
+                &=\frac{1}{x}\dd x+\frac{g_1(u)}{ug_1(u)+g_2(u)}\dd u=0, \quad g_1(u)+\frac{g_2(u)}{u}\neq0,\quad u\neq0
             \end{align*}
-            \DOTHISLATER
             so \(F(x,y,y')\) is separable.
         \end{proof}
 
     \end{theorem}
+
+    \pagebreak
+
+\section{Lecture 8: February 6, 2023}
+
+    \subsection{Using the Homogeneous Substitution to Solve Differential Equations}
+
+        Consider the following example.
+        \begin{example}{\Difficulty\,\Difficulty\,\,A Homogeneous Substitution}{homosub1}
+            
+            Find a \(1\)-parameter family of solutions for 
+            \begin{equation*}
+                F(x,y,y')=2xy\frac{\dd y}{\dd x}-(x^2+y^2)=0.
+            \end{equation*}
+            \\
+            \\
+            We may rewrite the above as
+            \begin{equation*}
+                2xy\dd y-(x^2+y^2)\dd x=0.
+            \end{equation*}
+            We see that \(2(tx)(ty)=t^2(2xy)\) and \(-((tx)^2+(ty)^2)=-(t^2x^2+t^2y^2)=-t^2(x^2+y^2)\) so our differential equation has homogeneous coefficients of order \(2\). Let \(y=ux\), meaning \(\frac{\dd y}{\dd x}=u+x\frac{\dd u}{\dd x}\). Then, our differential equation is
+            \begin{align*}
+                0&=2ux^2\left(u+x\frac{\dd u}{\dd x}\right)-(x^2+u^2x^2) \\
+                &=2u^2x^2+2ux^3\frac{\dd u}{\dd x}-x^2-u^2x^2 \\
+                &=x^2(u^2-1)\dd x+2ux^3\dd u \\
+                &=\frac{1}{x}\dd x+\frac{2u}{u^2-1},\quad x\neq0,\quad u^2-1\neq0.
+            \end{align*}
+            Then, we may integrate to obtain
+            \begin{equation*}
+                c_1=\log|x|+\log|u^2-1|.
+            \end{equation*}
+            If we let \(c_2=e^{c_1}\), we further obtain
+            \begin{equation*}
+                c_2=|x||u^2-1|
+            \end{equation*}
+            By our earlier substitution, we have 
+            \begin{equation*}
+                c_2=|x|\left|\left(\frac{y}{x}\right)^2-1\right|.
+            \end{equation*}
+            Our restrictions are \(x\neq0\), \(y(x)\neq x\); note that \(y(x)=x\) is a particular solution, so our \(1\)-parameter solution is not general.
+
+        \end{example}
+
+    \pagebreak
+
+    \subsection{Exactness}
+
+        Consider the following definitions.
+        \begin{definition}{\Stop\,\,Simply Connected Regions}{simpconreg}
+
+            A set \(B\subseteq\mathbb{R}^2\) is simply connected if and only if every non-intersecting closed curve lying in \(B\) contains only points of \(B\).
+            
+        \end{definition}
+        \begin{definition}{\Stop\,\,Exact Differential Equations}{exactdiffeq}
+
+            The differential equation \(P(x,y)\dd x+Q(x,y)\dd y\) is exact if and only if \(P(x,y)\), \(\frac{\partial P}{\partial y}\), \(Q(x,y)\), and \(\frac{\partial Q}{\partial x}\) are all continuous on a common simply connected region \(B\) and
+            \begin{equation*}
+                \frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}.
+            \end{equation*}
+            Moreover, there exists \(f(x,y)\) such that \(\frac{\partial P}{\partial y}=P(x,y)\) and \(\frac{\partial Q}{\partial x}=Q(x,y)\).
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        As motivation, let \(z=f(x,y)\). Recall that
+        \begin{equation*}
+            \dd z=\frac{\partial f}{\partial x}\dd x+\frac{\partial f}{\partial y}\dd y.
+        \end{equation*}
+        If we take \(\frac{\partial P}{\partial y}=P(x,y)\) and \(\frac{\partial Q}{\partial x}=Q(x,y)\), as stipulated in Definition \ref{def:exactdiffeq}, the right hand side of the above is
+        \begin{equation*}
+            P(x,y)\dd x+Q(x,y)\dd y.
+        \end{equation*}
