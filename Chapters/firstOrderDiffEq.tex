@@ -359,3 +359,167 @@
             \end{align*}
             Then, the \(1\)-parameter family of solutions \(f(x,y,c_1)=y^2-y\cos x+c_1=0\) defines an implicit solution to \(F(x,y,y')\) on \(\mathbb{R}\).
         \end{example}
+
+\pagebreak
+
+\section{Lecture 10: Februrary 10, 2022}
+
+    \subsection{Integrating Factors}
+
+        Consider the differential equation
+        \begin{equation*}
+            P(x,y)\dd x+Q(x,y)\dd y=0,
+        \end{equation*}
+        and let \(P(x,y)\), \(\frac{\partial P}{\partial x}\), \(Q(x,y)\), \(\frac{\partial Q}{\partial x}\) all be continuous on some common simply connected region \(B\); however, \(\frac{\partial P}{\partial y}\neq\frac{\partial Q}{\partial x}\) and there does not exist some \(z=f(x,y)\) such that \(\dd z=P(x,y)\dd x+Q(x,y)\dd y\). This motivates the following definition. We will be able to find some exact differential equation possessing the same solutions as the original differential equation.
+        \begin{definition}{\Stop\,\,Integrating Factors}{intfact}
+
+            Let \(P(x,y)\dd x+Q(x,y)\dd x=0\), and let \(P(x,y)\), \(\frac{\partial P}{\partial x}\), \(Q(x,y)\), \(\frac{\partial Q}{\partial x}\) all be continuous on some common simply connected region \(B\). The function \(\mu(x,y)\) is an integrating factor if and only if the differential equation
+            \begin{equation*}
+                \mu(x,y)P(x,y)\dd x+\mu(x,y)Q(x,y)\dd y=0.
+            \end{equation*}
+            is exact. 
+        \end{definition}
+        \begin{theorem}{\Stop\,\,Sameness of Solutions}{sameexactsol}
+
+            If the integrating factor \(\mu(x,y)\neq0\) for all \((x,y)\) and has continuous first-order partial derivatives on the simply connected region \(B\). Then,
+            \begin{equation*}
+                P(x,y)\dd x+Q(x,y)\dd y=0
+            \end{equation*}
+            has the same solution as 
+            \begin{equation*}
+                \mu(x,y)P(x,y)\dd x+\mu(x,y)Q(x,y)\dd y=0
+            \end{equation*}
+            \begin{proof}
+                Let \(y(x)\) be a solution to the original differential equation. Then, consider
+                \begin{align*}
+                    \mu(x,y(x))P(x,y(x))\dd x+\mu(x,y(x))Q(x,y(x))\dd y&=\mu(x,y(x))(P(x,y(x))\dd x+\mu(x,y)Q(x,y(x))\dd y) \\
+                    &=\mu(x,y(x))(0) \\
+                    &=0,
+                \end{align*}
+                so \(y(x)\) is also a solution to
+                \begin{equation*}
+                    \mu(x,y)P(x,y)\dd x+\mu(x,y)Q(x,y)\dd y=0
+                \end{equation*}
+                on the same intervals of solution. On the other hand, if \(\tilde{y(x)}\) is a solution to the exact differential equation, we have that
+                \begin{equation*}
+                    \mu(x,\tilde{y}(x))(P(x,\tilde{y}(x))\dd x+\mu(x,\tilde{y})Q(x,\tilde{y}(x))\dd y)=0,
+                \end{equation*}
+                so either \(\mu(x,\tilde{y}(x))=0\) or \(P(x,\tilde{y}(x))\dd x+\mu(x,\tilde{y})Q(x,\tilde{y}(x))\dd y=0\). By supposition, \(\mu(x,y)\neq0\) for all \((x,y)\), so it must be the case that
+                \begin{equation*}
+                    P(x,\tilde{y}(x))\dd x+\mu(x,\tilde{y})Q(x,\tilde{y}(x))\dd y=0,
+                \end{equation*}
+                meaning that \(\tilde{y}(x)\) is a solution to the original differential equation.
+            \end{proof}
+            
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        We seek to find the integrating factor \(\mu(x,y)\) when it is purely a function of \(x\). That is, \(\mu(x,y)=\mu(x)\). If \(\mu(x)\) is an integrating factor, we have that
+        \begin{equation*}
+            \mu(x)P(x,y)\dd x+\mu(x)Q(x,y)\dd y=0,
+        \end{equation*}
+        where 
+        \begin{equation*}
+            \frac{\partial}{\partial y}(\mu(x)P(x,y))=\frac{\partial}{\partial x}(\mu(x)Q(x,y)).
+        \end{equation*}
+        By differentiation, we have 
+        \begin{equation*}
+            \mu(x)\frac{\partial P}{\partial y}=\mu(x)\frac{\partial Q}{\partial x}+Q\frac{\partial \mu}{\partial x}.
+        \end{equation*}
+        By rearrangement, we obtain
+        \begin{equation*}
+            \mu(x)\left(\frac{\partial P}{\partial y}-\frac{\partial Q}{\partial x}\right)=Q\frac{\dd \mu}{\dd x}.
+        \end{equation*}
+        By the suppositions \(h(x)\neq0\) and \(Q(x,y)\neq0\), we may divide and see
+        \begin{equation*}
+            \frac{1}{\mu(x)}\frac{\dd \mu}{\dd x}=\frac{1}{Q(x,y)}\left(\frac{\partial P}{\partial y}-\frac{\partial Q}{\partial x}\right)
+        \end{equation*}
+        By recognizing the left hand side as the natural logarithm's derivative, we multiply by the differential function \(\dd x\) and antidifferentiate to obtain
+        \begin{equation*}
+            \int \frac{1}{\mu(x)}\frac{\dd \mu}{\dd x} \dd x=\int \frac{1}{Q(x,y)}\left(\frac{\partial P}{\partial y}-\frac{\partial Q}{\partial x}\right)\dd x,
+        \end{equation*} 
+        which implies
+        \begin{equation*}
+            \log|\mu(x)|=\int \frac{1}{Q(x,y)}\left(\frac{\partial P}{\partial y}-\frac{\partial Q}{\partial x}\right)\dd x.
+        \end{equation*}
+        Let \(H(x)\) be the integrand of the right hand side. We may exponentiate to get
+        \begin{equation*}
+            |\mu(x)|=e^{\int H(x)\dd x}.
+        \end{equation*}
+        We need only consider \(\mu(x)=e^{\int H(x)\dd x}\), as any constants multiplied by \(\mu(x)\) will not change the above derivation significantly. For other cases, where \(\mu(x,y)\) is not purely a function of \(x\), the derivation is much more complicated. Note that in the case that \(\mu(x,y)=\mu(y)\), let
+        \begin{equation*}
+            \tilde{H}(x)=\frac{1}{P(x,y)}\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right),
+        \end{equation*}
+        and \(\mu(x,y)=\mu(y)=e^{\int \tilde{H}(y) \dd y}\).
+        \pagebreak
+        \\
+        \\
+        As a review of the previous solution techniques, consider the following example.
+        \begin{example}{\Difficulty\,\Difficulty\,\,3 Different Solution Techniques}{3difftechs}
+
+            Solve \(F(x,y,y')=2yy'+6x=0\) using separation of variables, homogeneous substitution, and integrating factors and exactness.
+            \\
+            \\
+            In differential form, we have
+            \begin{equation*}
+                2y\dd y=-6x\dd x,
+            \end{equation*}
+            which integrates to give us \(y^2=-3x^2+c_1\) as our implicit solution on \(\mathbb{R}\). Before performing the homogeneous substitution, note that the equation \(2y\dd y+6x\dd x=0\) has homogeneous coefficients of order \(1\) trivially. We make the substitution \(y=ux\) to obtain
+            \begin{align*}
+                0&=2ux(u\dd x+x\dd u)+6x\dd x \\
+                &=2u^2x\dd x+2ux^2\dd u+6x\dd x \\
+                &=x(2u^2+6)\dd x+2ux^2\dd u.
+            \end{align*}
+            With the restriction \(x\neq0\), we may divide by \(x^2\) and \(2u^2+6\) to obtain
+            \begin{equation*}
+                \frac{1}{x}\dd x+\frac{u}{u^2+3}\dd u,
+            \end{equation*}
+            and integration gives \(\log|x|=\log|\sqrt{u^2+3|}+c_2\) meaning, if \(\ell=e^{c_2}\), \(|x|=\ell\sqrt{\frac{y^2}{x^2}+3}=\sqrt{\frac{y^2+3x^2}{x^2}}\). Then, if \(k=\ell^2\),
+            \begin{equation*}
+                x^2=k\left(\frac{y^2+3x^2}{x^2}\right)
+            \end{equation*}
+            The differential equation is also trivially exact on \(\mathbb{R}^2\).
+            
+        \end{example}
+        \begin{example}{An Differential Equation With an Integrating Factor Not a Function of \(x\)}{intfactnotx}
+            
+            Show that \(2xy^3\dd x+(2y+x^2y^2)\dd y=0\) is not exact and \(\mu(x,y)\neq\mu(x)\).
+            \\
+            \\
+            Let \(P(x,y)=2xy^3\), so \(\frac{\partial P}{\partial x}=6xy^2\). Let \(Q(x,y)=2y+x^2y^2\), so \(\frac{\partial Q}{\partial x}=2xy^2\). Therefore, the differential equation is not exact. To show that the differential equation's integrating factor is not purely a function of \(x\), suppose, for the sake of contradiction, that \(\mu(x,y)=\mu(x)\). Then,
+            \begin{equation*}
+                \mu(x)=e^{\int H(x)\dd x},\quad H(x)=\frac{1}{Q(x,y)}\left(\frac{\partial P}{\partial y}-\frac{\partial Q}{\partial x}\right)=\frac{4xy^2}{2y+x^2y^2}.
+            \end{equation*}
+            Since \(H(x)\) cannot be written as a pure function of \(x\), we have a contradiction, and \(\mu(x,y)\neq\mu(x)\). No such issue occurs if we assume 
+            \begin{equation*}
+                \mu(x,y)=\mu(y)=e^{\int \tilde{H}(y)\dd y}, \quad \tilde{H}(y)=\frac{1}{P(x,y)}\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)=-\frac{2}{y}.
+            \end{equation*}
+            Note that another integrating factor is \(\hat{\mu}(x,y)=e^{x^2y}\).
+
+        \end{example}
+
+\pagebreak
+
+\section{Lecture 11: February 13, 2022}
+
+    \subsection{Linear Ordinary Differential Equations}
+
+        Consider the following definition.
+        \begin{definition}{\Stop\,\,Linear Ordinary Differential Equations}{nthorderlineardiffeq}
+
+            An \(n\)th order linear ordinary differential equation is
+            \begin{equation*}
+                F(x,y,y',\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)y+Q(x)=0
+            \end{equation*}
+            where all \(f_i\), \(0\leq i\leq n\), are continuous on some common interval \(I\) and \(f_n(x)\neq0\) for all \(x\in I\).
+            
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        Note that every first-order linear differential equation can be written as 
+        \begin{equation*}
+            F(x,y,y')=f_1(x)y'+f_0(x)y+Q(x)=y'+\tilde{P}(x)y+\tilde{Q}(x)=0.
+        \end{equation*}
+        and has the integrating factor \(\mu(x,y)=\mu(x)=e^{\int \tilde{P}(x)\dd x}\).
