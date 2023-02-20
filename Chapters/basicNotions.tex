@@ -43,7 +43,7 @@
             \begin{equation*}
                 f:\mathbb{R}\to\mathbb{C}
             \end{equation*}
-            for which \(f(x)\) is well-defined on some set \(X\) such that \(I\cap X\neq\emptyset\) and \(f\) satisfies the differential equation for all \(x \in I\). That is,
+            for which \(f(x)\) is well-defined on some set \(X\) such that \(I\cap X\neq\emptyset\) and, for all \(x\in I\),
             \begin{equation*}
                 F(x,f,f',\ldots,f^{(n)})=0.
             \end{equation*}
@@ -64,14 +64,14 @@
         Consider the following examples.
         \begin{example}{\Difficulty\,\Difficulty\,\,Is it an Implicit Function? 1}{isimpfunc1}
             
-            Does \(f(x,y)=x^2+y^2-25=0\) define an implicit function of \(x\) on \(\{x:x\in\mathbb{R}:-5\leq x\leq 5\}\)?
+            Does \(f(x,y)=x^2+y^2-25=0\) define an implicit function of \(x\) on \(\{x\in\mathbb{R}:-5\leq x\leq 5\}\)?
             \\
             \\
             We consider solving for \(y\). We obtain \(y=\pm\sqrt{25-x^2}\). Therefore we define \(y_1(x)=\sqrt{25-x^2}\) and \(y_2(x)=-\sqrt{25-x^2}\). For \(y_1(x)\), we see that
             \begin{equation*}
                 f(x,y_1(x))=x^2+(\sqrt{25-x^2})^2-25=x^2+25-x^2-25=0,
             \end{equation*}
-            as desired. Also, \(y_1(x)\) is defined for on \(\{x:x\in\mathbb{R}:-5\leq x\leq 5\}\). Therefore, \(f(x,y)\) does define an implicit function of \(x\). Upon further inspection, \(f(x,y)\) defines more than one implicit function of \(x\).
+            as desired. Also, \(y_1(x)\) is defined for on \(\{x\in\mathbb{R}:-5\leq x\leq 5\}\). Therefore, \(f(x,y)\) does define an implicit function of \(x\). Upon further inspection, \(f(x,y)\) defines more than one implicit function of \(x\).
 
         \end{example}
         \pagebreak
@@ -113,11 +113,11 @@
                     x^2y''(x)+xy'(x)&=x^2\cdot-\frac{1}{x^2}+x\cdot\frac{1}{x} \\
                     &=-1+1=0,\quad x\neq0,
                 \end{align*}
-                as desired. The domain of definition for \(y(x)\) is \(\{x:x\in \mathbb{R}:x>0\}\). The differential equation is defined on \(\{x:x\in\mathbb{R}\}\). Additionally, we have the restriction \(x\neq 0\). Therefore, the solution set is 
+                as desired. The domain of definition for \(y(x)\) is \(\{x:x\in \mathbb{R}:x>0\}\). The differential equation is defined on \(\{x\in\mathbb{R}\}\). Additionally, we have the restriction \(x\neq 0\). Therefore, the solution set is 
                 \begin{equation*}
-                    \{x:x\in\mathbb{R}\}\cap\{x:x\in\mathbb{R}:x>0\}\cap\{x:x\in\mathbb{R}:x\neq0\}=\{x:x\in\mathbb{R}:x>0\}.
+                    \{x\in\mathbb{R}\}\cap\{x\in\mathbb{R}:x>0\}\cap\{x\in\mathbb{R}:x\neq0\}=\{x\in\mathbb{R}:x>0\}.
                 \end{equation*}
-                We can then state that \(y(x)=\log x\) is an explicit solution for \(F\) on \(\{x:x\in\mathbb{R}:x>0\}\).
+                We can then state that \(y(x)=\log x\) is an explicit solution for \(F\) on \(\{x\in\mathbb{R}:x>0\}\).
             \end{proof}
 
         \end{example}
@@ -134,11 +134,11 @@
                     y(x)y'(x)-4&=2\sqrt{2x}\cdot\frac{2}{\sqrt{2x}}-4 \\
                     &=4-4=0,\quad x\neq0,
                 \end{align*}
-                as desired. The domain of definition for \(y(x)\) is \(\{x:x\in\mathbb{R}:x\geq0\}\). The differential equation is defined on \(\{x:x\in\mathbb{R}\}\). Additionally, we have the restriction \(x\neq 0\). Therefore, the solution set is 
+                as desired. The domain of definition for \(y(x)\) is \(\{x\in\mathbb{R}:x\geq0\}\). The differential equation is defined on \(\{x\in\mathbb{R}\}\). Additionally, we have the restriction \(x\neq 0\). Therefore, the solution set is 
                 \begin{equation*}
-                    \{x:x\in\mathbb{R}\}\cap\{x:x\in\mathbb{R}:x\geq0\}\cap\{x:x\in\mathbb{R}:x\neq0\}=\{x:x\in\mathbb{R}:x>0\}.
+                    \{x\in\mathbb{R}\}\cap\{x\in\mathbb{R}:x\geq0\}\cap\{x\in\mathbb{R}:x\neq0\}=\{x\in\mathbb{R}:x>0\}.
                 \end{equation*}
-                We can then state that \(y(x)=2\sqrt{2x}\) is an explicit solution for \(F\) on \(\{x:x\in\mathbb{R}:x>0\}\).
+                We can then state that \(y(x)=2\sqrt{2x}\) is an explicit solution for \(F\) on \(\{x\in\mathbb{R}:x>0\}\).
             \end{proof}
             
         \end{example}
@@ -174,9 +174,9 @@
                     (x+\tan x-x)^2-\tan^2x&=(\tan x)^2-\tan^2x \\
                     &=\tan^2x-\tan^2x=0
                 \end{align*}
-                as desired. The domain of definition for \(y(x)\) is \(\{x:x\in \mathbb{R}:x\neq \frac{\pi}{2}+k\pi:k\in\mathbb{Z}\}\). The differential equation is defined on \(\{x:x\in\mathbb{R}\}\). We have no additional restrictions. Therefore, the solution set is 
+                as desired. The domain of definition for \(y(x)\) is \(\{x:x\in \mathbb{R}:x\neq \frac{\pi}{2}+k\pi:k\in\mathbb{Z}\}\). The differential equation is defined on \(\{x\in\mathbb{R}\}\). We have no additional restrictions. Therefore, the solution set is 
                 \begin{equation*}
-                    \{x:x\in\mathbb{R}\}\cap\{x:x\in \mathbb{R}:x\neq \frac{\pi}{2}+k\pi:k\in\mathbb{Z}\}=\{x:x\in \mathbb{R}:x\neq \frac{\pi}{2}+k\pi:k\in\mathbb{Z}\}.
+                    \{x\in\mathbb{R}\}\cap\{x:x\in \mathbb{R}:x\neq \frac{\pi}{2}+k\pi:k\in\mathbb{Z}\}=\{x:x\in \mathbb{R}:x\neq \frac{\pi}{2}+k\pi:k\in\mathbb{Z}\}.
                 \end{equation*}
                 We can then state that \(y(x)=\tan x-x\) is an explicit solution for \(F\) on \(\{x:x\in \mathbb{R}:x\neq \frac{\pi}{2}+k\pi:k\in\mathbb{Z}\}\).
             \end{proof}
@@ -214,11 +214,11 @@
             \end{equation*}
             Therefore, \(f(x,y)\) provides an implicit solution to the differential equation. When providing the intervals of solution, we must explicitly pick which solution, \(g_1\) or \(g_2\), to provide the interval with respect to. For \(g_1(x)\), this is 
             \begin{equation*}
-                \{x:x\in\mathbb{R}:x\neq0\}.
+                \{x\in\mathbb{R}:x\neq0\}.
             \end{equation*}
             and for \(g_2(x)\), it is
             \begin{equation*}
-                \{x:x\in\mathbb{R}:x\neq0,x\neq 1\}.
+                \{x\in\mathbb{R}:x\neq0,x\neq 1\}.
             \end{equation*}
             Note that we did not need to consider \(y=g_2(x)\) to show that \(f(x,y)\) provides an implicit solution.
         \end{example}
@@ -238,8 +238,13 @@
             Provide the intervals of solution.
             \\
             \\
-            \DOTHISLATER
-            \DOTHISLATER
+            First, we determine whether \(f(x,y)=e^{2y}+e^{2x}=0\) defines \(y\) as an implicit function of \(x\). Consider the function \(g(x)=\frac{1}{2}\log(1-e^{2x})\). We see that \(g(x)\) is defined on \(\{x\in\mathbb{R}:x<0\}\). We see that \(f(x,g(x))=0\) for all \(\{x\in\mathbb{R}:x<0\}\). Therefore, \(f\) defines \(g\) as an implicit function of \(x\). Now, we have
+            \begin{align*}
+                F(x,g(x),g'(x))&=e^{x-\frac{1}{2}\log(1-e^{2x})}-\frac{e^{2x}}{1-e^{2x}}e^{\frac{1}{2}\log(1-e^{2x})-x} \\
+                &=\frac{e^x}{\sqrt{1-e^{2x}}}-\frac{e^{2x}}{1-e^{2x}}\frac{\sqrt{1-e^{2x}}}{e^x} \\
+                &=\frac{e^{2x}\sqrt{1-e^{2x}}}{e^x(1-e^{2x})}-\frac{e^{2x}}{1-e^{2x}}\frac{\sqrt{1-e^{2x}}}{e^x}=0.
+            \end{align*}
+            Note that \(F\) has no additional restrictions, so the interval of solution for \(g(x)\) is simply \(\{x\in\mathbb{R}:x<0\}\).
             
         \end{example}
         \pagebreak
@@ -398,56 +403,57 @@
 
 \section{Lecture 5: January 30, 2023}
 
-    \DOTHISLATER
-
     \subsection{Finding an \(n\)th Order Differential Equation Given an \(n\)-Parameter Family of Solutions}
 
-        We now direct our attention to finding an \(n\)th order differential equation when given an \(n\)-parameter family of solutions. To this, we will look at \(y(x,c_1,\ldots,c_n)\) and its derivatives and find relations between them. Consider the following examples.
-        \begin{example}{\Difficulty\,\Difficulty\,\,Find a Differential Equation With an \(n\)-Parameter Family of Solutions 1}{diffeqgivennparamfam1}
-            
-            Find an \(n\)th order differential equation given the \(n\)-parameter family \(y(x,c_1)=c_1x\).
+        We now direct our attention to finding an \(n\)th order differential equation when given an \(n\)-parameter family of solutions. To this, we will look at \(y(x,c_1,\ldots,c_n)\) and its derivatives and find relations between them. There is no \textit{efficient} technique that will work for all \(n\)-parameter families, but usually, we can take \(n\) derivatives of our family and find relationships between them. Recall that differential equations must not contain any arbitrary constants.
+        \\
+        \\
+        Consider the following examples.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Find a Differential Equation With an \(n\)-Parameter Family 1}{nparfam1}
+        
+            For the \(2\)-parameter family \(y=c_1e^{3x}+c_2e^{-3x}\), determine the \(2\)nd-order differential equation which has the family as a solution.
             \\
             \\
-            Note that \(y(x)\) is a \(1\)-parameter family of solutions. If \(y(x)=c_1x\), \(y'(x)=c_1\). Note that \(y(x)=xy'(x)\), which gives the differential equation \(F(x,y,y')=xy'-y=0\).
+            If \(y=c_1e^{3x}+c_2e^{-3x}\), \(y'=3c_1e^{3x}-3c_2e^{-3x}=3(c_1e^{3x}-c_2e^{-3x})\). Then, \(y''=3(3c_1e^{3x}+3c_2e^{-3x})=9(c_1e^{3x}+c_2e^{3x})=9y\). Therefore, our \(2\)nd-order differential equation is given by
+            \begin{equation*}
+                F(x,y,y',y'')= y''-9y=0,
+            \end{equation*}
+            as desired.
+        
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Find a Differential Equation With an \(n\)-Parameter Family 2}{nparfam2}
+        
+           For the \(2\)-parameter family \(y=c_1+c_2e^{2x}\), determine the \(2\)nd-order differential equation which has the family as a solution.
+           \\
+           \\
+           If \(y=c_1+c_2e^{2x}\), \(y'=2c_2e^{2x}\) and \(y''=4c_2e^{2x}\). Then, \(y''=2y'\). Therefore, our \(2\)nd-order differential equation is given by
+           \begin{equation*}
+            F(x,y,y',y'')=y''-2y'=0,
+           \end{equation*}
+           as desired.
+        
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Find a Differential Equation With an \(n\)-Parameter Family 3}{nparfam3}
+        
+            For the \(2\)-parameter family \(y=\frac{c_1}{x}+c_2\), determine the \(2\)nd-order differential equation which has the family as a solution.
+            \\
+            \\
+            If \(y=\frac{c_1}{x}+c_2\), \(y'=-\frac{c_1}{x^2}\) and \(y''=\frac{2c_1}{x^3}\). Then, \(c_1=-x^2y=\frac{1}{2}x^3y''\). Therefore, our \(2\)nd-order differential equation is given by
+            \begin{equation*}
+                F(x,y,y',y'')=x^3y''+2x^2y=0,
+            \end{equation*}
+            as desired.
+         
+         \end{example}
+         \begin{example}{\Difficulty\,\Difficulty\,\,Find a Differential Equation With an \(n\)-Parameter Family 4}{nparfam4}
+        
+            For the \(2\)-parameter family \(y=c_1\cos(2x)+c_2\sin(2x)\), determine the \(2\)nd-order differential equation which has the family as a solution.
+            \\
+            \\
+            If \(y=c_1\cos(2x)+c_2\sin(2x)\), \(y'=-2c_1\sin(2x)+2c_2\cos(2x)\) and \(y''=-4c_1\cos(2x)-4c_2\sin(2x)\). Then, \(y''=-4y\). Therefore, our \(2\)nd-order differential equation is given by
+            \begin{equation*}
+                F(x,y,y',y'')=y''+4y=0,
+            \end{equation*}
+            as desired.
 
-        \end{example}
-        \begin{example}{\Difficulty\,\Difficulty\,\,Find a Differential Equation With an \(n\)-Parameter Family of Solutions 2}{diffeqgivennparamfam2}
-            
-            Find an \(n\)th order differential equation given the \(n\)-parameter family \(y(x,c_1,c_2)=c_1x+c_2e^x\).
-            \\
-            \\
-            Note that \(y(x)\) is a \(2\)-parameter family of solutions. If \(y(x)=c_1x+c_2e^x\), \(y'(x)=c_1+c_2e^x\), and \(y''(x)=c_2e^x\). Consider the system
-            \begin{equation*}
-                \begin{bmatrix}
-                    x & e^x & | & y(x) \\
-                    1 & e^x & | & y'(x) \\
-                    0 & e^x & | & y''(x)
-                \end{bmatrix}\underbrace{\to}_{\text{RREF}}
-                \begin{bmatrix}
-                    1 & 0 & | & -y''(x)+y'(x) \\
-                    0 & 1 & | & \frac{-xy'(x)+y(x)}{-xe^x+e^x} \\
-                    0 & 0 & | & \frac{-xy'(x)+y(x)}{x-1}+y''(x).
-                \end{bmatrix}
-            \end{equation*}
-            Thus, we have the differential equation \(F(x,y,y'')=\frac{-xy'(x)+y(x)}{x-1}+y''(x)=0\).
-        \end{example}
-        \begin{example}{\Difficulty\,\Difficulty\,\,Find a Differential Equation With an \(n\)-Parameter Family of Solutions 3}{diffeqgivennparamfam3}
-            
-            Find an \(n\)th order differential equation given the \(n\)-parameter family \(y(x,c_1,c_2)=c_1e^{3x}+c_2e^{-2x}+x\).
-            \\
-            \\
-            Note that \(y(x)\) is a \(2\)-parameter family of solutions. If \(y(x)=c_1e^{3x}+c_2e^{-2x}+x\), \(y'(x)=3c_1e^{3x}-2c_2e^{-2x}+1\), and \(y''(x)=9c_1e^{3x}+4c_2e^{-2x}\). Consider the system
-            \begin{equation*}
-                \begin{bmatrix}
-                    e^{3x} & e^{-2x} & | & -x+y(x) \\
-                    3e^{3x} & -2e^{-2x} & | & -1+y'(x) \\
-                    9e^{3x} & 4e^{-2x} & | & y''(x)
-                \end{bmatrix}\underbrace{\to}_{\text{RREF}}
-                \begin{bmatrix}
-                    1 & \frac{e^{-2x}}{e^{3x}} & | & \frac{-x+y(x)}{e^{3x}} \\
-                    0 & 1 & | & \frac{-3(-x+y(x))-1+y'(x)}{-5e^{-2x}} \\
-                    0 & 0 & | & -\frac{-3(-x+y(x))-1+y'(x)}{-5e^{-2x}}+\frac{-9(-x+y(x))+y''(x)}{e^{-2x}(4-9e^{3x})}
-                \end{bmatrix}
-            \end{equation*}
-            \DOTHISLATER
-        \end{example}
+         \end{example}
