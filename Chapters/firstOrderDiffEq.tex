@@ -367,7 +367,7 @@
 
     \pagebreak
 
-\section{Lecture 9: February 8, 2022}
+\section{Lecture 9: February 8, 2023}
 
     \subsection{Solving Exact Differential Equations}
 
@@ -415,7 +415,7 @@
 
 \pagebreak
 
-\section{Lecture 10: Februrary 10, 2022}
+\section{Lecture 10: Februrary 10, 2023}
 
     \subsection{Integrating Factors}
 
@@ -434,7 +434,7 @@
         \end{definition}
         \begin{theorem}{\Stop\,\,Sameness of Solutions}{sameexactsol}
 
-            If the integrating factor \(\mu(x,y)\neq0\) for all \((x,y)\) and has continuous first-order partial derivatives on the simply connected region \(B\). Then,
+            If the integrating factor \(\mu(x,y)\neq0\) for all \((x,y)\) and has continuous first order partial derivatives on the simply connected region \(B\). Then,
             \begin{equation*}
                 P(x,y)\dd x+Q(x,y)\dd y=0
             \end{equation*}
@@ -551,28 +551,3 @@
             Note that another integrating factor is \(\hat{\mu}(x,y)=e^{x^2y}\).
 
         \end{example}
-
-\pagebreak
-
-\section{Lecture 11: February 13, 2022}
-
-    \subsection{Linear Ordinary Differential Equations}
-
-        Consider the following definition.
-        \begin{definition}{\Stop\,\,Linear Ordinary Differential Equations}{nthorderlineardiffeq}
-
-            An \(n\)th order linear ordinary differential equation is
-            \begin{equation*}
-                F(x,y,y',\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)y+Q(x)=0
-            \end{equation*}
-            where all \(f_i\), \(0\leq i\leq n\), are continuous on some common interval \(I\) and \(f_n(x)\neq0\) for all \(x\in I\).
-            
-        \end{definition}
-        \vphantom
-        \\
-        \\
-        Note that every first-order linear differential equation can be written as 
-        \begin{equation*}
-            F(x,y,y')=f_1(x)y'+f_0(x)y+Q(x)=y'+\tilde{P}(x)y+\tilde{Q}(x)=0.
-        \end{equation*}
-        and has the integrating factor \(\mu(x,y)=\mu(x)=e^{\int \tilde{P}(x)\dd x}\).

@@ -1,0 +1,122 @@
+\section{Lecture 11: February 13, 2023}
+
+    \subsection{Linear Ordinary Differential Equations}
+
+        Consider the following definition.
+        \begin{definition}{\Stop\,\,Linear Ordinary Differential Equations}{nthorderlineardiffeq}
+
+            An \(n\)th order linear ordinary differential equation, with respect to \(I\), is
+            \begin{equation*}
+                F(x,y,y',\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)y+Q(x)=0
+            \end{equation*}
+            where all \(f_i\), \(0\leq i\leq n\), and \(Q\) are continuous on some common interval \(I\) and \(f_n(x)\neq0\) for all \(x\in I\).
+            
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        Note that every first order linear differential equation can be written as 
+        \begin{equation*}
+            F(x,y,y')=f_1(x)y'+f_0(x)y+Q(x)=y'+\tilde{P}(x)y+\tilde{Q}(x)=0.
+        \end{equation*}
+        and has the integrating factor \(\mu(x,y)=\mu(x)=e^{\int \tilde{P}(x)\dd x}\).
+        \\
+        \\
+        Consider the following non-example of a linear ordinary differential equation.
+        \begin{example}{\Difficulty\,\Difficulty\,\,A Non-Example of a Linear Ordinary Differential Equation}{linorddiffeq}
+
+            Consider \(F(x,y,y',y'',y'')=y'''+y''\log(x-1)+y\arccos(x)-\log(x-2)=0\).
+            \\
+            \\
+            The differential equation \(F(x,y,y',y'',y''')\) is not a linear ordinary differential equation since \(\log(x-1)\), \(\arccos(x)\), and \(\log(x-2)\) are not continuous on any common interval.
+            
+        \end{example}
+
+\section{Lecture 12: February 20, 2023}
+
+    \subsection{Existence and Uniqueness of Solutions for Linear Differential Equations}
+
+        Consider the following definition.
+        \begin{theorem}{\Stop\,\,Linear Independence}{linindep}
+
+            Let \(S=\{f_i:X\to\mathbb{C}:1\leq i\leq n\}\) be a set of continuous complex-valued functions defined on \(X\subseteq\mathbb{R}\). Then, \(S\) is linearly independent if and only if, for all \(x\in X\), 
+            \begin{equation*}
+                c_1f_1(x)+\cdots+c_nf_n(x)=0
+            \end{equation*}
+            with \(c_1,\ldots,c_n\in\mathbb{C}\), is satisfied only if \(c_1=\cdots=c_n=0\). Note that \(S\) is linearly dependent if and only if \(S\) is not linearly independent.
+            
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        Consider the following theorems.
+        \begin{theorem}{\Stop\,\,Existence of Solutions to \(n\)th Order Linear Differential Equations (I)}{existence1}
+            
+            Let \(F(x,y,\ldots,y^{(n)})\) be an \(n\)th order linear differential equation with respect to \(I\). Then, there exists \(y(x)\) such that
+            \begin{equation*}
+                y(x_0)=a_0,\quad y'(x_0)=a_1,\quad \ldots,\quad y^{(n-1)}(x_0)=a_{n-1}
+            \end{equation*}
+            are initial conditions on \(F\) satisfied for any \(x_0\in I\).
+
+        \end{theorem}
+        \begin{theorem}{\Stop\,\,Existence of Solutions to \(n\)th Order Linear Differential Equations (II)}{existence2}
+            
+            Let \(F(x,y,\ldots,y^{(n)})\) be an \(n\)th order linear differential equation with respect to \(I\). Then, there exist \(n\) \(1\)-parameter families of solutions \(c_iy_i(x)\) for \(c_i\in\mathbb{C}\) and some particular solution \(y_i(x)\) valid on \(I\). Moreover, the set \(S=\{y_1(x),\ldots,y_n(x)\}\) is linearly independent and \(c_1y_1(x)+\cdots+c_ny_n(x)\) is an \(n\)-parameter family of solutions valid on \(I\).
+
+        \end{theorem}
+        \begin{theorem}{\Stop\,\,Uniqueness of Solutions to \(n\)th Order Linear Differential Equations}{uniqueness}
+            
+            Let \(F(x,y,\ldots,y^{(n)})\) be an \(n\)th order linear differential equation with respect to \(I\). Then, \(F\) has a unique solution valid on \(I\) satisfying \(n\) arbitrary initial conditions.
+
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        Therefore, by Theorem \ref{thm:uniqueness}, the \(n\)-parameter family of solutions specified in Theorem \ref{thm:existence2} is the \(y(x)\) specified in Theorem \ref{thm:existence1}; note that \(y(x)\) is a general solution.
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        \begin{definition}{\Stop\,\,Wronskians}{wronskians}
+
+            Let \(S=\{f_i:X\to\mathbb{C}:1\leq i\leq n\}\) be a set of continuous complex-valued functions defined on \(X\subseteq\mathbb{R}\). Suppose that each \(f_i\in S\), \(1\leq i\leq n\) us \((n-1)\)-times continuously differentiable. Then, the Wronskian of \(S\) is given by
+            \begin{equation*}
+                W(S)(x)=\det\begin{bmatrix}
+                    f_1(x) & \cdots & f_n(x) \\
+                    \vdots & \ddots & \vdots \\
+                    f_1^{(n-1)}(x) & \cdots & f_n^{(n-1)}(x).
+                \end{bmatrix}
+            \end{equation*}
+            
+        \end{definition}
+        \begin{theorem}{\Stop\,\,Wronskians Determine Linear Independence}{wronskianslinindep}
+
+            If \(S\) is linearly dependent, \(W(S)(x)=0\) for all \(x\in X\). If \(W(S)(x)\neq0\) for some \(x\in X\), \(S\) is linearly independent on \(X\). 
+            
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        Consider the following example.
+        \begin{example}{Showing Linear Independence With the Wronskian}{showlinindepwronksian}
+
+            Show that \(\{x,e^{2x},e^{3x}\}\) are linearly independent on \(\{x\in\mathbb{R}:0\leq x\leq 1\}\).
+            \\
+            \\
+            Note that all elements of \(S\) are \((n-1)\)-times continuously differentiable. Then,
+            \begin{align*}
+                W(S)(x)&=\det\begin{bmatrix}
+                    x & e^{2x} & e^{3x} \\
+                    1 & 2e^{2x} & 3e^{3x} \\
+                    0 & 4e^{2x} & 9e^{3x}
+                \end{bmatrix} \\
+                &=-6xe^{5x}+5e^{5x}.
+            \end{align*}
+            Note that \(W(S)(0)=5\neq0\), so \(S\) is linearly independent.
+            
+        \end{example}
+        \begin{theorem}{\Stop\,\,Wronksians are Necessary and Sufficient in Some Cases}{wronskianslinindep2}
+
+            If \(S=\{y_i:X\to\mathbb{C}\}\) and all \(y_i\), \(1\leq i\leq n\), are solutions to the same \(n\)th order linear differential equation, \(W(S)(x)=0\) on \(X\) if and only if \(S\) is linearly dependent.
+            
+        \end{theorem}
