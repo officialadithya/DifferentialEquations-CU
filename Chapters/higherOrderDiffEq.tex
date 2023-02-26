@@ -54,7 +54,7 @@
             
             Let \(F(x,y,\ldots,y^{(n)})\) be an \(n\)th order linear differential equation with respect to \(I\). Then, there exists \(y(x)\) such that
             \begin{equation*}
-                y(x_0)=a_0,\quad y'(x_0)=a_1,\quad \ldots,\quad y^{(n-1)}(x_0)=a_{n-1}
+                y(x_0)=y_0,\quad y'(x_0)=y_1,\quad \ldots,\quad y^{(n-1)}(x_0)=y_{n-1}
             \end{equation*}
             are initial conditions on \(F\) satisfied for any \(x_0\in I\).
 
@@ -120,3 +120,351 @@
             If \(S=\{y_i:X\to\mathbb{C}\}\) and all \(y_i\), \(1\leq i\leq n\), are solutions to the same \(n\)th order linear differential equation, \(W(S)(x)=0\) on \(X\) if and only if \(S\) is linearly dependent.
             
         \end{theorem}
+
+\pagebreak
+
+\section{Lecture 13: Feburary 22, 2023}
+
+    \subsection{Linear Differential Equations With Constant Coefficients}
+
+        We will now study linear differential equations with constant coefficients. Consider the following definitions.
+        \begin{definition}{\Stop\,\,Linear Differential Equations With Constant Coefficients}{constcoeff}
+
+            An \(n\)th order linear homogeneous differential equation, with respect to \(I\), is 
+            \begin{equation*}
+                F(x,y,y',\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)+Q(x)=0,
+            \end{equation*}
+            where all \(f_i=a_i\), \(0\leq i\leq n\), where \(a_i\in\mathbb{C}\) and \(Q\) are continuous on some common interval \(I\).
+            
+        \end{definition}
+        \begin{definition}{\Stop\,\,Homogeneous Linear Differential Equations}{homolindiffeq}
+
+            An \(n\)th order linear homogeneous differential equation, with respect to \(I\), is 
+            \begin{equation*}
+                F(x,y,y',\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)+Q(x)=0,
+            \end{equation*}
+            where all \(f_i\), \(0\leq i\leq n\), and \(Q\) are continuous on some common interval \(I\) and \(f_n(x)\neq0\) and \(Q(x)=0\) for all \(x\in I\). 
+            
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        Consider the following theorem.
+        \begin{theorem}{\Stop\,\,Decomposing a Solution of a Linear Differential Equation}{decompsol}
+
+            Let \(F(x,y,y',\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)=0\) have the solution
+            \begin{equation*}
+                y_c(x,c_1,\ldots,c_n)=c_1y_1(x)+\cdots+c_ny_n(x).
+            \end{equation*}
+            Then, the solution to
+            \begin{equation*}
+                \tilde{F}(x,y,y',\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)+Q(x)=0
+            \end{equation*}
+            is given by
+            \begin{equation*}
+                y(x,c_1,\ldots,c_n)=y_c(x,c_1,\ldots,c_n)+y_p(x)
+            \end{equation*}
+            where \(y_p(x)\) is any particular solution to \(\tilde{F}\).
+
+        \end{theorem}
+
+\pagebreak
+
+\section{Lecture 14: February 24, 2023}
+
+    \subsection{Solving Linear Homogeneous Equations With Constant Coefficients: Part I}
+
+        Consider the second order homogeneous linear differential equation with constant coefficients
+        \begin{equation*}
+            F(x,y,y',y'')=ay''+by'+cy=0,
+        \end{equation*}
+        for \(a,b,c\in\mathbb{C}\). We may, without loss of generality, rewrite this as
+        \begin{equation*}
+            \tilde{F}(x,y,y',y'')=y''+Ay'+By=0,
+        \end{equation*}
+        since \(a\neq0\). Choose some \(\alpha,\beta\in\mathbb{C}\) such that \(-(\alpha+\beta)=A\) and \(\alpha\beta=B\). Now, consider \(z=y'(x)-\alpha y(x)\). Then, note that \(\frac{\dd z}{\dd x}-\beta z=0\). That is,
+        \begin{align*}
+            0&=y''-\alpha y'(x)-\beta y'(x)+\alpha\beta y(x) \\
+            &=y''-(\alpha+\beta)y'+2\beta y \\
+            &=y''+Ay'+By.
+        \end{align*}
+        Now, since \(\frac{\dd z}{\dd x}-\beta z=0\), we have, by separation of variables, \(z=c_1e^{\beta x}\) where \(c_1\in\mathbb{C}\) and \(x\in\mathbb{R}\).  Now, we have
+        \begin{equation*}
+            z=y'(x)-\alpha y(x)=c_1e^{\beta x}.
+        \end{equation*}
+        We may use the integrating factor \(\mu(x)=e^{\int -\alpha \dd x}=e^{-\alpha x}\). Consider
+        \begin{align*}
+            y'(x)e^{-\alpha x}-\alpha y(x)e^{-\alpha x}&=c_1e^{\beta x}e^{-\alpha x} \\
+            &=\frac{\dd}{\dd x}(y(x)e^{-\alpha x}).
+        \end{align*}
+        By integration,
+        \begin{align*}
+            y(x)&=e^{\alpha x}\int c_1e^{(\beta-\alpha) x} \dd x \\
+            &=
+            \begin{cases}
+                e^{\alpha x}(c_1x+c_2)=c_1xe^{\alpha x}+c_2e^{\alpha x} & \alpha=\beta \\
+                e^{\alpha x}\left(\frac{c_1e^{(\beta-\alpha)x}}{\beta-\alpha}+c_2\right)=\frac{c_1}{\beta-\alpha}e^{\beta x}+c_2e^{\alpha x}=\tilde{c}_1e^{\beta x}+c_2e^{\alpha x} & \alpha\neq\beta
+            \end{cases}.
+        \end{align*}
+        In the first case \(\alpha=\beta\), we have that \(\alpha=\beta\) is a double root of the polynomial \(m^2-2\alpha m+\alpha^2=0\). In the second case, \(\alpha\) and \(\beta\) are distinct solutions to the polynomial \(m^2-(\alpha+\beta)m+\alpha\beta=0\). Both solutions are truly general solutions, because there are \(n=2\) linearly independent terms in the linear combination.  
+        \pagebreak
+
+\section{Lecture 15: February 28, 2023}
+
+    \subsection{Solving Linear Homogeneous Equations With Constant Coefficients: Part II}
+
+        With the discoveries in the previous section, we provide the following definition and theorem.
+        \begin{definition}{\Stop\,\,Characteristic Polynomials}{characteristicpolynomial}
+
+            Let \(F(x,y,\ldots,y^{(n)})_{\text{hom}}=a_ny^{(n)}+\cdots+a_0y=0\) be an ordinary differential equation. The characteristic polynomial of \(F\) is given by
+            \begin{equation*}
+                p_F(m)=a_nm^n+\cdots+a_0m^0.
+            \end{equation*}
+            
+        \end{definition}
+        \begin{theorem}{\Stop\,\,Finding Solutions With Characteristic Polynomials}{usingcharpoly}
+
+            If \(F(x,y,\ldots,y^{(n)})_{\text{hom}}=a_ny^{(n)}+\cdots+a_0y=0\) has a characteristic polynomial with factors into distinct factors,
+            \begin{equation*}
+                y(x,c_1,\ldots c_n)=c_1e^{m_1x}+\cdots+c_ne^{m_nx},
+            \end{equation*}
+            If \(F(x,y,\ldots,y^{(n)})_{\text{hom}}=a_ny^{(n)}+\cdots+a_0y=0\) has a characteristic polynomial that factors into \(k\) distinct roots, \(k<n\), that is,
+            \begin{equation*}
+                p_F(m)=(m-m_1)^{r_1}+\cdots+(m-m_k)^{r_k},
+            \end{equation*}
+            where \(r_1+\cdots+r_k=n\). We have
+            \begin{equation*}
+                y(x,c_1,\ldots,c_n)=(c_1x^0+\cdots+c_{r_1}x^{r_1-1})e^{m_1x}+\cdots+(c_{n-r_k}x^0+\cdots+c_nx^{n-r_k})e^{m_nx}.
+            \end{equation*}
+            
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        We will now provide an important remark about Theorem \ref{thm:usingcharpoly} for the ease of understanding. Let \(p_F(m)\) be a characteristic polynomial with root \(m_k\in\mathbb{C}\). We may use Euler's Formula to remove imaginary exponents from the \(n\)th parameter family given by Theorem \ref{thm:usingcharpoly}. For convenience, a statement of Euler's Formula is given in Theorem \ref{thm:eulerformula}.
+        \pagebreak
+        \begin{theorem}{\Stop\,\,Euler's Formula}{eulerformula}
+
+            For \(\theta\in\mathbb{R}\),
+            \begin{equation*}
+                e^{i\theta}=\cos\theta+i\sin\theta.
+            \end{equation*}
+            \begin{proof}
+                Recall that \(i^0=i^4=i^8=\cdots=1\), \(i^1=i^5=i^9=\cdots=i\), \(i^2=i^6=i^10=\cdots=-1\), and \(i^3=i^7=i^{11}=\cdots=-i\). If we define, for \(z\in\mathbb{C}\), 
+                \begin{equation*}
+                    e^z=\sum_{k=0}^\infty \frac{z^k}{k!},
+                \end{equation*}
+                we have that
+                \begin{align*}
+                    e^{i\theta}&=1+ix+\frac{(ix)^2}{2!}+\frac{(ix)^3}{3!}+\frac{(ix)^4}{4!}+\frac{(ix)^5}{5!}+\cdots \\
+                    &=1+ix-\frac{x^2}{2!}-\frac{ix^3}{3!}+\frac{x^4}{4!}+\frac{ix^5}{5!}+\cdots \\
+                    &=\left(1-\frac{x^2}{2!}+\frac{x^4}{4!}+\cdots\right)+i\left(x-\frac{x^3}{3!}+\frac{x^5}{5!}+\cdots\right) \\
+                    &=\cos\theta+i\sin\theta,
+                \end{align*}
+                as desired.
+            \end{proof}
+            
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        To use Euler's Formula, suppose that \(p_L(m)\) is our characteristic polynomial with root \(m_k=a+bi\in\mathbb{C}\). Then, \(\bar{m_\ell}=a-bi\in\mathbb{C}\) is also a root of \(p_L(m)\). Without loss of generality, suppose both \(m_k\) and \(m_\ell\) have multiplicity \(1\). Let our solution components be
+        \begin{equation*}
+            y_k(x)=e^{(a+bi)x}=e^{ax}(\cos(bx)+i\sin(bx)),\quad y_\ell(x)=e^{(a-bi)x}=e^{ax}(\cos(bx)-i\sin(bx)).
+        \end{equation*}
+        Since the linear combination of \(y_k\) and \(y_\ell\) is a solution, \(\frac{1}{2}y_k(x)+\frac{1}{2}y_\ell(x)=e^{ax}\cos(bx)\) is a solution, and \(\frac{1}{2i}y_k(x)-\frac{1}{2i}y_\ell(x)=e^{ax}\sin(bx)\) is also a solution. Thus,
+        \begin{equation*}
+            y_{k,\ell}=c_ke^{ax}\cos(bx)+c_\ell e^{ax}\sin(bx)
+        \end{equation*}
+        is a solution.
+        \pagebreak
+        \\
+        \\
+        Consider the following examples.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Real Roots 1}{realroots1}
+            
+            Find a general solution to
+            \begin{equation*}
+                2y''+y'-6y=0.
+            \end{equation*}
+            The characteristic polynomial is
+            \begin{equation*}
+                2m^2+m-6=0,
+            \end{equation*}
+            which can be rewritten as
+            \begin{equation*}
+                (2m-3)(m+2)=0.
+            \end{equation*}
+            We can see that \(m=-2\) and \(m=\frac{3}{2}\) are solutions to the characteristic polynomial. Therefore,
+            \begin{equation*}
+                y=c_1e^{-2x}+c_2e^{\frac{3}{2}x}.
+            \end{equation*}
+        
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Real Roots 2}{realroots2}
+        
+            Find a general solution to
+            \begin{equation*}
+                y'''-6y''+11y'-6y=0.
+            \end{equation*}
+            The characteristic polynomial is
+            \begin{equation*}
+                m^3-6m^2+11m-6=0.
+            \end{equation*}
+            We may carry out polynomial long division, with the substitution \(x=m\), as follows
+            \begin{equation*}
+                \polylongdiv{x^3-6x^2+11x-6}{x-1}.
+            \end{equation*}
+            We can see that \(m=1\), \(m=2\), and \(m=3\) are solutions to the characteristic polynomial. Therefore, 
+            \begin{equation*}
+                y=c_1e^x+c_2e^{2x}+c_3e^{3x}.
+            \end{equation*}
+        
+        \end{example}
+        \pagebreak
+        \begin{example}{\Difficulty\,\Difficulty\,\,Real Roots 3}{realroots3}
+        
+            Find a general solution to
+            \begin{equation*}
+                2y'''-7y''+4y'+4y=0.
+            \end{equation*}
+            The characteristic polynomial is
+            \begin{equation*}
+                2m^3-7m^2+4m+4=0.
+            \end{equation*}
+            We may carry out polynomial long division, with the substitution \(x=m\), as follows
+            \begin{equation*}
+                \polylongdiv{2x^3-7x^2+4x+4}{x-2}.
+            \end{equation*}
+            Therefore, the characteristic polynomial may be rewritten as
+            \begin{equation*}
+                (m-2)(2m^2-3m-2)=0.
+            \end{equation*}
+            The above quadratic can be factored as
+            \begin{equation*}
+                (2m+1)(m-2).
+            \end{equation*}
+            Therefore, the characteristic polynomial is
+            \begin{equation*}
+                (m-2)^2(2m+1)=0.
+            \end{equation*}
+            Therefore,
+            \begin{equation*}
+                y=c_1e^{2x}+c_2xe^{2x}+c_3e^{-\frac{1}{2}x}.
+            \end{equation*}
+        
+        \end{example}
+        \pagebreak
+        \begin{example}{\Difficulty\,\Difficulty\,\,Real Roots 4}{realroots4}
+        
+            Find a general solution to
+            \begin{equation*}
+                y''''-y'''-13y''+y'+12y=0.
+            \end{equation*}
+            The characteristic polynomial is
+            \begin{equation*}
+                m^4-m^3-13m^2+m+12=0.
+            \end{equation*}
+            We may carry out polynomial long division, with the substitution \(x=m\), as follows
+            \begin{equation*}
+                \polylongdiv{x^4-x^3-13x^2+x+12}{x-1}.
+            \end{equation*}
+            Therefore, the characteristic polynomial may be rewritten as
+            \begin{equation*}
+                (m-1)(m^3-13m-12)=0.
+            \end{equation*}
+            We may also perform polynomial long division with the above cubic, with the same substitution as before, producing
+            \begin{equation*}
+                \polylongdiv{x^3-13x-12}{x+1}.
+            \end{equation*}
+            Therefore, we have
+            \begin{equation*}
+                (m-1)(m+1)(m-4)(m+3)=0.
+            \end{equation*}
+            Therefore,
+            \begin{equation*}
+                y=c_1e^{-x}+c_2e^{x}+c_3e^{4x}+c_4e^{-3x}.
+            \end{equation*}
+            
+        \end{example}
+        \pagebreak
+        \begin{example}{\Difficulty\,\Difficulty\,\,Real Roots 5}{realroots5}
+        
+            Find a general solution to
+            \begin{equation*}
+                y'''''-4y''''-8y'''+14y''+7y'-10y=0.
+            \end{equation*}
+            The characteristic polynomial is
+            \begin{equation*}
+                m^5-4m^4-8m^3+14m^2+7m-10=0.
+            \end{equation*}
+            We may carry out polynomial long division, with the substitution \(x=m\), as follows
+            \begin{equation*}
+                \polylongdiv{x^5-4x^4-8x^3+14x^2+7x-10}{x-1}.
+            \end{equation*}
+            Therefore, the characteristic polynomial may be rewritten as
+            \begin{equation*}
+                (m-1)(m^4-3m^3-11m^2+3m+10)=0.
+            \end{equation*}
+            We may also perform polynomial long division with the above quartic, with the same substitution as before, producing
+            \begin{equation*}
+                \polylongdiv{x^4-3x^3-11x^2+3x+10}{x+2}.
+            \end{equation*}
+            We then obtain
+            \begin{equation*}
+                (m-1)(m+2)(m^3-5m^2-m+5)=0.
+            \end{equation*}
+            We may proceed similarly to produce
+            \begin{equation*}
+                (m-1)^2(m+2)(m-5)(m+1)=0.
+            \end{equation*}
+            Therefore,
+            \begin{equation*}
+                y=c_1e^x+c_2xe^x+c_3e^{-2x}+c_4e^{-x}+c_5e^{5x}.
+            \end{equation*}
+            
+        \end{example}
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Complex Roots 1}{complexroots1}
+        
+            Find a general solution to
+            \begin{equation*}
+                9y''+6y'+4y=0.
+            \end{equation*}
+            The characteristic polynomial is
+            \begin{equation*}
+                9m^2+6m+4.
+            \end{equation*}
+            By the quadratic formula,
+            \begin{equation*}
+                m=-\frac{1}{3}\pm\frac{\sqrt{3}}{3}.
+            \end{equation*}
+            Therefore,
+            \begin{equation*}
+                y=e^{-\frac{1}{3}}\left(c_1\cos\left(x\frac{\sqrt{3}}{3}\right)+c_2\sin\left(x\frac{\sqrt{3}}{3}\right)\right).
+            \end{equation*}
+            
+        \end{exercise}
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Complex Roots 2}{complexroots2}
+        
+            Find a general solution to
+            \begin{equation*}
+                y'''+27y'=0.
+            \end{equation*}
+            The characteristic polynomial is
+            \begin{equation*}
+                m^3+27m=0,
+            \end{equation*}
+            or
+            \begin{equation*}
+                m(m^2+27)=0,
+            \end{equation*}
+            which can further be factored as
+            \begin{equation*}
+                m(m+3i\sqrt{3})(m-3i\sqrt{3})=0.
+            \end{equation*}
+            Solutions are then \(m=0\) and \(m=\pm3i\sqrt{3}\). Therefore,
+            \begin{equation*}
+                y=c_1+c_2\cos(3x\sqrt{3})+c_3\sin(3x\sqrt{3}).
+            \end{equation*}
+        
+        \end{exercise}
