@@ -134,7 +134,7 @@
             \begin{equation*}
                 F(x,y,y',\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)+Q(x)=0,
             \end{equation*}
-            where all \(f_i=a_i\), \(0\leq i\leq n\), where \(a_i\in\mathbb{C}\) and \(Q\) are continuous on some common interval \(I\).
+            where all \(f_i=a_i\), \(0\leq i\leq n\), where \(a_i\in\mathbb{C}\) and \(Q\) are continuous on some common interval \(I\) and \(f_n(x)\neq0\) for all \(x\in I\).
             
         \end{definition}
         \begin{definition}{\Stop\,\,Homogeneous Linear Differential Equations}{homolindiffeq}
@@ -268,7 +268,7 @@
         \vphantom
         \\
         \\
-        To use Euler's Formula, suppose that \(p_L(m)\) is our characteristic polynomial with root \(m_k=a+bi\in\mathbb{C}\). Then, \(\bar{m_\ell}=a-bi\in\mathbb{C}\) is also a root of \(p_L(m)\). Without loss of generality, suppose both \(m_k\) and \(m_\ell\) have multiplicity \(1\). Let our solution components be
+        To use Euler's Formula, suppose that \(p_F(m)\) is our characteristic polynomial with root \(m_k=a+bi\in\mathbb{C}\). Then, \(\bar{m_\ell}=a-bi\in\mathbb{C}\) is also a root of \(p_F(m)\). Without loss of generality, suppose both \(m_k\) and \(m_\ell\) have multiplicity \(1\). Let our solution components be
         \begin{equation*}
             y_k(x)=e^{(a+bi)x}=e^{ax}(\cos(bx)+i\sin(bx)),\quad y_\ell(x)=e^{(a-bi)x}=e^{ax}(\cos(bx)-i\sin(bx)).
         \end{equation*}
@@ -523,54 +523,148 @@
             \end{align*}
             Therefore,
             \begin{align*}
-                y(x)&=c_1e^{-2x}+c_2e^{x\frac{-1+i\sqrt{3}}{2}}+c_3e^{x\frac{-1-i\sqrt{3}}{2}} \\
-                &=c_1e^{-2x}+c_2e^xe^{-\frac{1}{2}}e^{i\frac{\sqrt{3}}{2}}+c_3e^xe^{{-\frac{1}{2}}}e^{-\frac{i\sqrt{3}}{2}} \\
-                &=c_1e^{-2x}+\tilde{c}_2e^xe^{i\frac{\sqrt{3}}{2}}+\tilde{c}_3e^xe^{-\frac{i\sqrt{3}}{2}} \\
-                &=c_1e^{-2x}+\tilde{c}_2\cos\left(x\frac{\sqrt{3}}{2}\right)+\tilde{c}_3\sin\left(x\frac{\sqrt{3}}{2}\right)
+                y(x)&=c_1e^{-2x}+c_2e^{x\frac{-1+i\sqrt{3}}{2}}+c_3e^{x\frac{1-i\sqrt{3}}{2}} \\
             \end{align*}
             on \(\mathbb{R}\).
+            \DOTHISLATER
         \end{example}
 
 \pagebreak
 
-\section{Lecture 16, February 27, 2023}
+\section{Lectures 16, February 27, 2023}
 
     \subsection{The Method of Undetermined Coefficients: Part I}
 
-        Consider \(F(x,y\ldots,y^{(n)})=a_ny^{(n)}+\cdots+a_1y'+a_0y+Q(x)=0\). Recall that the general solution \(y(x)=y_c(x)+y_p(x)\) where \(y_c(x)\) is the general solution to \(F(x,y,\ldots,y^{(n)})_{\text{hom}}=0\). We wish to find \(y_p(x)\). If \(Q(x)\) is an elementary function and has finitely many linearly independent derivatives, we may use the Method of Undetermined Coefficients. We suppose that \(y_p(x)\) is formed by linear combinations of \(Q(x)\) and all linearly independent derivatives of \(Q(x)\). That is,
+        Consider \(F(x,y\ldots,y^{(n)})=a_ny^{(n)}+\cdots+a_1y'+a_0y+Q(x)=0\). Recall that the general solution 
         \begin{equation*}
-            y_p(x)=A_1Q(x)+\cdots+A_kQ^{(k-1)}(x).
+            y(x)=y_c(x)+y_p(x)
         \end{equation*}
-        and we need to find each \(A_i\). We provide the following table.
-        \begin{center}
-            \begin{tabular}{|c|c|}
-                \hline
-                \hspace{5em} & \hspace{15em} \\
-                \textbf{Forcing Term \(Q(x)\)} & \textbf{General Form} \\
-                & \\ \hline \hline
-                & \\
-                \(ae^{\beta x}\) & \(Ae^{\beta x}\) \\
-                & \\ \hline
-                & \\
-                \(a\cos(\beta x)+b\sin(\beta x)\) & \(A\cos(\beta x)+B\sin(\beta x)\) \\
-                & \\ \hline
-                & \\
-                \(a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0\) & \(A_nx^n+A_{n-1}x^{n-1}+\cdots+A_1+A_0\) \\
-                & \\ \hline
-                & \\
-                \(e^{\beta x}(a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0)\) & \(e^{\beta x}(A_nx^n+A_{n-1}x^{n-1}+\cdots+A_1+A_0)\) \\
-                & \\ \hline
-                & \\
-                \(\cos(\beta x)(a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0)\) & \(\cos(\beta x)(A_nx^n+A_{n-1}x^{n-1}+\cdots+A_1+A_0)\) \\
-                & \\ \hline
-                & \\
-                \(\sin(\beta x)(a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0)\) & \(\sin(\beta x)(A_nx^n+A_{n-1}x^{n-1}+\cdots+A_1+A_0)\) \\
-                & \\ \hline
-            \end{tabular}
-        \end{center}
+        where \(y_c(x)\) is the general solution to \(F(x,y,\ldots,y^{(n)})_{\text{hom}}=0\). We wish to find \(y_p(x)\). If \(Q(x)\) is an elementary function that can be expressed as a sum of terms, each of which has finitely many linearly independent derivatives, we may use the Method of Undetermined Coefficients.
+        \\
+        \\
+        Note that the Method of Undetermined Coefficients will only work if \(Q(x)\) only contains terms of the form \(a,x^k,e^{ax},\sin ax,\cos ax\), and combinations of the previous terms with \(a\in\mathbb{R}\) and \(k\in\mathbb{Z}^+\).
+\pagebreak
+
+\section{Lecture 17, March 1, 2023 \& Lecture 18, March 3, 2023}
+
+    \subsection{The Method of Undetermined Coefficients: Part II}
+
+        Consider the following cases that often arise with the Method of Undetermined Coefficients.
+        \begin{enumerate}
+            \item The forcing term \(Q(x)\) contains no term \(u(x)=x^ky_i(x)\) for \(k\in\mathbb{N}\) and \(y_i(x)\) a term of \(y_c(x)\).
+            \item The forcing term \(Q(x)\) contains a term \(u(x)=x^ky_i(x)\) for \(k\in\mathbb{N}\) and \(y_i(x)\) a term of \(y_c(x)\) arising from a root of multiplicity \(r_i\). Here \(y_p(x)\) is a liner combination of \(x^{k+r}u(x)\), all its linearly independent derivatives, and all linearly independent derivatives of the above case's terms.
+        \end{enumerate}
 
 \pagebreak
 
-\section{Lecture 17, March 1, 2023}
+\section{Lecture 19, March 6, 2023}
 
-    \subsection{The Method of Undetermined Coefficients: Part II}
+    \subsection{Variation of Parameters}
+
+        Recall that the Method of Undetermined Coefficients only works if the forcing term \(Q(x)\) in
+        \begin{equation*}
+            F(x,y,\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)y+Q(x)=0
+        \end{equation*}
+        can be expressed as a sum of terms, each of which has finitely many linearly independent derivatives. This severely restricts the solution technique, as \(x^{-n},\log(ax),\tan(x),\ldots\) have infinitely many derivatives. Consider the following outline.
+        \begin{enumerate}
+            \item Suppose \(F(x,y,\ldots,y^{(n)})=0\) has associated \(F(x,y,\ldots,y^{(n)})_{\text{hom}}=0\) with general solution \(y_c(x)=c_1y_1(x)+\cdots+c_ny_n(x)\).
+            \item Suppose that \(y_p(x)\) has the form \(y_p(x)=u_1(x)y_1(x)+\cdots+u_n(x)y_n(x)\) where \(u_1(x),\ldots,u_n(x)\) are continuously differentiable. If we take \(n\) derivatives and substitute into our original differential equation, we can form the system of \(n\) equations
+            \begin{align*}
+                \begin{cases}
+                    u_1'(x)y_1(x)+\cdots+u_n'(x)y_n(x)&=0 \\
+                    u_1'(x)y_1'(x)+\cdots+u_n'(x)y_n'(x)&=0 \\
+                    &\vdots \\
+                    u_1'(x)y_1^{(n-2)}(x)+\cdots+u_n'(x)y_n^{(n-2)}(x)&=0 \\
+                    u_1'(x)y_1^{(n-1)}(x)+\cdots+u_n'(x)y_n^{(n-1)}(x)&=\frac{Q(x)}{f_n(x)}
+                \end{cases}.
+            \end{align*}
+        \end{enumerate}
+        \vphantom
+        \\
+        \\
+        We wish to find \(u_i'(x)\) such that it is possible to solve for \(u_i(x)=\int u_i'(x)\dd x\). Consider
+        \begin{equation*}
+            \begin{bmatrix}
+                    y_1(x) & \cdots & y_n(x) \\
+                    y_1'(x) & \cdots & y_n'(x) \\
+                    \vdots & \ddots & \vdots \\
+                    y_1^{(n-2)}(x) & \cdots & y_n^{(n-2)}(x) \\
+                    y_1^{(n-1)}(x) & \cdots & y_n^{(n-1)}(x)
+            \end{bmatrix}
+            \begin{bmatrix}
+                u_1'(x) \\ u_2'(x) \\ \vdots \\ u_{n-1}'(x) \\ u_n'(x) 
+            \end{bmatrix}
+            =
+            \begin{bmatrix}
+                0 \\ 0 \\ \vdots \\ 0 \\ \frac{Q(x)}{f_n(x)}
+            \end{bmatrix}
+        \end{equation*}
+        We can solve this system using Cramer's Rule or matrix inverses. This is possible since \(S=\{y_1\ldots,y_n\}\) is linearly independent, so \(W(S)(x)\neq0\) on \(I\). Thus, our coefficient matrix is invertible and \(\det A\neq0\). For convenience, Cramer's Rule is provided below.
+        \begin{theorem}{\Stop\,\,Cramer's Rule}{cramersrule}
+
+            Suppose we have a system \(A\vec{X}=\vec{B}\), and \(\det A\neq0\). Let \(\vec{X}=[x_1,\ldots,x_n]^T\) be the solution vector. Then,
+            \begin{equation*}
+                x_i=\frac{\det A_i}{\det A}
+            \end{equation*}
+            where \(A_i\) is obtained by replacing the \(i\)th column of \(A\) with \(\vec{b}\).
+            
+        \end{theorem}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        Consider the following example.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Variation of Parameters 1}{varparam1}
+
+            Find a solution component of \(y^{(5)}-2y^{(4)}+y'''+x-e^{-x}=0\).
+            \\
+            \\
+            Note that here, \(Q(x)=e^{-x}-x\) and \(f_5(x)=1\). Note
+            \begin{equation*}
+                y_c(x)=c_1y_1(x)+c_2y_2(x)+c_3y_3(x)+c_4y_4(x)+c_5y_5(x)=c_1+c_2x+c_3x^2+c_4e^x+c_5xe^x.
+            \end{equation*}
+            Thus,
+            \begin{equation*}
+                A=\begin{bmatrix}
+                    1 & x & x^2 & e^x & xe^x \\
+                    0 & 1 & 2x & e^x & e^x+xe^x \\
+                    0 & 0 & 2 & e^x & 2e^x+xe^x \\
+                    0 & 0 & 0 & e^x & 3e^x+xe^x \\
+                    0 & 0 & 0 &  e^x & 4e^x+xe^x
+                \end{bmatrix}\underbrace{\to}_{\text{REF}}\begin{bmatrix}
+                    1 & x & x^2 & e^x & xe^x \\
+                    0 & 1 & 2x & e^x & e^x+xe^x \\
+                    0 & 0 & 2 & e^x & 2e^x+xe^x \\
+                    0 & 0 & 0 & e^x & 3e^x+xe^x \\
+                    0 & 0 & 0 & 0 & -3e^x-xe^x+4e^x+xe^x
+                \end{bmatrix}
+            \end{equation*}
+            Note that
+            \begin{equation*}
+                \vec{b}=\begin{bmatrix}
+                    0 \\ 0 \\ 0 \\ 0 \\ e^{-x}-x
+                \end{bmatrix}.
+            \end{equation*}
+            Since \(\ef A \in\mathcal{U}\), and our row operation didn't change the value of the determinant of \(A\), we have that \(\det A=2e^{2x}\). By Cramer's Rule,
+            \begin{align*}
+                u_5'(x)=\frac{\det A_5}{\det A}&=\frac{1}{2e^{2x}}\det \begin{bmatrix}
+                1 & x & x^2 & e^x & 0 \\
+                0 & 1 & 2x & e^x & 0 \\
+                0 & 0 & 2 & e^x & 0 \\
+                0 & 0 & 0 & e^x & 0 \\
+                0 & 0 & 0 &  e^x & e^{-x}-x
+            \end{bmatrix} \\
+            &=\frac{1}{2e^{2x}}\det \begin{bmatrix}
+                1 & x & x^2 & e^x & 0 \\
+                0 & 1 & 2x & e^x & 0 \\
+                0 & 0 & 2 & e^x & 0 \\
+                0 & 0 & 0 & e^x & 0 \\
+                0 & 0 & 0 & 0 & e^{-x}-x
+            \end{bmatrix} \\
+            &=\frac{2e^x(e^{-x}-x)}{2e^{2x}}=\frac{1-xe^{x}}{e^{2x}}=e^{-2x}-xe^{-x}.
+            \end{align*}
+            Then, we have that
+            \begin{equation*}
+                u_5(x)=\int (e^{-2x}-xe^{-x})\dd x.
+            \end{equation*}
+        \end{example}
