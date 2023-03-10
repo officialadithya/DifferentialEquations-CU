@@ -7,7 +7,7 @@
 
             An \(n\)th order linear ordinary differential equation, with respect to \(I\), is
             \begin{equation*}
-                F(x,y,y',\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)y+Q(x)=0
+                F(x,y,y',\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)y-Q(x)=0
             \end{equation*}
             where all \(f_i\), \(0\leq i\leq n\), and \(Q\) are continuous on some common interval \(I\) and \(f_n(x)\neq0\) for all \(x\in I\).
             
@@ -17,7 +17,7 @@
         \\
         Note that every first order linear differential equation can be written as 
         \begin{equation*}
-            F(x,y,y')=f_1(x)y'+f_0(x)y+Q(x)=y'+\tilde{P}(x)y+\tilde{Q}(x)=0.
+            F(x,y,y')=f_1(x)y'+f_0(x)y-Q(x)=y'+\tilde{P}(x)y+\tilde{Q}(x)=0.
         \end{equation*}
         and has the integrating factor \(\mu(x,y)=\mu(x)=e^{\int \tilde{P}(x)\dd x}\).
         \\
@@ -132,7 +132,7 @@
 
             An \(n\)th order linear homogeneous differential equation, with respect to \(I\), is 
             \begin{equation*}
-                F(x,y,y',\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)+Q(x)=0,
+                F(x,y,y',\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)-Q(x)=0,
             \end{equation*}
             where all \(f_i=a_i\), \(0\leq i\leq n\), where \(a_i\in\mathbb{C}\) and \(Q\) are continuous on some common interval \(I\) and \(f_n(x)\neq0\) for all \(x\in I\).
             
@@ -141,7 +141,7 @@
 
             An \(n\)th order linear homogeneous differential equation, with respect to \(I\), is 
             \begin{equation*}
-                F(x,y,y',\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)+Q(x)=0,
+                F(x,y,y',\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)-Q(x)=0,
             \end{equation*}
             where all \(f_i\), \(0\leq i\leq n\), and \(Q\) are continuous on some common interval \(I\) and \(f_n(x)\neq0\) and \(Q(x)=0\) for all \(x\in I\). 
             
@@ -158,7 +158,7 @@
             \end{equation*}
             Then, the solution to
             \begin{equation*}
-                \tilde{F}(x,y,y',\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)+Q(x)=0
+                \tilde{F}(x,y,y',\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)-Q(x)=0
             \end{equation*}
             is given by
             \begin{equation*}
@@ -531,11 +531,11 @@
 
 \pagebreak
 
-\section{Lectures 16, February 27, 2023}
+\section{Lectures 16, February 27, 2023 \& Lecture 17, March 1, 2023}
 
     \subsection{The Method of Undetermined Coefficients: Part I}
 
-        Consider \(F(x,y\ldots,y^{(n)})=a_ny^{(n)}+\cdots+a_1y'+a_0y+Q(x)=0\). Recall that the general solution 
+        Consider \(F(x,y\ldots,y^{(n)})=a_ny^{(n)}+\cdots+a_1y'+a_0y-Q(x)=0\). Recall that the general solution 
         \begin{equation*}
             y(x)=y_c(x)+y_p(x)
         \end{equation*}
@@ -543,27 +543,106 @@
         \\
         \\
         Note that the Method of Undetermined Coefficients will only work if \(Q(x)\) only contains terms of the form \(a,x^k,e^{ax},\sin ax,\cos ax\), and combinations of the previous terms with \(a\in\mathbb{R}\) and \(k\in\mathbb{Z}^+\).
+        \\
+        \\
+        Consider the following cases that often arise with the Method of Undetermined Coefficients. In the Method of Undetermined Coefficients, we compare the terms of \(y_c(x)\) to those of \(Q(x)\) to find \(y_p(x)\). Consider the following theorem.
+        \begin{theorem}{\Stop\,\,Cases of the Method of Undetermined Coefficients}{casesofmethundetcoeff}
+            
+            The following cases describe the Method of Undetermined Coefficients.
+            \begin{enumerate}
+                \item If no term of the forcing term \(Q(x)\) is the same as a term of \(y_c(x)\), \(y_p(x)\) will be a linear combination of the terms of \(Q(x)\) and all its linearly independent derivatives.
+                \item If the forcing term \(Q(x)\) contains a term which, ignoring constant coefficients, is \(x^ku(x)\), where \(u(x)\) is a term of \(y_c(x)\) and \(k\in\mathbb{N}\), \(y_p(x)\) will be a linear combination of \(x^{k+1}u(x)\) and all of its linearly independent derivatives, again ignoring constant coefficients. Note that if \(Q(x)\) contains terms which belong to Case \(1\), include them appropriately in \(y_p(x)\).
+            \end{enumerate}
+            
+        \end{theorem}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        For the Method of Undetermined Coefficients, to form the necessary linear combinations, consider the following table.
+        \\
+        \\
+        \begin{center}
+            \begin{tabular}{|c|c|}
+                \hline
+                \hspace{5em} & \hspace{15em} \\
+                \textbf{Forcing Term \(Q(x)\)} & \textbf{General Form of \(y_p(x)\)} \\
+                & \\ \hline \hline
+                & \\
+                \(ae^{\beta x}\) & \(Ae^{\beta x}\) \\
+                & \\ \hline
+                & \\
+                \(a\cos(\beta x)+b\sin(\beta x)\) & \(A\cos(\beta x)+B\sin(\beta x)\) \\
+                & \\ \hline
+                & \\
+                \(a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0\) & \(A_nx^n+A_{n-1}x^{n-1}+\cdots+A_1+A_0\) \\
+                & \\ \hline
+                & \\
+                \(e^{\beta x}(a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0)\) & \(e^{\beta x}(A_nx^n+A_{n-1}x^{n-1}+\cdots+A_1+A_0)\) \\
+                & \\ \hline
+                & \\
+                \(\cos(\beta x)(a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0)\) & \(\cos(\beta x)(A_nx^n+A_{n-1}x^{n-1}+\cdots+A_1+A_0)\) \\
+                & \\ \hline
+                & \\
+                \(\sin(\beta x)(a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0)\) & \(\sin(\beta x)(A_nx^n+A_{n-1}x^{n-1}+\cdots+A_1+A_0)\) \\
+                & \\ \hline
+            \end{tabular}
+        \end{center}
 \pagebreak
 
-\section{Lecture 17, March 1, 2023 \& Lecture 18, March 3, 2023}
+\section{Lecture 18, March 3, 2023}
 
     \subsection{The Method of Undetermined Coefficients: Part II}
 
-        Consider the following cases that often arise with the Method of Undetermined Coefficients.
-        \begin{enumerate}
-            \item The forcing term \(Q(x)\) contains no term \(u(x)=x^ky_i(x)\) for \(k\in\mathbb{N}\) and \(y_i(x)\) a term of \(y_c(x)\).
-            \item The forcing term \(Q(x)\) contains a term \(u(x)=x^ky_i(x)\) for \(k\in\mathbb{N}\) and \(y_i(x)\) a term of \(y_c(x)\) arising from a root of multiplicity \(r_i\). Here \(y_p(x)\) is a liner combination of \(x^{k+r}u(x)\), all its linearly independent derivatives, and all linearly independent derivatives of the above case's terms.
-        \end{enumerate}
+    Theorem \ref{thm:casesofmethundetcoeff} is quite technical, so we provide the following examples.
+    \begin{example}{\Difficulty\,\Difficulty\,\,Case 1 of the Method of Undetermined Coefficients 1}{case1methundetcoeff}
+        
+        FInd a general solution to \(F(x,y,y',y'')=y''+4y'+4y=4x^2+6e^x\) given that 
+        \begin{equation*}
+            y_c(x)=c_1e^{-2x}+c_2xe^{-2x}.
+        \end{equation*}
+        By Theorem \ref{thm:casesofmethundetcoeff}, \(y_p(x)\) is a linear combination of the terms of \(Q(x)=4x^2+6e^x\) and its derivatives. Suppose, then, that \(y_p(x)=Ax^2+Bx+Ce^x+D\). Then, \(y_p'(x)=2Ax+Ce^x+B\) and \(y_p''(x)=Ce^x+2A\). Then,
+        \begin{align*}
+            F(x,y_p,y_p',y_p'')&=Ce^x+2A+4(2Ax+Ce^x+B)+4(Ax^2+Bx+Ce^x+D)&=4x^2+6e^x \\
+            &=Ce^x+2A+8Ax+4Ce^x+4B+4Ax^2+4Bx+4Ce^x+4D&=4x^2+6e^x \\
+            &=4Ax^2+(8A+4B)x+9Ce^x+2A+4B+4D&=4x^2+6e^x.
+        \end{align*}
+        By matching coefficients, \(4Ax^2=4x^2\), so \(A=1\). Then, \(8A+4B=0\), so \(B=-2\). Then, \(9Ce^x=6\), so \(C=\frac{2}{3}\). Finally, since \(2A+4B+4D=0\), so \(D=\frac{3}{2}\). Therefore, our general solution is
+        \begin{equation*}
+            y(x)=c_1e^{-2x}+c_2xe^{-2x}+x^2-2x+\frac{2}{3}e^x+\frac{3}{2}
+        \end{equation*}
+        on \(\mathbb{R}\).
+
+    \end{example}
+    \begin{example}{\Difficulty\,\Difficulty\,\,Case 1 of the Method of Undetermined Coefficients 2}{case1methundetcoeff}
+        
+        Find a general solution to \(F(x,y,y',y'')=y''-3y'+2y=2xe^{3x}+3\sin x\) given that
+        \begin{equation*}
+            y_c(x)=c_1e^{3x}+c_2e^{2x}
+        \end{equation*}
+        By Theorem \ref{thm:casesofmethundetcoeff}, \(y_p(x)\) is a linear combination of the terms of \(Q(x)=2xe^{3x}+3\sin x\) and its derivatives. Suppose, then, that \(y_p(x)=A\sin x+B\cos x+Ce^{3x}+Dxe^{3x}\). Then, \(y_p'(x)=A\cos x-B\sin x+3Ce^{3x}+3Dxe^{3x}+De^{3x}\) and \(y_p''(x)=-A\sin x-B\cos x+9Ce^{3x}+9Dxe^{3x}+6De^{3x}\). Then,
+        \small{\begin{align*}
+            F(x,y,y',y'')&=2Dxe^{3x}+(2C+3D)e^{3x}+(A+3B)\sin x+(B-3A)\cos x &= 2xe^{3x}+3\sin x.
+        \end{align*}}
+        By matching coefficients, \(2Dx=2x\), so \(D=1\).
+
+    \end{example}
+    \begin{example}{\Difficulty\,\Difficulty\,\,Case 2 of the Method of Undetermined Coefficients 1}{case1methundetcoeff}
+        
+    \end{example}
+    \begin{example}{\Difficulty\,\Difficulty\,\,Case 2 of the Method of Undetermined Coefficients 2}{case1methundetcoeff}
+        
+    \end{example}
 
 \pagebreak
 
 \section{Lecture 19, March 6, 2023}
 
-    \subsection{Variation of Parameters}
+    \subsection{Variation of Parameters: Part I}
 
         Recall that the Method of Undetermined Coefficients only works if the forcing term \(Q(x)\) in
         \begin{equation*}
-            F(x,y,\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)y+Q(x)=0
+            F(x,y,\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)y-Q(x)=0
         \end{equation*}
         can be expressed as a sum of terms, each of which has finitely many linearly independent derivatives. This severely restricts the solution technique, as \(x^{-n},\log(ax),\tan(x),\ldots\) have infinitely many derivatives. Consider the following outline.
         \begin{enumerate}
@@ -668,3 +747,193 @@
                 u_5(x)=\int (e^{-2x}-xe^{-x})\dd x.
             \end{equation*}
         \end{example}
+
+\section{Lecture 20, March 8, 2023}
+
+    \subsection{Variation of Parameters: Part II}
+
+        Consider the following example.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Variation of Parameters 2}{varparam2}
+            
+            Find a general solution to \(F(x,y,y',y'')=y''-2y'-\log x=0\).
+            \\
+            \\
+            Here \(Q(x)=\log x\). Note that we cannot use the method of Undetermined Coefficients, as \(\log x\) has infinitely many derivatives. Since \(F(x,y,y',y'')_\text{hom}=y''-2y'=0\), \(p_F(m)=m^2-2m=0\), so
+            \begin{equation*}
+                y_c(x)=c_1+c_2e^{2x}.
+            \end{equation*}
+            Thus,
+            \begin{equation*}
+                A=\begin{bmatrix}
+                    1 & e^{2x} \\
+                    0 & 2e^{2x}
+                \end{bmatrix}
+            \end{equation*}
+            Note that
+            \begin{equation*}
+                \vec{b}=\begin{bmatrix}
+                    0 \\
+                    \log x
+                \end{bmatrix}.
+            \end{equation*}
+            We have that \(\det A=2e^{2x}\), so by Cramer's Rule,
+            \begin{align*}
+                u_1'(x)=\frac{\det A_1}{\det A}&=\frac{1}{2e^{2x}}\det \begin{bmatrix}
+                    0 & e^{2x} \\
+                    \log x & 2e^{2x}
+                \end{bmatrix} \\
+                &=\frac{-e^{2x}\log x}{2e^{2x}}=-\frac{\log x}{2}
+            \end{align*}
+            and
+            \begin{align*}
+                u_2'(x)=\frac{\det A_2}{\det A}&=\frac{1}{2e^{2x}}\det \begin{bmatrix}
+                    1 & 0 \\
+                    0 & \log x
+                \end{bmatrix} \\
+                &=\frac{\log x}{2e^{2x}}.
+            \end{align*}
+            Then,
+            \begin{align*}
+                y_p(x)&=-\frac{1}{2}\int \log x \dd x+e^{2x}\int \frac{\log x}{e^{2x}}\dd x \\
+                &=-\frac{1}{2}\left(x\log x-x\right)+\frac{e^{2x}}{2}\int \frac{\log x}{e^{2x}}\dd x.
+            \end{align*}
+            Therefore,
+            \begin{equation*}
+                y(x)=c_1+c_2e^{2x}=-\frac{1}{2}\left(x\log x-x\right)+\frac{e^{2x}}{2}\int \frac{\log x}{e^{2x}}\dd x,
+            \end{equation*}
+            on \(\{x\in\mathbb{R}:x>0\}\).
+
+        \end{example}
+
+    \subsection{Reduction of Order}
+
+        Consider the following theorems.
+        \begin{theorem}{\Stop\,\,A Useful Lemma for Reduction of Order}{usefullemmareduction}
+
+            Given \(n-1\) linearly independent solutions of an \(n\)th order linear differential equation, the \(n\)th \(1\)-parameter family of solutions can be obtained.
+            
+        \end{theorem}
+        \begin{theorem}{\Stop\,\,Reduction of Order, in the \(n=2\) Case}{redord2order}
+
+            Let \(F(x,y,y,',y'')=f_2(x)y''+f_1(x)y'+f_0(x)y-Q(x)=0\) has the known \(1\)-parameter family \(c_1y_1(x)\), a linearly independent second solution is given by
+            \begin{equation*}
+                y_2(x)=y_1(x)\int \frac{e^{-\int \frac{f_1(x)}{f_2(x)}\dd x}}{(y_1(x))^2} \dd x.
+            \end{equation*}
+            
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        \begin{example}{\Difficulty\,\Difficulty\,\,Reduction of Order 1}{redord1}
+
+            Use Reduction of Order to find the general solution to \(x^2y''-2xy'+2y=0\) given that \(y_1(x)=x\).
+            \\
+            \\
+            By Theorem \ref{thm:redord2order},
+            \begin{align*}
+                y_2(x)&=x\int \frac{e^{-\frac{-2x}{x^2}}}{x^2}\dd x \\
+                &=x\int \frac{e^{\frac{2}{x}}}{x^2} \dd x \\
+                &=x\int \dd x \\
+                &=x^2,
+            \end{align*}
+            so \(y_c(x)=c_1x+c_2x^2\) on \(\{x\in\mathbb{R}:x\neq0\}\).
+            
+        \end{example}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        We may now use Variation of Parameters on Example \ref{exa:redord1} with any forcing term \(Q(x)\). Consider the following example.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Variation of Parameters With Reduction of Order}{varparamredord}
+
+            Find a general solution to \(x^2y''-2xy'+2y=x\log x\). Here, \(Q(x)=x\log x\), and recall \(y_c(x)=c_1x+c_2x^2\). Thus,
+            \begin{equation*}
+                A=\begin{bmatrix}
+                    x & x^2 \\
+                    1 & 2x
+                \end{bmatrix}.
+            \end{equation*}
+            Note that
+            \begin{equation*}
+                \vec{b}=\begin{bmatrix} 0 \\ \frac{x\log x}{x^2} \end{bmatrix}.
+            \end{equation*}
+            We have that \(\det A=x^2\), so by Cramer's Rule,
+            \begin{align*}
+                u_1'(x)&=\frac{1}{x^2}\det\begin{bmatrix} 0 & x^2 \\ \frac{x\log x}{x^2} & 2x \end{bmatrix} \\
+                &=-\frac{1}{x}\log x
+            \end{align*}
+            and
+            \begin{align*}
+                u_2'(x)&=\frac{1}{x^2}\det\begin{bmatrix} x & 0 \\ 1 & \frac{x\log x}{x^2} \end{bmatrix} \\
+                &=\frac{1}{x^2}\log x.
+            \end{align*}
+            Then,
+            \begin{align*}
+                y_p(x)&=x\int -\frac{1}{x}\log x \dd x+x^2\int \frac{1}{x^2}\log x\dd x \\
+                &=-\frac{x(\log x)^2}{2}+x(-\log x+1)
+            \end{align*}
+            Thus, the general solution is
+            \begin{equation*}
+                y(x)=c_1+c_2x-\frac{x(\log x)^2}{2}+x(-\log x+1).
+            \end{equation*}
+            
+        \end{example}
+
+\pagebreak
+
+\section{Lecture 21: March 10, 2023}
+
+    \subsection{The Laplace Transform}
+
+        Recall the definition of an improper integral.
+        \begin{definition}{\Stop\,\,Improper Integrals}{impropint}
+
+            Let \(f\in C(\{x\in\mathbb{R}:x\geq \alpha, \alpha\in\mathbb{R}\})\). Then,
+            \begin{equation*}
+                \int_\alpha^\infty f(x)\dd x=\lim_{\beta\to \infty}\int_\alpha^\beta f(x)\dd x
+            \end{equation*}
+            exists if and only if the limit exists, and is finite.
+            
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        Consider the following definitions and theorems.
+        \begin{definition}{\Stop\,\,The Laplace Transform}{laplace}
+        
+            Let \(s>0\in\mathbb{R}\) and \(f\in C(\{t\in\mathbb{R}:x\geq s\})\). Then, the Laplace Transform of \(f\) is defined as
+            \begin{equation*}
+                F(s)=\laplace{f(t)}=\int_{t=0}^{t=\infty} e^{-st}f(t)\dd t.
+            \end{equation*}
+            The improper integral may diverge. To alleviate this, we restrict the Laplace Transform to functions \(f(t)\) of exponential growth order or less.
+        
+        \end{definition}
+        \begin{theorem}{\Stop\,\,The Linearity of the Laplace Transform}{laplaceprop2}
+    
+            Let \(f(t)\) and \(g(t)\) be functions such that \(\laplace{f(t)}=F(s)\) exists for \(s>s_1\) and \(\laplace{g(t)}=G(s)\) exists for \(s>s_2\) and \(\alpha,\beta\in\mathbb{C}\). Then, choosing \(s>\max(\{s_1,s_2\})\),
+            \begin{equation*}
+                \laplace{\alpha f(t)+\beta g(t)}=\alpha\laplace{f(t)}+\beta\laplace{g(t)}.
+            \end{equation*}
+            \begin{proof}
+                The result follows from the linearity of the Riemann integral.
+            \end{proof}
+        
+        \end{theorem}
+        \begin{theorem}{\Stop\,\,The Injectivity of the Laplace Transform}{injectivelaplace}
+
+            Let \(f(t),g(t)\in C(\{x\in\mathbb{R}:x\geq0\})\) such that \(\laplace{f(t)}=\laplace{g(t)}\). Then \(f(t)=g(t)\) almost\footnote{Measure Theory.} everywhere on \(\{x\in\mathbb{R}:t\geq0\}\).
+            
+        \end{theorem}
+        \pagebreak
+        \begin{theorem}{\Stop\,\,The Laplace of a Derivative}{laplaceprop1}
+    
+            The Laplace Transform turns differentiation into multiplication. That is, 
+            \begin{align*}
+                \laplace{f'(t)}&=\int_{t=0}^{t=\infty}e^{-st}f'(t)\dd t \\
+                &=\left(\frac{f(t)}{e^{st}}\right)_{t=0}^{t=\infty}+s\int_{t=0}^{t=\infty} e^{-st}f(t) \dd t  \\
+                &=\lim_{b\to\infty}\left(\frac{f(t)}{e^{sb}}\right)-f(0)+s\int_{t=0}^{t=\infty} e^{-st}f(t) \dd t \\
+                &=s\mathcal{L}(f(t))-f(0).
+            \end{align*}
+            We must note that this is only possible for functions \(f(t)\) of exponential growth order or less.
+        
+        \end{theorem}
