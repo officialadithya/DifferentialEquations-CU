@@ -19,7 +19,7 @@
         \begin{equation*}
             F(x,y,y')=f_1(x)y'+f_0(x)y-Q(x)=y'+\tilde{P}(x)y+\tilde{Q}(x)=0.
         \end{equation*}
-        and has the integrating factor \(\mu(x,y)=\mu(x)=e^{\int \tilde{P}(x)\dd x}\).
+        and has the integrating factor \(\mu(x,y)=\mu(x)=e^{\int \tilde{P}(x)\dd x}\). After multiplying through, we use the product rule for differentials \(\dd(uv)=u\dd v+v\dd u\).
         \\
         \\
         Consider the following non-example of a linear ordinary differential equation.
@@ -89,9 +89,12 @@
             \end{equation*}
             
         \end{definition}
-        \begin{theorem}{\Stop\,\,Wronskians Determine Linear Independence}{wronskianslinindep}
+        \begin{theorem}{\Stop\,\,Wronskians Determine Linear Independence\(^*\)}{wronskianslinindep}
 
-            If \(S\) is linearly dependent, \(W(S)(x)=0\) for all \(x\in X\). If \(W(S)(x)\neq0\) for some \(x\in X\), \(S\) is linearly independent on \(X\). 
+            If \(S\) is linearly dependent on \(X\), \(W(S)(x)=0\) for all \(x\in X\). If \(W(S)(x)\neq0\) for some \(x\in X\), \(S\) is linearly independent on \(X\).
+            \\
+            \\
+            \(^*\)Wronksians are not necessary and sufficient to determine linear independence. 
             
         \end{theorem}
         \vphantom
@@ -130,18 +133,18 @@
         We will now study linear differential equations with constant coefficients. Consider the following definitions.
         \begin{definition}{\Stop\,\,Linear Differential Equations With Constant Coefficients}{constcoeff}
 
-            An \(n\)th order linear homogeneous differential equation, with respect to \(I\), is 
+            An \(n\)th order linear differential equation, with respect to \(I\), is 
             \begin{equation*}
-                F(x,y,y',\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)-Q(x)=0,
+                F(x,y,y',\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)y-Q(x)=0,
             \end{equation*}
-            where all \(f_i=a_i\), \(0\leq i\leq n\), where \(a_i\in\mathbb{C}\) and \(Q\) are continuous on some common interval \(I\) and \(f_n(x)\neq0\) for all \(x\in I\).
+            where all \(f_i=a_i\), \(0\leq i\leq n\), where \(a_i\in\mathbb{C}\) and \(Q\) is continuous on some common interval \(I\) and \(f_n(x)\neq0\) for all \(x\in I\).
             
         \end{definition}
         \begin{definition}{\Stop\,\,Homogeneous Linear Differential Equations}{homolindiffeq}
 
             An \(n\)th order linear homogeneous differential equation, with respect to \(I\), is 
             \begin{equation*}
-                F(x,y,y',\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)-Q(x)=0,
+                F(x,y,y',\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)y-Q(x)=0,
             \end{equation*}
             where all \(f_i\), \(0\leq i\leq n\), and \(Q\) are continuous on some common interval \(I\) and \(f_n(x)\neq0\) and \(Q(x)=0\) for all \(x\in I\). 
             
@@ -152,7 +155,7 @@
         Consider the following theorem.
         \begin{theorem}{\Stop\,\,Decomposing a Solution of a Linear Differential Equation}{decompsol}
 
-            Let \(F(x,y,y',\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)=0\) have the solution
+            Let \(F(x,y,y',\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)y=0\) have the solution
             \begin{equation*}
                 y_c(x,c_1,\ldots,c_n)=c_1y_1(x)+\cdots+c_ny_n(x).
             \end{equation*}
@@ -505,7 +508,7 @@
             \end{align*}
             Therefore,
             \begin{equation*}
-                y(x)=c_1+xc_2+x^2c_3+c_4e^{x}+xc_5e^x
+                y(x)=c_1+c_2x+c_3x^2+c_4e^{x}+c_5xe^x
             \end{equation*}
             on \(\mathbb{R}\).
         \end{example}
@@ -519,14 +522,13 @@
             \begin{align*}
                 p_F(m)&=m^3+3m^2+3m+2 \\
                 &=(m+2)(m^2+m+1) \\
-                &=(m+2)\left(m-\left(\frac{-1+i\sqrt{3}}{2}\right)\right)\left(m+\left(\frac{-1+i\sqrt{3}}{2}\right)\right)
+                &=(m+2)\left(m-\left(\frac{-1+i\sqrt{3}}{2}\right)\right)\left(m-\left(\frac{-1-i\sqrt{3}}{2}\right)\right)
             \end{align*}
             Therefore,
-            \begin{align*}
-                y(x)&=c_1e^{-2x}+c_2e^{x\frac{-1+i\sqrt{3}}{2}}+c_3e^{x\frac{1-i\sqrt{3}}{2}} \\
-            \end{align*}
+            \begin{equation*}
+                y(x)=c_1e^{-2x}+e^{-\frac{x}{2}}\left(c_2\cos\left(\frac{x\sqrt{3}}{2}\right)+c_2\sin\left(\frac{x\sqrt{3}}{2}\right)\right)
+            \end{equation*}
             on \(\mathbb{R}\).
-            \DOTHISLATER
         \end{example}
 
 \pagebreak
@@ -621,14 +623,20 @@
             y_c(x)=c_1e^{3x}+c_2e^{2x}
         \end{equation*}
         By Theorem \ref{thm:casesofmethundetcoeff}, \(y_p(x)\) is a linear combination of the terms of \(Q(x)=2xe^{3x}+3\sin x\) and its derivatives. Suppose, then, that \(y_p(x)=A\sin x+B\cos x+Ce^{3x}+Dxe^{3x}\). Then, \(y_p'(x)=A\cos x-B\sin x+3Ce^{3x}+3Dxe^{3x}+De^{3x}\) and \(y_p''(x)=-A\sin x-B\cos x+9Ce^{3x}+9Dxe^{3x}+6De^{3x}\). Then,
-        \small{\begin{align*}
+        \begin{align*}
             F(x,y,y',y'')&=2Dxe^{3x}+(2C+3D)e^{3x}+(A+3B)\sin x+(B-3A)\cos x &= 2xe^{3x}+3\sin x.
-        \end{align*}}
-        By matching coefficients, \(2Dx=2x\), so \(D=1\).
+        \end{align*}
+        By matching coefficients, \(2Dx=2x\), so \(D=1\). Then, \(2C+3D=0\), so \(C=-\frac{3}{2}\). We also have \(A+3B=3\) and \(B-3A=0\), so \(A=\frac{3}{10}\) and \(B=\frac{9}{10}\). Therefore, our general solution is
+        \begin{equation*}
+            y(x)=c_1e^{3x}+c_2e^{2x}+\frac{3}{10}\sin x+\frac{9}{10}\cos x-\frac{3}{2}e^{3x}+xe^{3x}
+        \end{equation*}
+        on \(\mathbb{R}\).
 
     \end{example}
     \begin{example}{\Difficulty\,\Difficulty\,\,Case 2 of the Method of Undetermined Coefficients 1}{case1methundetcoeff}
         
+        
+
     \end{example}
     \begin{example}{\Difficulty\,\Difficulty\,\,Case 2 of the Method of Undetermined Coefficients 2}{case1methundetcoeff}
         

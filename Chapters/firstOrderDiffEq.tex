@@ -400,12 +400,13 @@
             \begin{equation*}
                 (2y-\cos x)\dd y+y\sin x\dd x=0.
             \end{equation*}
-            Then, note that \(\frac{\partial}{\partial y}y\sin x=\sin x\) and \(\frac{\partial}{\partial x}=\sin x\). Since the partial derivatives are equal, and \(P\), \(Q\), \(\frac{\partial Q}{\partial x}\), and \(\frac{\partial P}{\partial y}\) are all continuous on the simply connected region \(\mathbb{R}^2\), the differential equation is exact. We must now find some \(z=f(x,y)\) such that \(\frac{\partial f}{\partial x}=y\sin x\) and \(\frac{\partial f}{\partial y}=2y-\cos x\). Then,
+            Let \(P(x,y)=y\sin x\) and \(Q(x,y)=2y-\cos x\).
+            Then, note that \(\frac{\partial P}{\partial y}=\sin x\) and \(\frac{\partial Q}{\partial x}=\sin x\). Since the partial derivatives are equal, and \(P\), \(Q\), \(\frac{\partial Q}{\partial x}\), and \(\frac{\partial P}{\partial y}\) are all continuous on the simply connected region \(\mathbb{R}^2\), the differential equation is exact. We must now find some \(z=f(x,y)\) such that \(\frac{\partial f}{\partial x}=y\sin x\) and \(\frac{\partial f}{\partial y}=2y-\cos x\). Then,
             \begin{align*}
-                f(x,y)&=\int y\sin x\dd x \\
+                f(x,y)=\int P(x,y)\dd x&=\int y\sin x\dd x \\
                 &=-y\cos x+c(y).
             \end{align*}
-            Note that, now, we have \(\frac{\partial f}{\partial y}=-\cos x+c'(y)=2y-\cos x\). Therefore, \(c'(y)=2y\), and
+            Note that, now, we have \(\frac{\partial f}{\partial y}=-\cos x+c'(y)=Q(x,y)=2y-\cos x\). Therefore, \(c'(y)=2y\), and
             \begin{align*}
                 f(x,y)&=\int c'(y)\dd y-y\cos x \\
                 &=y^2-y\cos x+c_1.
@@ -511,7 +512,7 @@
         As a review of the previous solution techniques, consider the following example.
         \begin{example}{\Difficulty\,\Difficulty\,\,3 Different Solution Techniques}{3difftechs}
 
-            Solve \(F(x,y,y')=2yy'+6x=0\) using separation of variables, homogeneous substitution, and integrating factors and exactness.
+            Solve \(F(x,y,y')=2yy'+6x=0\) using separation of variables and the homogeneous substitution.
             \\
             \\
             In differential form, we have
@@ -532,7 +533,7 @@
             \begin{equation*}
                 x^2=k\left(\frac{y^2+3x^2}{x^2}\right)
             \end{equation*}
-            The differential equation is also trivially exact on \(\mathbb{R}^2\).
+            Note that the differential equation is also trivially exact on \(\mathbb{R}^2\).
             
         \end{example}
         \begin{example}{An Differential Equation With an Integrating Factor Not a Function of \(x\)}{intfactnotx}
