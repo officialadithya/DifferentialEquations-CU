@@ -15,9 +15,9 @@
         \vphantom
         \\
         \\
-        Note that every first order linear differential equation can be written as 
+        Note that every first-order linear differential equation can be written as 
         \begin{equation*}
-            F(x,y,y')=f_1(x)y'+f_0(x)y-Q(x)=y'+\tilde{P}(x)y+\tilde{Q}(x)=0.
+            F(x,y,y')=\tilde{P}(x)y+\tilde{Q}(x)=0.
         \end{equation*}
         and has the integrating factor \(\mu(x,y)=\mu(x)=e^{\int \tilde{P}(x)\dd x}\). After multiplying through, we use the product rule for differentials \(\dd(uv)=u\dd v+v\dd u\).
         \\
@@ -31,6 +31,46 @@
             The differential equation \(F(x,y,y',y'',y''')\) is not a linear ordinary differential equation since \(\log(x-1)\), \(\arccos(x)\), and \(\log(x-2)\) are not continuous on any common interval.
             
         \end{example}
+        \vphantom
+        \\
+        \\
+        We now provide an example of solving a first-order linear differential equation using integrating factors.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Solving a First-Order Linear Equation Using Integrating Factors}{firstlinintfact}
+            
+            Solve \(F(x,y,y')=y'-4y\tan x+\sin x=0\).
+            \\
+            \\
+            We have that the integrating factor is given by
+            \begin{align*}
+                \mu(x)&=\exp\left(\int -4\tan x\dd x\right) \\
+                &=\exp(-4\log(\sec x)) \\
+                &=\sec^{-4}x.
+            \end{align*}
+            Then,
+            \begin{equation*}
+                \mu(x)F(x,y,y')=y'\sec^{-4}x-4y\tan x\sec^{-4}x+\sin x\sec^{-4}x=0. 
+            \end{equation*}
+            In differential form, we have
+            \begin{equation*}
+                \sec^{-4}x\dd y-4y\tan x\sec^{-4}x\dd x+\sin x\sec^{-4}x\dd x=0.
+            \end{equation*}
+            Then, we can obtain, by the product rule for differentials,
+            \begin{equation*}
+                \dd(y\sec^{-4}x)+\sin x\sec^{-4}x\dd x=0.
+            \end{equation*}
+            By integration, we obtain
+            \begin{align*}
+                c&=y\sec^{-4}x+\int \sin x\cos^{4}x\dd x \\
+                &=y\sec^{-4}x-\frac{\cos^5x}{5}
+            \end{align*}
+            Then, we have 
+            \begin{align*}
+                y(x)&=\frac{1}{\sec^{-4}x}\left(c+\frac{\cos^5x}{5}\right) \\
+                &=c\sec^4x+\frac{\cos x}{5},
+            \end{align*}
+            on \(\{x\in\mathbb{R}:x\neq \frac{\pi}{2}+k\pi, k\in\mathbb{Z}\}\), as desired.
+        \end{example}
+        \pagebreak
 
 \section{Lecture 12: February 20, 2023}
 
@@ -562,9 +602,8 @@
         \\
         \\
         For the Method of Undetermined Coefficients, to form the necessary linear combinations, consider the following table.
-        \\
-        \\
-        \begin{center}
+        \begin{table}[h!]
+            \centering
             \begin{tabular}{|c|c|}
                 \hline
                 \hspace{5em} & \hspace{15em} \\
@@ -589,7 +628,9 @@
                 \(\sin(\beta x)(a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0)\) & \(\sin(\beta x)(A_nx^n+A_{n-1}x^{n-1}+\cdots+A_1+A_0)\) \\
                 & \\ \hline
             \end{tabular}
-        \end{center}
+            \caption{Table of the General Forms of \(y_p(x)\) for the Method of Undetermined Coefficients}
+            \label{table:muc}
+        \end{table}
 \pagebreak
 
 \section{Lecture 18, March 3, 2023}
@@ -958,10 +999,10 @@
         \vphantom
         \\
         \\
-        Consider the following definitions and theorems.
+        Consider the following definition of the Laplace Transform and its related theorems.
         \begin{definition}{\Stop\,\,The Laplace Transform}{laplace}
         
-            Let \(s>0\in\mathbb{R}\) and \(f\in C(\{t\in\mathbb{R}:x\geq s\})\). Then, the Laplace Transform of \(f\) is defined as
+            Let \(s_0>0\in\mathbb{R}\) and \(f\in C(\{t\in\mathbb{R}:x\geq s_0\})\). Then, the Laplace Transform of \(f\) is defined as
             \begin{equation*}
                 F(s)=\laplace{f(t)}=\int_{t=0}^{t=\infty} e^{-st}f(t)\dd t.
             \end{equation*}
@@ -979,12 +1020,68 @@
             \end{proof}
         
         \end{theorem}
-        \begin{theorem}{\Stop\,\,The Injectivity of the Laplace Transform}{injectivelaplace}
-
-            Let \(f(t),g(t)\in C(\{x\in\mathbb{R}:x\geq0\})\) such that \(\laplace{f(t)}=\laplace{g(t)}\). Then \(f(t)=g(t)\) almost\footnote{Measure Theory.} everywhere on \(\{x\in\mathbb{R}:t\geq0\}\).
-            
-        \end{theorem}
         \pagebreak
+        \vphantom
+        \\
+        \\
+        To compute Laplace Transforms, we can use Definition \ref{def:laplace}, but in practice, it is much easier to use a table. A bare-bones table is provided in Table \ref{table:laplace}. Consider the following examples.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Computing a Laplace Transform 1}{computinglaplace1}
+            
+            Compute \(\laplace{6e^{-5t}+e^{3t}+5t^3-9}\).
+            \\
+            \\
+            We have that
+            \begin{align*}
+                \laplace{6e^{-5t}+e^{3t}+5t^3-9}&=6\laplace{e^{-5t}}+\laplace{e^{3t}}+5\laplace{t^3}-\laplace{9} \\
+                &=\frac{6}{s+5}+\frac{1}{s-3}+\frac{30}{s^4}-\frac{9}{s}.
+            \end{align*}
+
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Computing a Laplace Transform 2}{computinglaplace2}
+            
+            Compute \(\laplace{t^2\sin 2t}\).
+            \\
+            \\
+            We have that
+            \begin{align*}
+                \laplace{t^2\sin 2t}&=\frac{\dd^2}{\dd s^2}\frac{2}{s^2+4} \\
+                &=-\frac{\dd}{\dd s}\frac{4s}{(s^2+4)^2} \\
+                &=-\left(\frac{4}{(s^2+4)^2}-\frac{16s^2}{(s^2+4)^3}\right).
+            \end{align*}
+
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Computing a Laplace Transform 3}{computinglaplace3}
+            
+            Compute \(\laplace{4\cos 4t-9\sin 4t+2\cos 10t}\).
+            \\
+            \\
+            We have that
+            \begin{align*}
+                \laplace{4\cos 4t-9\sin 4t+2\cos 10t}&=4\laplace{\cos 4t}-9\laplace{\sin 4t}+2\laplace{\cos 10 t} \\
+                &=\frac{4s}{s^2+16}-\frac{36}{s^2+16}+\frac{2s}{s^2+100}.
+            \end{align*}
+
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Computing a Laplace Transform 4}{computinglaplace4}
+            
+            Compute \(\laplace{e^{3t}+\cos 6t-e^{3t}\cos 6t}\).
+            \\
+            \\
+            We have that
+            \begin{align*}
+                \laplace{e^{3t}+\cos 6t-e^{3t}\cos 6t}&=\laplace{e^{3t}}+\laplace{\cos 6t}-\laplace{e^{3t}\cos 6t} \\
+                &=\frac{1}{s-3}+\frac{s}{s^2+36}-\frac{s-3}{(s-3)^2+36}
+            \end{align*}
+
+        \end{example}
+
+\pagebreak
+    
+\section{Lecture 22: March 13, 2023}
+
+    \subsection{The Inverse Laplace Transform}
+
+        THe following theorems are both essential in using the Laplace Transform in order to solve differential equations.
         \begin{theorem}{\Stop\,\,The Laplace of a Derivative}{laplaceprop1}
     
             The Laplace Transform turns differentiation into multiplication. That is, 
@@ -997,3 +1094,223 @@
             We must note that this is only possible for functions \(f(t)\) of exponential growth order or less.
         
         \end{theorem}
+        \begin{theorem}{\Stop\,\,The Injectivity of the Laplace Transform (Lerch's Theorem)}{injectivelaplace}
+
+            Let \(f(t),g(t)\in C(\{x\in\mathbb{R}:x\geq0\})\) such that \(\laplace{f(t)}=\laplace{g(t)}\). Then, \(f(t)=g(t)\) almost everywhere\footnote{\href{https://en.wikipedia.org/wiki/Almost_everywhere}{Measure Theory.}} on \(\{x\in\mathbb{R}:t\geq0\}\).
+            
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        Theorem \ref{thm:injectivelaplace} tells us that if we have \(F(s)=G(s)\), where \(F\) and \(G\) are Laplace Transforms, the functions that were transformed to get \(F\) and \(G\) are indeed equal. This means we can construct the following definition.
+        \begin{definition}{\Stop\,\,The Inverse Laplace Transform}{inverselaplace}
+
+            If \(\laplace{f(t)}=F(s)\), we define
+            \begin{equation*}
+                \laplace[-1]{F(s)}=f(t).
+            \end{equation*}
+            
+        \end{definition}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        When computing the Inverse Laplace Transform, it is again useful to use a table, such as one provided in Table \ref{table:laplace}. It is also critical to use partial fraction decomposition techniques commonly taught in either a precalculus or second-semester calculus course. For convenience, we provide the below table.
+        \begin{table}[h!]
+            \centering
+            \begin{tabular}{||c|c||}
+                \hline
+                \hspace{5em} & \hspace{15em} \\
+                \textbf{Factor} & \textbf{Term} \\
+                & \\ \hline \hline
+                & \\
+                \((ax+b)^n\) & \(\dfrac{A_1}{(ax+b)}+\cdots+\dfrac{A_n}{(ax+b)^n}\) \\
+                & \\ \hline
+                & \\
+                \((ax^2+bx+c)^n\) & \(\dfrac{A_1x+B_1}{ax^2+bx+c}+\cdots+\dfrac{A_nx+B_n}{(ax^2+bx+c)^n}\) \\
+                & \\ \hline
+            \end{tabular}
+            \caption{Table of Partial Fraction Decompositions}
+            \label{table:pfds}
+        \end{table}
+        \vphantom
+        \\
+        \\
+        Consider the following examples.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Computing an Inverse Laplace Transform 1}{computinginvlaplace1}
+
+            Compute \(\laplace[-1]{\frac{6}{s}-\frac{1}{s-8}+\frac{4}{s-3}}\).
+            \\
+            \\
+            We have that
+            \begin{align*}
+                \laplace[-1]{\frac{6}{s}-\frac{1}{s-8}+\frac{4}{s-3}}&=\laplace[-1]{\frac{6}{s}}-\laplace[-1]{\frac{1}{s-8}}+\laplace[-1]{\frac{4}{s-3}} \\
+                &=6-e^{8t}+4e^{3t}.
+            \end{align*}
+            
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Computing an Inverse Laplace Transform 2}{computinginvlaplace2}
+
+            Compute \(\laplace[-1]{\frac{6s}{s^2+25}+\frac{3}{s^2+25}}\).
+            \\
+            \\
+            We have that
+            \begin{align*}
+                \laplace[-1]{\frac{6s}{s^2+25}+\frac{3}{s^2+25}}&=\laplace[-1]{\frac{6s}{s^2+25}}+\laplace[-1]{\frac{3}{s^2+25}} \\
+                &=6\cos 5t+\frac{3}{5}\sin 5t.
+            \end{align*}            
+        \end{example}
+        \pagebreak
+        \begin{example}{\Difficulty\,\Difficulty\,\,Computing an Inverse Laplace Transform 3}{computinginvlaplace3}
+
+            Compute \(\laplace[-1]{\frac{1}{s^3+4s^2+3s}}\).
+            \\
+            \\
+            We have that
+            \begin{align*}
+                \laplace[-1]{\frac{1}{s^3+4s^2+3s}}&=\laplace[-1]{\frac{1}{s(s^2+4s+3)}} \\
+                &=\laplace[-1]{\frac{A}{s}+\frac{B}{s+1}+\frac{C}{s+3}}.
+            \end{align*}
+            Then, \(1=A(s+1)(s+3)+Bs(s+3)+Cs(s+1)\), so \(A=\frac{1}{3}\), \(B=-\frac{1}{2}\), and \(C=\frac{1}{6}\). Thus,
+            \begin{align*}
+                \laplace[-1]{\frac{1}{s^3+4s^2+3s}}&=\laplace[-1]{\frac{1}{3}\frac{1}{s}-\frac{1}{2}\frac{1}{s+1}+\frac{1}{6}\frac{1}{s+3}} \\
+                &=\frac{1}{3}-\frac{1}{2}e^{-t}+\frac{1}{6}e^{-3t}.
+            \end{align*}
+            
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Computing an Inverse Laplace Transform 4}{computinginvlaplace4}
+
+            Compute \(\laplace[-1]{\frac{-s^5-2s^4+12}{2s^4(s+1)^2}}\).
+            \\
+            \\
+            We have that
+            \begin{equation*}
+                \laplace[-1]{\frac{-s^5-2s^4+12}{2s^4(s+1)^2}}=\laplace[-1]{\frac{A}{s}+\frac{B}{s^2}+\frac{C}{s^3}+\frac{D}{s^4}+\frac{E}{s+1}+\frac{F}{(s+1)^2}}.
+            \end{equation*}
+            Then,
+            \begin{equation*}
+                -s^5-2s^4+12=As^3(s+1)^2+Bs^2(s+1)^2+Cs(s+1)^2+D(s+1)^2+Es^4(s+1)+Fs^4.
+            \end{equation*}
+            By expanding the right hand side, and matching coefficients, we obtain \(A=-24\), \(B=18\), \(C=-12\), \(D=6\), \(E=\frac{47}{2}\), and \(F=\frac{11}{2}\). Thus,
+            \begin{align*}
+                \laplace[-1]{\frac{-s^5-2s^4+12}{2s^4(s+1)^2}}&=\laplace[-1]{-\frac{24}{s}+\frac{18}{s^2}-\frac{12}{s^3}+\frac{6}{s^4}+\frac{47}{2}\frac{1}{s+1}+\frac{11}{2}\frac{1}{(s+1)^2}} \\
+                &=-24+18t-12t^2+6t^3+\frac{47}{2}e^{-t}+\frac{11}{2}te^{-t}.
+            \end{align*}
+
+        \end{example}
+
+\pagebreak
+
+\section{Lecture 23: March 15, 2023}
+
+    \subsection{Solving Differential Equations With the Laplace Transform}
+    
+        We are now ready to solve linear differential equations using the Laplace Transform. Let
+        \begin{equation*}
+            F(x,y,y',\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)y-Q(x)=0.
+        \end{equation*}
+        Consider the following steps.
+        \begin{enumerate}
+            \item Form \(\laplace{F(x,y,y',\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)y-Q(x)}=\laplace{0}\).
+            \item Solve the resulting algebraic equation for \(\laplace{y(x)}\).
+            \item Find \(\laplace[-1]{\laplace{y(x)}}\) in order to find \(y(x)\).
+        \end{enumerate}
+
+\pagebreak
+
+\section{Lecture 24: March 17, 2023}
+
+    \subsection{Generalized Differential Operators}
+
+        Consider the following definition.
+        \begin{definition}{\Stop\,\,Differential Operators}{diffops}
+            
+            Let \(X\) and \(Y\) be spaces and \(D:X\to Y\). Then, \(D\) is a differential operator if and only if it is linear and satisfies the Leibniz Rule. That is,
+            \begin{equation*}
+                D(x_1,x_2)=x_1D(x_2)+x_2D(x_1).
+            \end{equation*}
+
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        For example, for \(C^k(\mathbb{R})\), the space of \(k\)-continuously differentiable functions on \(\mathbb{R}\), the regular differential operator \(D=\frac{\dd}{\dd x}\) satisfies the Leibniz Rule. Note \(\frac{\dd}{\dd x}:C^k(\mathbb{R})\to C^{k-1}(\mathbb{R})\).
+        \begin{example}{\Difficulty\,\Difficulty\,\,A Differential Operator}{adiffop}
+            
+            Given any \(\varphi\in C(\mathbb{R})\), consider \(D=\varphi(x)\frac{\dd}{\dd x}\). Show that \(D\) is a differential operator.
+            \\
+            \\
+            For \(f,g\in C^k(\mathbb{R})\),
+            \begin{align*}
+                D(c_1f(x)+c_2g(x))&=\varphi(x)\frac{\dd}{\dd x}(c_1f(x)+c_2g(x)) \\
+                &=c_1\varphi(x)f(x)+c_2\varphi(x)g(x),
+            \end{align*}
+            so \(D\) is linear. Then,
+            \begin{align*}
+                D(f(x),g(x))&=\varphi(x)\frac{\dd}{\dd x}(f(x)g(x)) \\
+                &=\varphi(x)f'(x)g(x)+\varphi(x)f(x)g'(x) \\
+                &=\varphi(x)f(x)g'(x)+\varphi(x)f'(x)g(x) \\
+                &=f(x)D(g(x))+g(x)D(f(x)),
+            \end{align*}
+            so \(D\) satisfies the Leibniz Rule and satisfies the Leibniz Rule.
+            
+        \end{example}
+        \vphantom
+        \\
+        \\
+        We will now introduce \(2\) common generalized differential operators.
+        \begin{equation*}
+            \tilde{D}=\varphi_1(x)\frac{\dd}{\dd x}+\cdots+\varphi_n\frac{\dd}{\dd x}\quad \hat{D}=\varphi_1(x)\frac{\dd}{\dd x}+\cdots+\varphi_n\frac{\dd^n}{\dd x^n}
+        \end{equation*}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        Consider the following example of computing a differential operator.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Computing a Differential Operator 1}{compdiffops1}
+
+            Consider \(D^n=\frac{\dd^n}{\dd x^n}\). Then, find \(((x^2+5)D^2-e^xD^3)(y(x)+\sin x)\).
+            \\
+            \\
+            We have that
+            \begin{align*}
+                ((x^2+5)D^2-e^xD^3)(y(x)+\sin x)&=((x^2+5)D^2-e^xD^3)y(x)+((x^2+5)D^2-e^xD^3)\sin x \\
+                &=(x^2+5)D^2y(x)-e^xD^3y(x)+(x^2+5)D^2\sin x-e^xD^3\sin x \\
+                &=(x^2+5)y''(x)-e^xy'''(x)-(x^2+5)\sin x+e^x\cos x.
+            \end{align*}
+
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Computing a Differential Operator 2}{compdiffops2}
+
+            Consider \(D^n=\frac{\dd^n}{\dd x^n}\). Then, find \(x^2D(\log(x) D(y(x)))\) and \(\log(x) D(x^2D(y(x)))\).
+            \\
+            \\
+            We have that
+            \begin{align*}
+                x^2D(\log(x) D(y(x)))&=x^2\left(\log(x) D^2(y(x))+\frac{1}{x}D(y(x))\right) \\
+                &=x^2\left(y''(x)\log(x) +y'(x)\frac{1}{x}\right)
+            \end{align*}
+            and
+            \begin{align*}
+                \log(x) D(x^2D(y(x)))&=\log(x)\left(x^2D^2(y(x))+2xD(y(x))\right) \\
+                &=\log(x)\left(x^2y''(x)+2xy'(x)\right).
+            \end{align*}
+            Note that \(x^2D(\log(x) D(y(x)))\neq \log(x) D(x^2D(y(x)))\).
+
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Computing a Differential Operator 3}{compdiffops3}
+
+            Consider \(D^n=\frac{\dd^n}{\dd x^n}\). Then, find \((f_n(x)D^n+\cdots+f_0(x)D^0)y(x)-Q(x)\).
+            \\
+            \\
+            We have that
+            \begin{align*}
+                (f_n(x)D^n+\cdots+f_0(x)D^0)y(x)-Q(x)&=f_n(x)y^{(n)}(x)+\cdots+f_0(x)y(x)-Q(x).
+            \end{align*}
+            Note that then,
+            \begin{equation*}
+                (f_n(x)D^n+\cdots+f_0(x)D^0)y(x)-Q(x)=0
+            \end{equation*}
+            is an \(n\)th order linear differential equation.
+
+        \end{example}

@@ -97,27 +97,24 @@
 \end{center}
 \vspace*{\fill}
 
-\chapter*{}
-\addcontentsline{toc}{chapter}{Table of Laplace Transforms}
-\markboth{TABLE OF LAPLACE TRANSFORMS}{TABLE OF LAPLACE TRANSFORMS}
+\appendix
+\appendixpage
+\noappendicestocpagenum
+\addappheadtotoc
 
-\begin{center}
+\chapter{Table of Laplace Transforms}
+\begin{table}[h!]
+    \centering
     \begin{tabular}{|c|c||c|c|}
     \hline
     \hspace{5em}&\hspace{15em} &\hspace{5em} &\hspace{15em} \\
-    \textbf{Function} & \textbf{Transform} & \textbf{Function} & \textbf{Transform} \\
+    \textbf{Function} & \textbf{Transform \(\left(F(s)=\laplace{f(t)}\right)\)} & \textbf{Function} & \textbf{Transform \(\left(F(s)=\laplace{f(t)}\right)\)} \\
     & & & \\\hline \hline
     & & & \\
-    $1$ & $\dfrac{1}{s}$ & $tf(t)$&$-F'(s)$ \\
+    $t^n$, $n\in\mathbb{N}$& $\dfrac{n!}{s^{n+1}}$ & $t^{a}$, $a>-1$ & $\dfrac{\Gamma(a+1)}{s^{a+1}}$ \\
     & & & \\\hline
     & & & \\
-    $t$ & $\dfrac{1}{s^2}$ & $\sqrt{t}$&$\dfrac{\sqrt{\pi}}{2s^{3/2}}$ \\
-    & & & \\\hline
-    & & & \\
-    $t^{a}$, $a>-1$ & $\dfrac{\Gamma(a+1)}{s^{a+1}}$ & $\dfrac{f(t)}{t}$&$\displaystyle\int_{s}^{\infty}F(\sigma)\ d\sigma$ \\
-    & & & \\\hline
-    & & & \\
-    $t^n$, $n\in\mathbb{N}$& $\dfrac{n!}{s^{n+1}}$ & $t^nf(t)$& $(-1)^{n}F^{(n)}(s)$\\
+    $\dfrac{f(t)}{t}$&$\displaystyle\int_{s}^{\infty}F(\sigma)\ d\sigma$ & $\displaystyle\int_{0}^{t}f(\tau)\ d\tau $ &$\dfrac{F(s)}{s}$  \\
     & & & \\\hline
     & & & \\
     $e^{at}$ & $\dfrac{1}{s-a}$ & $e^{at}f(t)$ &$F(s-a)$ \\
@@ -129,27 +126,19 @@
     $\cos(at)$ &$\dfrac{s}{s^2+a^2}$ & $t\cos(at)$ & $\dfrac{s^2-a^2}{(s^2+a^2)^2}$ \\
     & & & \\\hline
     & & & \\
-    $f'(t)$ & $sF(s)-f(0)$ &$\displaystyle\int_{0}^{t}f(\tau)\ d\tau $ &$\dfrac{F(s)}{s} $ \\
-    & & & \\\hline
-    & & & \\
-    $f''(t)$& $s^2F(s)-sf(0)-f'(0)$ & $u_c(t)$ & $\displaystyle \dfrac{e^{-cs}}{s}$ \\
-    & & & \\\hline
-    & & & \\
-    $f^{(n)}(t)$& $s^nF(s)-s^{n-1}f(0)-\cdots-f^{(n-1)}(0)$ & $u_c(t)f(t-c)$ & $\displaystyle e^{-cs}F(s)$ \\
-    & & & \\\hline
-    & & & \\
-    $(f*g)(t)$& $F(s)G(s)$ &$\delta(t-c)$ & $\displaystyle e^{-cs}$ \\
+    $f^{(n)}(t)$& $s^nF(s)-s^{n-1}f(0)-\cdots-f^{(n-1)}(0)$ & $t^nf(t)$& $(-1)^{n}F^{(n)}(s)$ \\
     & & & \\\hline
     \end{tabular}
-    \end{center}
+    \caption{Table of Laplace Transforms}
+    \label{table:laplace}
+\end{table}
 
-\pagebreak
 \chapter*{}
 \addcontentsline{toc}{chapter}{List of Theorems and Definitions}
 \markboth{LIST OF THEOREMS AND DEFINITIONS}{LIST OF THEOREMS AND DEFINITIONS}
 
     \input{References/listOfLabels.tex}
-
+    
 \begin{comment}
 
 \pagebreak

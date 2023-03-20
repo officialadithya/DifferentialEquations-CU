@@ -533,7 +533,7 @@
             \begin{equation*}
                 x^2=k\left(\frac{y^2+3x^2}{x^2}\right)
             \end{equation*}
-            Note that the differential equation is also trivially exact on \(\mathbb{R}^2\).
+            on \(\{x\in\mathbb{R}:x\neq0\}\). Note that the differential equation is also trivially exact on \(\mathbb{R}^2\).
             
         \end{example}
         \begin{example}{An Differential Equation With an Integrating Factor Not a Function of \(x\)}{intfactnotx}
@@ -551,4 +551,41 @@
             \end{equation*}
             Note that another integrating factor is \(\hat{\mu}(x,y)=e^{x^2y}\).
 
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Solving a Differential Equation Using an Integrating Factor}{intfact}
+            
+            Solve \(F(x,y,y')=(ye^y-xe^x)y'+e^x(x+1)=0\) by integrating factors and exactness.
+            \\
+            \\
+            We first can rewrite the equation in differential form to produce
+            \begin{equation*}
+                (ye^y-xe^x)\dd y+e^x(x+1)\dd x=0.
+            \end{equation*}
+            If we define \(P(x,y)=e^x(x+1)\) and \(Q(x,y)=ye^y-xe^x\). We see that \(\frac{\partial P}{\partial y}=0\) and \(\frac{\partial Q}{\partial x}=-e^x-xe^x\). We see that \(F\) is not exact. We seek to find an integrating factor \(\mu(x)\). Then, we have
+            \begin{align*}
+                \mu(x)&=\exp\left(\int \frac{1}{Q(x,y)} \left(\frac{\partial P}{\partial y}-\frac{\partial Q}{\partial x}\right)\dd x\right) \\
+                &=\exp\left(\int \frac{e^x+xe^x}{ye^y-xe^x}\dd x\right).
+            \end{align*}
+            We see that this is a lost cause, and instead try to find \(\mu(y)\), and see that
+            \begin{align*}
+                \mu(y)&=\exp\left(\int \frac{1}{P(x,y)} \left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\dd y\right) \\
+                &\exp\left(\int \frac{-e^x-xe^x}{e^x(x+1)}\dd y\right) \\
+                &=\exp\left(\int \frac{-e^x(x+1)}{e^x(x+1)}\dd y\right) \\
+                &=e^{-y}.
+            \end{align*}
+            Now, note \(\mu(y)F(x,y,y')=(y-xe^{x-y})\dd y+e^{x-y}(x+1)\dd x=0\). Let \(\tilde{P}(x,y)=e^{x-y}(x+1)\) and \(\tilde{Q}(x,y)=y-xe^{x-y}\). Then, \(\frac{\partial \tilde{P}}{\partial y}=-e^{x-y}(x+1)\) and \(\frac{\partial \tilde{Q}}{\partial x}=-xe^{x-y}-e^{x-y}=-e^{x-y}(x+1)=\frac{\partial P}{\partial y}\). We must now find some \(z=f(x,y)\) such that \(\frac{\partial f}{\partial x}=e^{x-y}(x+1)\) and \(\frac{\partial f}{\partial y}=y-xe^{x-y}\). We proceed by integration to obtain
+            \begin{align*}
+                f(x,y)=\int \tilde{Q}(x,y)\dd y&=\int (y-xe^{x-y}) \dd y \\
+                &=\frac{y^2}{2}+xe^{x-y}+c(x).
+            \end{align*}
+            Now, noting that \(\frac{\partial f}{\partial x}=\tilde{P}(x,y)\), we have that
+            \begin{align*}
+                \frac{\partial f}{\partial x}&=xe^{x-y}+e^{x-y}+c'(x) \\
+                &=e^{x-y}(x+1)+c'(x)=\tilde{P}(x,y).
+            \end{align*} 
+            Thus, \(c'(x)=0\), so \(c(x)=0\). Thus, our implicit solution is
+            \begin{equation*}
+                \frac{y^2}{2}+xe^{x-y}=c
+            \end{equation*}
+            on \(\mathbb{R}-\{-1\}\).
         \end{example}
