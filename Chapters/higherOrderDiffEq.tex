@@ -1220,7 +1220,7 @@
 
 \section{Lecture 24: March 17, 2023}
 
-    \subsection{Generalized Differential Operators}
+    \subsection{Generalized Differential Operators: Part I}
 
         Consider the following definition.
         \begin{definition}{\Stop\,\,Differential Operators}{diffops}
@@ -1258,9 +1258,9 @@
         \vphantom
         \\
         \\
-        We will now introduce \(2\) common generalized differential operators.
+        We will now introduce \(2\) common generalized differential operators:
         \begin{equation*}
-            \tilde{D}=\varphi_1(x)\frac{\dd}{\dd x}+\cdots+\varphi_n\frac{\dd}{\dd x}\quad \hat{D}=\varphi_1(x)\frac{\dd}{\dd x}+\cdots+\varphi_n\frac{\dd^n}{\dd x^n}
+            \tilde{D}=\varphi_1(x)\frac{\dd}{\dd x}+\cdots+\varphi_n\frac{\dd}{\dd x},\quad \hat{D}=\varphi_1(x)\frac{\dd}{\dd x}+\cdots+\varphi_n\frac{\dd^n}{\dd x^n}.
         \end{equation*}
         \pagebreak
         \vphantom
@@ -1314,3 +1314,78 @@
             is an \(n\)th order linear differential equation.
 
         \end{example}
+
+\pagebreak
+
+\section{Lecture 25: March 20, 2023}
+
+    \subsection{Generalized Differential Operators: Part II}
+
+        Consider the following properties of generalized differential operators.
+        \begin{theorem}{\Stop\,\,Properties of Generalized Differential Operators}{propsgendiffops}
+            
+            The following properties hold true for all generalized differential operators.
+            \begin{enumerate}
+                \item Commutativity of Addition: \(F(D)+G(D)=G(D)+F(D)\).
+                \item Associativity of Composition: \(F(D)[G(D)H(D)]=(F(D)G(D))[H(D)]\).
+                \item Distributivity I: \(F(D)[G(D)+H(D)]=F(D)[G(D)]+F(D)[H(D)]\).
+                \item Distributivity II: \((F(D)+G(D))[H(D)]=F(D)[H(D)]+G(D)[H(D)]\).
+                \item Additive Identity \(0\cdot\frac{\dd}{\dd x}=0\).
+                \item Compositional Identity: \(1\cdot D^0=1\).
+            \end{enumerate}
+
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        Consider the following definitions and theorems.
+        \begin{definition}{\Stop\,\,Polynomial Differential Operators}{polydiffops}
+
+            We define \(P_n(D)=a_nD^n+\cdots+a_0\), where \(a_0,\ldots,a_n\in\mathbb{C}\), as a polynomial differential operator of order \(n\).
+            
+        \end{definition}
+        \begin{theorem}{\Stop\,\,Polynomial Operators Satisfy Compositional Commutativity}{polyopscompcom}
+
+            For polynomial differential operators \(P_m(D)\) and \(P_n(D)\),
+            \begin{equation*}
+                P_m(D)[P_n(D)]=P_n(D)[P_m(D)]=P_{m+n}(D).
+            \end{equation*}
+            Moreover, if \(P_m(D)=a_nD^n+\cdots+a_0\) and \(P_n(D)=b_nD^n+\cdots+b_0\), \(P_{m+n}(D)\) has coefficients obtained through ordinary polynomial multiplication.
+            
+        \end{theorem}
+        \begin{theorem}{\Stop\,\,Factorization of Polynomial Operators}{factorpoly}
+
+            If \(a_nm^n+\cdots+a_0=(m-m_1)\cdots(m-m_n)\) for \(m_1,\ldots,m_n\in\mathbb{C}\), 
+            \begin{equation*}
+                P_n(D)=(D-m_1)\cdots(D-m_n).
+            \end{equation*}
+            
+        \end{theorem}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        Consider the following example.
+        \begin{example}{\Difficulty\,\Difficulty\,\,An Example Involving Theorem \ref{thm:factorpoly}}{factorpolyexa}
+
+            Show that
+            \begin{equation*}
+                P_3(D)=D^3-3D^2+2D=D[(D-2)[D-1]].
+            \end{equation*}
+            By Theorem \ref{thm:factorpoly}, this is true since \(m^3-3m^2+2m=m(m-2)(m-1)\). But, to explicitly show this, consider
+            \begin{align*}
+                (D^3-3D^2+2D)[y(x)]=y'''(x)-3y''(x)+2y'(x),
+            \end{align*}
+            and then
+            \begin{align*}
+                D[(D-2)[D-1]][y(x)]&=D[(D-2)[y'(x)-y(x)]] \\
+                &=D[y''(x)-3y'(x)+2y(x)] \\
+                &=y'''(x)-3y''(x)+2y'(x),
+            \end{align*}
+            as desired.
+            
+        \end{example}
+        \vphantom
+        \\
+        \\
+        Since \(P_n(D)[y]=0\) defines a linear ordinary differential equation with constant coefficients, the characteristic polynomial is precisely obtained by replacing \(D\) with \(m\). Note that factorization is still sometimes possible for some general differential operator \(F(D)\). Take \(x^2y''+2xy'=0\) as an example. Then, \(x^2D^2+2xD=D[x^2D]\).
