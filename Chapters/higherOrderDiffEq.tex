@@ -638,7 +638,7 @@
     \subsection{The Method of Undetermined Coefficients: Part II}
 
     Theorem \ref{thm:casesofmethundetcoeff} is quite technical, so we provide the following examples.
-    \begin{example}{\Difficulty\,\Difficulty\,\,Case 1 of the Method of Undetermined Coefficients 1}{case1methundetcoeff}
+    \begin{example}{\Difficulty\,\Difficulty\,\,Case 1 of the Method of Undetermined Coefficients 1}{case1methundetcoeff1}
         
         FInd a general solution to \(F(x,y,y',y'')=y''+4y'+4y=4x^2+6e^x\) given that 
         \begin{equation*}
@@ -657,7 +657,7 @@
         on \(\mathbb{R}\).
 
     \end{example}
-    \begin{example}{\Difficulty\,\Difficulty\,\,Case 1 of the Method of Undetermined Coefficients 2}{case1methundetcoeff}
+    \begin{example}{\Difficulty\,\Difficulty\,\,Case 1 of the Method of Undetermined Coefficients 2}{case1methundetcoeff2}
         
         Find a general solution to \(F(x,y,y',y'')=y''-3y'+2y=2xe^{3x}+3\sin x\) given that
         \begin{equation*}
@@ -665,7 +665,7 @@
         \end{equation*}
         By Theorem \ref{thm:casesofmethundetcoeff}, \(y_p(x)\) is a linear combination of the terms of \(Q(x)=2xe^{3x}+3\sin x\) and its derivatives. Suppose, then, that \(y_p(x)=A\sin x+B\cos x+Ce^{3x}+Dxe^{3x}\). Then, \(y_p'(x)=A\cos x-B\sin x+3Ce^{3x}+3Dxe^{3x}+De^{3x}\) and \(y_p''(x)=-A\sin x-B\cos x+9Ce^{3x}+9Dxe^{3x}+6De^{3x}\). Then,
         \begin{align*}
-            F(x,y,y',y'')&=2Dxe^{3x}+(2C+3D)e^{3x}+(A+3B)\sin x+(B-3A)\cos x &= 2xe^{3x}+3\sin x.
+            F(x,y_p,y_p',y_p'')&=2Dxe^{3x}+(2C+3D)e^{3x}+(A+3B)\sin x+(B-3A)\cos x &= 2xe^{3x}+3\sin x.
         \end{align*}
         By matching coefficients, \(2Dx=2x\), so \(D=1\). Then, \(2C+3D=0\), so \(C=-\frac{3}{2}\). We also have \(A+3B=3\) and \(B-3A=0\), so \(A=\frac{3}{10}\) and \(B=\frac{9}{10}\). Therefore, our general solution is
         \begin{equation*}
@@ -674,20 +674,56 @@
         on \(\mathbb{R}\).
 
     \end{example}
+    \begin{example}{\Difficulty\,\Difficulty\,\,Case 1 of the Method of Undetermined Coefficients 3}{case1methundetcoeff3}
+        
+        Find a general solution to \(F(x,y,y',y'')=y''-y=5x\).
+        \\
+        \\
+        We see that \(p_F(m)=m^2-1\), so \(y_c(x)=c_1e^x+c_2e^{-x}\). Then, by Theorem \ref{thm:casesofmethundetcoeff}, \(y_p(x)\) is a linear combination of \(Q(x)=5x\) and its derivatives. Suppose, then, that \(y_p(x)=Ax+B\). Then, \(y_p'(x)=A\) and \(y_p''(x)=0\). Then,
+        \begin{align*}
+            F(x,y_p,y_p',y_p'')&=0-Ax-B&=5x.
+        \end{align*}
+        Thus, \(A=-5\) and \(B=0\). Therefore, our general solution is
+        \begin{equation*}
+            y(x)=c_1e^x+c_2e^{-x}-5x
+        \end{equation*}
+        on \(\mathbb{R}\).
+
+    \end{example}
     \begin{example}{\Difficulty\,\Difficulty\,\,Case 2 of the Method of Undetermined Coefficients 1}{case1methundetcoeff}
         
-        Find a general solution to \(F(x,y,y',y'')=y''+y=\sin(x)\) given that
+        Find a general solution to \(F(x,y,y',y'')=y''+y=\sin x\) given that
         \begin{equation*}
             y_c(x)=c_1\cos x+c_2\sin x.
         \end{equation*}
+        By Theorem \ref{thm:casesofmethundetcoeff}, since \(\sin x=x^0\sin x\), \(y_p(x)\) will be a linear combination of \(x\sin x\) and its linearly independent derivatives. We have that \(y_p(x)=Ax\sin x+Bx\cos x\). Then, \(y_p'(x)=A\sin x+Ax\cos x-Bx\sin x+B\cos x\) and \(y_p''(x)=A\cos x+A\cos x-Ax\sin x-Bx\cos x-B\sin x-B\sin x\). Then,
+        \begin{align*}
+            F(x,y_p,y_p',y_p'')&=2A\cos x-2B\sin x&=\sin x.
+        \end{align*}
+        Thus, \(A=0\) and \(B=-\frac{1}{2}\). Therefore, our general solution is
+        \begin{equation*}
+            y(x)=c_1\cos x+c_2\sin x-\frac{1}{2}x\cos x
+        \end{equation*}
+        on \(\mathbb{R}\).
 
     \end{example}
+    \pagebreak
     \begin{example}{\Difficulty\,\Difficulty\,\,Case 2 of the Method of Undetermined Coefficients 2}{case1methundetcoeff}
 
         Find a general solution to \(y'''-4y''+4y'=3x^3\) given that
         \begin{equation*}
             y_c(x)=c_1+c_2e^{2x}+c_3xe^{2x}.
         \end{equation*}
+        By Theorem \ref{thm:casesofmethundetcoeff}, since \(3x^3=c_1x^3(1)\) ignoring constant coefficients, \(y_p(x)\) wil be a linear combination of \(x^4\) and all its linearly independent derivatives. We have that \(y_p(x)=Ax^4+Bx^3+Cx^2+Dx+E\). Then \(y_p'(x)=4Ax^3+3Bx^2+2Cx+D\), \(y_p''(x)=12Ax^2+6Bx+2C\), and \(y_p'''(x)=24Ax+6B\). Then,
+        \begin{align*}
+            F(x,y_p,y_p',y_p'',y_p''')&=24Ax+6B-48Ax^2-24Bx-8C+16Ax^3+12Bx^2+8Cx+4D&=3x^3 \\
+            &=(6B-8C+4D)+(24A-24B+8C)x+(-48A+12B)x^2+(16A)x^3&=3x^3.
+        \end{align*}
+        Thus, \(A=\frac{3}{16}\), \(B=\frac{3}{4}\), \(C=\frac{27}{16}\), and \(D=\frac{9}{4}\). Therefore, our general solution is
+        \begin{equation*}
+            y(x)=c_1+c_2e^{2x}+c_3xe^{2x}+\frac{3}{16}x^4+\frac{3}{4}x^3+\frac{27}{16}x^2+\frac{9}{4}x
+        \end{equation*}
+        on \(\mathbb{R}\).
         
     \end{example}
 
