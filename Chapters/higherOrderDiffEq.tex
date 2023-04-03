@@ -1425,3 +1425,55 @@
         \\
         \\
         Since \(P_n(D)[y]=0\) defines a linear ordinary differential equation with constant coefficients, the characteristic polynomial is precisely obtained by replacing \(D\) with \(m\). Note that factorization is still sometimes possible for some general differential operator \(F(D)\). Take \(x^2y''+2xy'=0\) as an example. Then, \(x^2D^2+2xD=D[x^2D]\).
+
+\pagebreak
+
+\section{Lecture 26, April 3, 2023}
+
+    \subsection{The Method of Operators}
+
+        Suppose \(F(x,y,\ldots,y^{(n)})=0\) is linear and can be ``factored'' in terms of generalized differential operators such that we have
+        \begin{equation*}
+            F_1(D)\cdots F_n(D)+Q(x)=0.
+        \end{equation*}
+        Then, \(F(x,y,\ldots,y^{(n)})=0\) can be solved recursively by solving \(n\) first order equations in sequence. Consider the following examples.
+        \begin{example}{\Difficulty\,\Difficulty\,\,The Method of Operators 1}{methodops1}
+
+            Solve \(F(x,y,y',y'')=y''-y'-2e^x=0\) using the Method of Operators.
+            \\
+            \\
+            We have that \(y_c(x)=c_1+c_2e^x\). Note that \(y''-y'=(D^2-D)y(x)=D(D-1)(y(x))\). Therefore,
+            \begin{equation*}
+                F(x,y,y',y'')=D(D-1)(y_p(x))-2e^x=0.
+            \end{equation*}
+            Let \(v(x)=(D-1)(y_p(x))\). Then, we have the two first order equations
+            \begin{equation*}
+                Dv(x)-2e^x=0,\quad (D-1)y_p(x)-v(x)=0.
+            \end{equation*}
+            The first equation gives us \(v'(x)=2e^x\), so \(v(x)=2e^x+c\). Since we are only looking for a particular solution, let \(c=0\) so \(v(x)=2e^x\). The second equation gives us \(y_p'(x)-y_p(x)-2e^x=0\). Thus, \(y_p(x)=\frac{2x}{e^{-x}}=2xe^x\). Thus, we have that
+            \begin{equation*}
+                y(x)=c_1+c_2e^x+2xe^x
+            \end{equation*}
+            on \(\mathbb{R}\).
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,The Method of Operators 2}{methodops2}
+
+            Solve \(F(x,y,y',y'')=x^2y''-2xy'+5=0\) using the Method of Operators.
+            \\
+            \\
+            We have that \((x^2D^2-2xD)(y(x))+5=(x^2D-2x)(D(y(x)))+5\). Then,
+            \begin{equation*}
+                F(x,y,y',y'')=(x^2D-2x)(D(y(x)))+5=0.
+            \end{equation*}
+            Let \(v(x)=D(y(x))\). Then we have the two first order equations
+            \begin{equation*}
+                (x^2D-2x)v(x)+5=0,\quad Dy(x)-v(x)=0.
+            \end{equation*}
+            The first equation gives us \(x^2v'(x)-2xv(x)+5=0\). With \(x\neq 0\), we have \(v'(x)-\frac{2}{x}v(x)+\frac{5}{x^2}=0\). Thus,
+            \(v(x)=x^2\left(\int -\frac{5}{x^4}\dd x\right)+c_1=\frac{5}{3x}+c_1x^2\). The second equation gives us \(y'(x)-\frac{5}{3x}-c_1x^2=0\). Then,
+            \begin{equation*}
+                y(x)=\int \frac{5}{3x}\dd x+\int c_1x^2\dd x=\frac{5}{3}\log|x|+c_2+\tilde{c}_1x^3
+            \end{equation*}
+            on \(\{x\in\mathbb{R}:x\neq0\}\).
+
+        \end{example}
