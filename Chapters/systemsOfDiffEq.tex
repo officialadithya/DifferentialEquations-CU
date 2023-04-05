@@ -1,0 +1,86 @@
+\section{Lecture 27, April 5, 2023}
+
+    We now introduce systems of differential equations. Consider the following definition.
+    \begin{definition}{\Stop\,\,Systems of First Order Differential Equations}{sysfirstord}
+
+        A system of \(m\) first order differential equations in \(k\) dependent variables is of the form
+        \begin{equation*}
+            F_1(x,y_1,\ldots,y_k,y_1',\ldots,y_k')=0,\quad \ldots,\quad F_m(x,y_1,\ldots,y_k,y_1',\ldots,y_k').
+        \end{equation*}
+        
+    \end{definition}
+    \vphantom
+    \\
+    \\
+    Note that the analog for \(n\)th order equations simply includes all derivatives up to \(y_i^{(n)}\), \(1\leq i\leq n\). Consider the following definitions and theorems; in the below cases, linear algebraic techniques can be employed.
+    \begin{definition}{\Stop\,\,Linear Systems of First Order Differential Equations}{linsysfirstorder}
+
+        A system of differential equations is linear if and only if each equation contains only terms \(f_{1,i}(x)y_i'(x)\), \(f_{0,i}(x)y_i(x)\), and \(Q(x)\).
+        
+    \end{definition}
+    \begin{definition}{\Stop\,\,Reduced Linear Systems of First Order Differential Equations}{redsys}
+
+        A linear system of first order differential equations is reduced if and only if no nonzero equation is a linear combination of other equations.
+        
+    \end{definition}
+    \begin{theorem}{\Stop\,\,Number of Solutions to Reduced Systems}{numsolredsys}
+
+        If a reduced linear system is square, the system has a unique solution for each \(y_i(x)\), or no solution exists. If a reduced linear system has more variables than equations, either no solution exists or some \(y_i(x)\) has no unique \(p\)-parameter family.
+        
+    \end{theorem}
+    \vphantom
+    \\
+    \\
+    Consider the following examples.
+    \begin{example}{\Difficulty\,\Difficulty\,\,System 1}{sys1}
+        
+        Find a solution to the system
+        \begin{align*}
+            \begin{cases}
+                y_2'-xy_2&=0 \\
+                x^2y_1-e^x\sin(2x)&=0 \\
+                y_1'-807y_2&=0
+            \end{cases}.
+        \end{align*}
+        From the second equation, we have \(y_1=\frac{e^x\sin(2x)}{x^2}\) with \(x\neq 0\). If we substitute this into the third equation, we have
+        \begin{align*}
+            y_2=\frac{y_1'}{807}&=\frac{1}{807}\frac{\dd}{\dd x}\frac{e^x\sin(2x)}{x^2} \\
+            &=\frac{-2xe^x\sin(2x)+x^2(e^x\sin(2x)+2e^x\cos(2x))}{807x^4}.
+        \end{align*}
+        The first equation gives us
+        \begin{align*}
+            y_2&=e^{-\int -x\dd x}\left(\int e^{\int -x\dd x}\cdot 0\dd x+c_1\right) \\
+            &=c_1e^{\frac{1}{2}x^2}.
+        \end{align*}
+        Thus, we don't have a solution. Note that the second equation is not first order.
+
+    \end{example}
+    \begin{example}{\Difficulty\,\Difficulty\,\,System 2}{sys2}
+        
+        Find a solution to the system
+        \begin{align*}
+            \begin{cases}
+                y_2'-xy_2&=0 \\
+                x^2y_1'-e^x&=0 \\
+                y_1'-807y_2&=0
+            \end{cases}.
+        \end{align*}
+       \DOTHISLATER
+
+    \end{example}
+    \vphantom
+    \\
+    \\
+    Note that if we use operator notation, an analog of Gauss-Jordan Elimination can be employed to put linear systems in triangular form. Consider the following example.
+    \begin{example}{\Difficulty\,\Difficulty\,\,Using Operators on Linear Systems}{opslinsys}
+
+        Find a solution to the system
+        \begin{align*}
+            \begin{cases}
+                y_2'-xy_2&=0 \\
+                y_1'-e^x&=0 \\
+                y_1'-807y_2&=0
+            \end{cases}.
+        \end{align*}
+        \DOTHISLATER
+    \end{example}
