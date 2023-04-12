@@ -32,7 +32,7 @@
     \\
     \\
     Consider the following examples.
-    \begin{example}{\Difficulty\,\Difficulty\,\,System 1}{sys1}
+    \begin{example}{\Difficulty\,\Difficulty\,\,Substitution System 1}{subsys1}
         
         Find a solution to the system
         \begin{align*}
@@ -55,7 +55,8 @@
         Thus, we don't have a solution. Note that the second equation is not first order.
 
     \end{example}
-    \begin{example}{\Difficulty\,\Difficulty\,\,System 2}{sys2}
+    \pagebreak
+    \begin{example}{\Difficulty\,\Difficulty\,\,Substitution System 2}{subsys2}
         
         Find a solution to the system
         \begin{align*}
@@ -65,14 +66,30 @@
                 y_1'-807y_2&=0
             \end{cases}.
         \end{align*}
-       \DOTHISLATER
+        From the second equation, we have \(y_1'=\frac{e^x}{x^2}\), so \(y_1=\int \frac{e^x}{x^2}\dd x+c_1\). Then, substituting into the third equation, we have \(\frac{e^x}{x^2}-807y_2=0\), so \(y_2=\frac{e^x}{807x^2}\). But, by the first equation, we have \(y_2=e^{\int x \dd x}\left(\int e^{\int -x\dd x}\cdot 0\dd x+c_2\right)=c_2e^{\frac{1}{2}x^2}\). This doesn't match; thus, we don't have a solution.
 
     \end{example}
     \vphantom
     \\
     \\
-    Note that if we use operator notation, an analog of Gauss-Jordan Elimination can be employed to put linear systems in triangular form. Consider the following example.
-    \begin{example}{\Difficulty\,\Difficulty\,\,Using Operators on Linear Systems}{opslinsys}
+    The following theorem, which is not at all new, but is useful to know, describes the solution to a first order linear differential equation.
+    \begin{theorem}{\Stop\,\,Solution of a First Order Linear Differential Equation}{solfirstorderdiffeq}
+
+        If we have \(F(x,y,y')=y'+Py(x)=Q(x)\),
+        \begin{equation*}
+            y(x)=e^{-\int P(x)\dd x}\left(\int e^{\int P(x)\dd x}Q(x)+c\right).
+        \end{equation*}
+
+    \end{theorem}
+
+\pagebreak
+
+\section{Lecture 28: April 7, 2023}
+
+    \subsection{Gauss-Jordan Elimination for Systems of Differential Equations: Part I}
+
+    If we use operator notation, an analog of Gauss-Jordan Elimination can be employed to put linear systems in triangular form. Recall that the three row operations are swapping rows, adding two rows, and applying \(f(x)D\). We have covered substitution in the previous lecture. We will move to elimination. But, before that, consider the following example using substitution.
+    \begin{example}{\Difficulty\,\Difficulty\,\,Substitution System 3}{subsys3}
 
         Find a solution to the system
         \begin{align*}
@@ -82,5 +99,222 @@
                 y_1'-807y_2&=0
             \end{cases}.
         \end{align*}
-        \DOTHISLATER
+        From the second equation, we have \(y_1'=e^x\), so \(y_1=e^x+c_1\). Then, by the third equation, we have \(e^x-807y_2=0\), so \(y_2=\frac{e^x}{807}\). But, by the first equation, we have \(y_2=e^{\int x \dd x}\left(\int e^{\int -x\dd x}\cdot 0\dd x+c_2\right)=c_2e^{\frac{1}{2}x^2}\). This doesn't match; thus, we don't have a solution.
     \end{example}
+    \vphantom
+    \\
+    \\
+    For Gauss-Jordan Elimination for Systems of Differential Equations, we wish to write our system in terms of differential operators, and then row reduce to triangular form. The three allowable row operations are:
+    \begin{enumerate}
+        \item Swap row \(i\) and row \(j\); denote by \(\langle i\rangle\leftrightarrow\langle j\rangle\).
+        \item Add row \(i\) and row \(j\); denote by \(\langle i\rangle+\langle j\rangle\to\langle i \rangle\).
+        \item Apply a differential operator to row \(i\); \(F(D)\langle i\rangle\to\langle i \rangle\).
+    \end{enumerate} 
+    \pagebreak
+    \vphantom
+    \\
+    \\
+    This is best seen through examples. Consider the following.
+    \begin{example}{\Difficulty\,\Difficulty\,\,Elimination System 1}{elimsys1}
+
+        Find a solution to the system
+        \begin{align*}
+            \begin{cases}
+                y_1'-y_1+y_2'+y_2&=0 \\
+                2y_1'+2y_1+2y_2'-2y_2&=x
+            \end{cases}.
+        \end{align*}
+        Using operator notation, we can write the above as
+        \begin{align*}
+            \begin{cases}
+                (D-1)y_1+(D+1)y_2&=0 \\
+                (2D+2)y_1+(2D-2)y_2&=x
+            \end{cases}.
+        \end{align*}
+        This leads to the matrix
+        \begin{equation*}
+            \begin{bmatrix}
+                (D-1)& (D+1) & | & 0 \\
+                (2D+2)& (2D-2) & | & x
+            \end{bmatrix}.
+        \end{equation*}
+        Now, we perform \(-(D-1)\langle 2\rangle\to\langle2\rangle\) and \((2D+2)\langle1\rangle\to\langle1\rangle\), resulting in
+        \begin{equation*}
+            \begin{bmatrix}
+                (2D+2)(D-1)& (2D+2)(D+1) & | & 0 \\
+                -(D-1)(2D+2)& -(D-1)(2D-2) & | & -(D-1)x
+            \end{bmatrix}.
+        \end{equation*}
+        We have \(\langle1\rangle+\langle2\rangle\to\langle2\rangle\), which gives
+        \begin{equation*}
+            \begin{bmatrix}
+                (2D+2)(D-1)& (2D+2)(D+1) & | & 0 \\
+                0 & (2D+2)(D+1)-(D-1)(2D-2) & | & -(D-1)x
+            \end{bmatrix}.
+        \end{equation*}
+        Now, we have \(((2D+2)(D+1)-(D-1)(2D-2))y_2=-(D-1)x\). The left hand side is
+        \begin{equation*}
+            (2D^2+4D+2-2D^2-4D-2)
+        \end{equation*}        
+    \end{example}
+
+\pagebreak
+
+\section{Lecture 29: April 10, 2023}
+
+    \subsection{Gauss-Jordan Elimination for Systems of Differential Equations: Part II}
+
+        If we have the triangular form
+        \begin{align*}
+            Dy_1+D(D-x)y_2&=0 \\
+            (D(D-x)+D)y_2&=-e^x,
+        \end{align*}
+        Note that \((D(D-x)+D)=D((D-x)+1)\). We may now use the Method of Operators to solve the second equation. We have \(v(x)=(D-(x+1))y_2(x)\) and \(Dv(x)=-e^x\). Since \(v'(x)=-e^x\), \(v(x)=-e^{x}+c_1\) by separation of variables. Then, we have
+        \begin{align*}
+            -e^x+c_1=y_2'(x)+y_2(x)(1-x),
+        \end{align*}
+        so
+        \begin{align*}
+            y_2(x)&=e^{\int -(1-x)\dd x}\left(\int e^{\int (1-x)\dd x}(-e^x+c_1)\dd x\right) \\
+            &=e^{\frac{x^2}{2}-x}\left(\int e^{x-\frac{x^2}{2}}(-e^x+c_1)\dd x+c_2\right) \\
+            &=e^{\frac{x^2}{2}-x}\left(\int e^{x-\frac{x^2}{2}}+c_1e^{x-\frac{x^2}{2}}\dd x+c_2\right).
+        \end{align*}
+        Now, all we need to do is substitute into the first equation and solve algorithmically. This is possible, but tedious. Note that \((D(D-x)+D)y_2=-e^x\) can be written as
+        \begin{align*}
+            -e^x&=D^2y_2-D(xy_2)+Dy_2 \\
+            &=y_2''(x)-xy_2'(x)-y_2(x)+y_2'(x) \\
+            &=y_2''(x)+(1-x)y_2'(x)-y_2(x).
+        \end{align*}
+        We can solve the above by ``guessing properly'' for a solution for the homogeneous solution and applying Reduction of Order.
+
+    \pagebreak
+
+\section{Lecture 30; April 12, 2023}
+
+    \subsection{From an \(n\)th Order Equation to an \(n\) Dimensional System of First Order Equations}
+
+        As motivation, consider a second order linear equation. That is,
+        \begin{equation*}
+            F(x,y,y',y'')=f_2(x)y''+f_1(x)y'+f_0(x)y=Q(x).
+        \end{equation*}
+        Denote \(y_1(x)=y(x)\). Then denote \(y_2(x)=y_1'(x)\). We then have \(y_2'(x)=y_1''(x)\). From \(F(x,y,y',y'')\), we have \(f_2(x)y_2'(x)+f_1(x)y_2(x)+f_0(x)y_1(x)=Q(x)\). Our system is then
+        \begin{align*}
+            \begin{cases}
+                y_1'(x)-y_2(x)&=0 \\
+                f_2(x)y_2'(x)+f_1(x)y_2(x)+f_0(x)y_1(x)&=Q(x)
+            \end{cases}.
+        \end{align*}
+        For \(n=3\), 
+        \begin{align*}
+            \begin{cases}
+                y_1'(x)-y_2(x)&=0 \\
+                y_2'(x)-y_3(x)&=0 \\
+                f_3(x)y_3'(x)+f_2(x)y_3(x)+f_1(x)y_2(x)+f_0(x)y_1(x)&=Q(x)
+            \end{cases}.
+        \end{align*}
+        Consider the following theorem, illustrating the general case.
+        \begin{theorem}{\Stop\,\,Reducing an \(n\)th Order Linear Equation Into an \(n\) Dimensional System}{reducingnthordertosys}
+
+            Let \(F(x,y,y',\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)y-Q(x)=0\) be an \(n\)th order linear differential equation. Denote \(y_1(x)=y(x)\) and
+            \begin{equation*}
+                y_1'(x)=y_2(x),\quad,\ldots,\quad y_1^{(n-1)}(x)=\cdots=y_{n-1}'(x)=y_n(x).
+            \end{equation*}
+            Note that \(y_n'(x)=y^{(n)}(x)\), so substituting this into \(F\) ensures that \(y_n'\) is the only derivative term. We have
+            \begin{equation*}
+                f_n(x)y_n'(x)+f_{n-1}(x)y_n(x)+f_{n-2}(x)y_{n-1}(x)+\cdots+f_2(x)y_3(x)+f_1(x)y_2(x)+f_0(x)y_1(x)=0.
+            \end{equation*}
+            Our system is then
+            \begin{equation*}
+                \begin{cases}
+                    y_1'(x)-y_2(x)&=0 \\
+                    \vdots&\vdots \\
+                    y_{n-1}'(x)-y_n(x)&=0 \\
+                    f_n(x)y_n'(x)+f_{n-1}(x)y_n(x)+f_{n-2}(x)y_{n-1}(x)+\cdots+f_2(x)y_3(x)+f_1(x)y_2(x)+f_0(x)y_1(x)&=0
+                \end{cases}.
+            \end{equation*}
+            
+        \end{theorem}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        Consider the following example.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Reduction Into Triangular Form 1}{redintotriform1}
+
+            Express \(F(x,y,y',y'',y'')=xy'''-y''=0\) as a first order system. Then, place the system into triangular form.
+            \\
+            \\
+            We have the system
+            \begin{equation*}
+                \begin{cases}
+                    y_1'(x)-y_2(x)&=0 \\
+                    y_2'(x)-y_3(x)&=0 \\
+                    xy_3'(x)-y_3(x)&=0
+                \end{cases}.
+            \end{equation*}
+            Then, using operator notation, we have
+            \begin{equation*}
+                \begin{cases}
+                    Dy_1-y_2+0y_3&=0 \\
+                    0y_1+Dy_2-y_3&=0 \\
+                    0y_1+0y_2+(xD-1)y_3&=0
+                \end{cases}.
+            \end{equation*}
+            We realize that we are already in triangular form.
+            
+        \end{example}
+        \pagebreak
+        \begin{example}{\Difficulty\,\Difficulty\,\,Reduction Into Triangular Form 2}{redintotriform2}
+
+            Express \(F(x,y,y',y'',y'')=xy'''-y'=0\) as a first order system. Then, place the system into triangular form.
+            \\
+            \\
+            We have the system
+            \begin{equation*}
+                \begin{cases}
+                    y_1'(x)-y_2(x)&=0 \\
+                    y_2'(x)-y_3(x)&=0 \\
+                    xy_3'(x)-y_2(x)&=0
+                \end{cases}.
+            \end{equation*}
+            Then, using operator notation, we have
+            \begin{equation*}
+                \begin{cases}
+                    Dy_1-y_2+0y_3&=0 \\
+                    0y_1+Dy_2-y_3&=0 \\
+                    0y_1-y_2+(xD)y_3&=0
+                \end{cases}.
+            \end{equation*}
+            To place the above into triangular form, consider the augmented matrix
+            \begin{equation*}
+                \begin{bmatrix}
+                    D & -1 & 0 & | & 0 \\
+                    0 & D & -1 & | & 0 \\
+                    0 & -1 & xD & | & 0
+                \end{bmatrix}
+            \end{equation*}
+            We perform \(R_3=DR_3+R_2\) to obtain
+            \begin{equation*}
+                \begin{bmatrix}
+                    D & -1 & 0 & | & 0 \\
+                    0 & D & -1 & | & 0 \\
+                    0 & 0 & D(xD)-1 & | & 0
+                \end{bmatrix}.
+            \end{equation*}
+            Thus, the triangular system is
+            \begin{equation*}
+                \begin{cases}
+                    Dy_1-y_2+0y_3&=0 \\
+                    0y_1+Dy_2-y_3&=0 \\
+                    0y_1+0y_2+(D(xD)-1)y_3&=0
+                \end{cases},
+            \end{equation*}
+            and simplifying gives
+            \begin{equation*}
+                \begin{cases}
+                    y_1'-y_2&=0 \\
+                    y_2'-y_3&=0 \\
+                    xy_3''+y_3'-y_3&=0
+                \end{cases}
+            \end{equation*}.
+        \end{example}
