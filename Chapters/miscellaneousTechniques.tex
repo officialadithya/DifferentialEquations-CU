@@ -1,0 +1,134 @@
+\section{Lecture 31: April 14, 2023}
+
+    \subsection{A Review of Power Series}
+
+        We seek to solve differential equations using power series; this is due to the fact that, excluding constant coefficient equations, we have seen enormous difficulty finding closed form solutions to ``nice''-looking equations. For example,
+        consider the following.
+        \begin{enumerate}
+            \item \(x^2y''-2xy_2y=0\).
+            \item \(y''-xy=0\).
+            \item \(xy'''-y''=0\).
+            \item \(xy'''-y'=0\).
+            \item \(xy''+y'-y=0\).
+        \end{enumerate}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        Note that some of the above equations are not too difficult, but distinguishing these from the equations that are is very difficult; sometimes, we may not be able to compute antiderivatives at all. We now will consider power series. Consider the following definition.
+        \begin{definition}{\Stop\,\,Power Series}{powerseries}
+
+            Let \(a_i\in\mathbb{C}\). The power series centered at \(x_0\in\mathbb{R}\) is given by
+            \begin{equation*}
+                P(x-x_0)=\sum_{k=0}^\infty a_k(x-x_0)^k
+            \end{equation*}
+            where \(P(x-x_0)\) converges at \(x\) if and only if
+            \begin{equation*}
+                \lim_{n\to\infty}\sum_{k=0}^n a_k(x-x_0)^k
+            \end{equation*}
+            exists and is finite.
+
+        \end{definition}
+        \begin{definition}{\Stop\,\,Radius of Convergence}{radiusofconvergence}
+
+            The power series \(P(x-x_0)\) has a radius of convergence \(R\in\mathbb{R}^+\) if it converges for all \(x\in\{x\in\mathbb{R}:x_0-R<x<x_0+R\}\). Note that \(P(x-x_0)\) may or may not converge at \(x=x_0\pm R\).
+
+        \end{definition}
+        \begin{definition}{\Stop\,\,Valid Power Series Representation}{validpowerseriesrep}
+            
+            We define \(f(x)\) has a valid power series representation \(P(x-x_0)\) on some interval \(I\) if for all \(x\in I\), \(P(x-x_0)\) converges to \(f(x)\). That is,
+            \begin{equation*}
+                \lim_{n\to\infty}\left|f(x)-\sum_{k=0}^n a_k(x-x_0)^k\right|=0.
+            \end{equation*}
+            If the above equation is true, we write \(f(x)\simeq P(x-x_0)\).
+
+        \end{definition}
+        \begin{definition}{\Stop\,\,Absolute Convergence}{absoluteconvergence}
+            
+            If \(\sum_{k=0}^\infty |a_k|(x-x_0)^k\) is convergent, \(\sum_{k=0}^\infty a_k(x-x_0)^k\) converges absolutely.
+
+        \end{definition}
+        \begin{theorem}{\Stop\,\,A Useful Lemma for Absolute Convergence}{lemmaabsconv}
+
+            If \(P(x-x_0)\) is absolutely convergent, it is convergent. Moreover, \(P(x-x_0)\) is convergent regardless of the ordering of \(a_k\).
+            
+        \end{theorem}
+        
+\section{Lecture 32: April 17, 2023}
+
+    \subsection{Existence and Uniqueness for Power Series Solutions}
+
+        Consider the following theorems.
+        \begin{theorem}{\Stop\,\,Uniqueness of Valid Power Series Expansions}{uniquenessforvalidpowerseries}
+            
+            If \(f(x)\) possesses a valid expansion \(P(x-x_0)\) for some \(x\in\{x\in\mathbb{R}:x_0-R<x<x_0+R\}\), this expansion is unique. Moreover, the coefficient terms are
+            \begin{equation*}
+                a_k=\frac{f^{(k)}(x_0)}{k!}.
+            \end{equation*}
+            This is just the usual Taylor expansion.
+        \end{theorem}
+        \begin{theorem}{\Stop\,\,Taylor Series Remainder}{taylorremainder}
+
+            Recall that by Definition \ref{def:validpowerseriesrep}, \(f(x)\) has a valid power series representation \(P(x-x_0)\) if it converges to \(f(x)\); that is, the remainder must approach zero as \(n\) approaches infinity. We can give the remainder as
+            \begin{equation*}
+                R_n(x)=\frac{f^{(n+1)}(\xi)(x-x_0)^{n+1}}{(n+1)!}
+            \end{equation*}
+            where \(\xi\) is in the interval between \(x\) and \(x_0\).
+            
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        Consider the following example of finding a Taylor series.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Finding a Taylor Series}{findtaylor}
+            
+            Find the formal Taylor series expansion for \(f(x)=\frac{1}{1-x}\) centered at \(x_0=0\).
+            \\
+            \\
+            Note \(f(x_0)=\frac{1}{1-x},f'(x_0)=\frac{1}{(1-x)^2}, f''(x_0)=\frac{2}{(1-x)^3},\ldots,f^{(k)}(x_0)=\frac{k!}{(1-x)^{k+1}}\). At \(x_0=0\), \(f^{(k)}(0)=k!\). Then, the coefficients are given by \(a_k=\frac{k!}{k!}=1\), and so we have the expected expansion
+            \begin{equation*}
+                f(x)\simeq\sum_{k=0}^\infty x^k.
+            \end{equation*}
+
+        \end{example}
+        \vphantom
+        \\
+        \\
+        The following notion of analytic functions is important.
+        \begin{definition}{\Stop\,\,Analytic Functions}{analyticfunctions}
+            
+            A function \(f:\mathbb{R}\to\mathbb{R}\) is analytic at \(x\) if and only if there exists a valid power series expansion on some neighborhood \((x_0-R,x_0+R)\). Given some interval \(I\), if \(f\) is analytic at every point \(x\in I\), it is analytic on \(I\).
+
+        \end{definition}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        Consider the following theorem.
+        \begin{theorem}{\Stop\,\,Analytic Implies Existence of Power Series General Solution}{analyticimppowergensol}
+            
+            Let \(F(x,y,\ldots,y^{(n)})=f_n(x)y^{(n)}+\cdots+f_1(x)y'+f_0(x)y-Q(x)=0\) be an \(n\)th order linear equation with the additional restrictions that \(f_i\), \(1\leq i\leq n\) and \(Q(x)\) are analytic on some common interval \(I\). Under these stipulations, the general solution \(y(x)\) possesses a power series solution valid on \(I\).
+
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        This leads us to a question. What is the relationship between \(y'(x)\) and \(y(x)\simeq P(x-x_0)\)?
+        \\
+        \\
+        If \(P(x-x_0)=\sum_{k=0}^\infty a_k(x-x_0)^k=\sum_{k=0}^\infty p_k(x)\) and \(P'(x-x_0)=\sum_{k=0}^\infty p_k'(x)\), then, if \(P'(x-x_0)\) converges uniformly to some function,
+        \begin{equation*}
+            y'(x)\simeq P'(x-x_0).
+        \end{equation*}
+        Note \(p_i\) is a polynomial. Now, consider the following definitions.
+        \begin{definition}{\Stop\,\,Singularities}{singularities}
+
+            Let \(F(x,y,\ldots,y^{(n)})=0\) be an \(n\)th order homogeneous linear equation. A point \(x_0\) is ordinary if and only if all \(f_i\), \(1\leq i \leq n\), are analytic at \(x_0\). Then, \(x_0\) is singular if and only if at least one \(f_i\) is not analytic at \(x_0\).
+            \\
+            \\
+            A singularity is regular if and only if, after placing the equation into standard form, all \(g_i\) are analytic at \(x_0\). Note
+            \begin{equation*}
+                g_i(x)=f_i(x)(x-x_0)^{n-i}.
+            \end{equation*}
+            A singularity is regular if and only if it is not regular.
+        \end{definition}
