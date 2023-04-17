@@ -1,4 +1,6 @@
-\section{Lecture 27, April 5, 2023}
+\section{Lecture 27: April 5, 2023}
+
+    \subsection{An Introduction to Linear Systems of Differential Equations}
 
     We now introduce systems of differential equations. Consider the following definition.
     \begin{definition}{\Stop\,\,Systems of First Order Differential Equations}{sysfirstord}
@@ -117,45 +119,7 @@
     This is best seen through examples. Consider the following.
     \begin{example}{\Difficulty\,\Difficulty\,\,Elimination System 1}{elimsys1}
 
-        Find a solution to the system
-        \begin{align*}
-            \begin{cases}
-                y_1'-y_1+y_2'+y_2&=0 \\
-                2y_1'+2y_1+2y_2'-2y_2&=x
-            \end{cases}.
-        \end{align*}
-        Using operator notation, we can write the above as
-        \begin{align*}
-            \begin{cases}
-                (D-1)y_1+(D+1)y_2&=0 \\
-                (2D+2)y_1+(2D-2)y_2&=x
-            \end{cases}.
-        \end{align*}
-        This leads to the matrix
-        \begin{equation*}
-            \begin{bmatrix}
-                (D-1)& (D+1) & | & 0 \\
-                (2D+2)& (2D-2) & | & x
-            \end{bmatrix}.
-        \end{equation*}
-        Now, we perform \(-(D-1)\langle 2\rangle\to\langle2\rangle\) and \((2D+2)\langle1\rangle\to\langle1\rangle\), resulting in
-        \begin{equation*}
-            \begin{bmatrix}
-                (2D+2)(D-1)& (2D+2)(D+1) & | & 0 \\
-                -(D-1)(2D+2)& -(D-1)(2D-2) & | & -(D-1)x
-            \end{bmatrix}.
-        \end{equation*}
-        We have \(\langle1\rangle+\langle2\rangle\to\langle2\rangle\), which gives
-        \begin{equation*}
-            \begin{bmatrix}
-                (2D+2)(D-1)& (2D+2)(D+1) & | & 0 \\
-                0 & (2D+2)(D+1)-(D-1)(2D-2) & | & -(D-1)x
-            \end{bmatrix}.
-        \end{equation*}
-        Now, we have \(((2D+2)(D+1)-(D-1)(2D-2))y_2=-(D-1)x\). The left hand side is
-        \begin{equation*}
-            (2D^2+4D+2-2D^2-4D-2)
-        \end{equation*}        
+            
     \end{example}
 
 \pagebreak
@@ -189,7 +153,7 @@
 
     \pagebreak
 
-\section{Lecture 30; April 12, 2023}
+\section{Lecture 30: April 12, 2023}
 
     \subsection{From an \(n\)th Order Equation to an \(n\) Dimensional System of First Order Equations}
 
@@ -315,6 +279,6 @@
                     y_1'-y_2&=0 \\
                     y_2'-y_3&=0 \\
                     xy_3''+y_3'-y_3&=0
-                \end{cases}
+                \end{cases}.
             \end{equation*}.
         \end{example}
