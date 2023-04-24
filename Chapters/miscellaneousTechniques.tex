@@ -132,3 +132,155 @@
             \end{equation*}
             A singularity is regular if and only if it is not regular.
         \end{definition}
+
+\section{Lecture 33: April 19, 2023}
+
+\pagebreak
+
+\section{Lecture 34: April 21, 2023}
+
+    \subsection{Frobenius Equations and Series Solutions: Part I}
+
+    Recall that \(g_0(x)=x-1\) and \(g_1(x)=x\) are polynomials, so both functions are analytic. Thus, \(x_0=1\) is a regular singularity.
+    \\
+    \\
+    If \(x_0=a\) is an ordinary point, \(y(x)\) will jave a power series solution \(y(x)\simeq P(x-x_0)\) valid on the common interval of analyticity. In the case \(x_0\) is a regular sngularity, \(y(x)\) need not have a power series expansion. We now define Frobenius equations and state an accompanying theorem.
+    \begin{definition}{\Stop\,\,Frobenius Equations}{frobeniusequation}
+
+        If \(F(x,y\ldots,y^{(n)})=0\) is in standard form and \(x_0\) is a regular singularity, the associated Frobenius differential equation is
+        \begin{equation*}
+            (x-x_0)^nF(x,y,\ldots,y^{(n)})=0.
+        \end{equation*}
+        
+    \end{definition}
+    \begin{theorem}{\Stop\,\,Solution to the Frobenius Equation}{frobeniusseries}
+
+        The Frobenius equation has the same solution as \(F\), given by 
+        \begin{equation*}
+            y(x)\simeq \sum_{k=0}^\infty a_{k,m}(x-x_0)^{k+m}
+        \end{equation*}
+        with \(a_{0,m}\neq0\) and \(m\in\mathbb{C}\). This Frobenius series \(P(x-x_0,m)\) is valid on the common interval of analyticity of the coefficient functions of the Frobenius equation.
+        
+    \end{theorem}
+    \pagebreak
+    \vphantom
+    \\
+    \\
+    Consider the following example.
+    \begin{example}{\Difficulty\,\Difficulty\,\,Finding Power Series Coefficients 1}{findpowerseriescoeffs1}
+
+        Consider \(F(x,y,y',y'')=(1-x)y''+xy'-y=0\).
+        \\
+        \\
+        We have proven \(x_0=0\) is an ordinary point. The interval of analyticity, we have shown to be \(I=\{x\in\mathbb{R}:-1<x<1\}\). We are expecting a power series solution \(y(x)\simeq P(x-x_0)\) valid on \(I\). Since \(x_0=0\) is ordinary, we will use the easier non-standard form. We now assume
+        \begin{equation*}
+            y(x)=\sum_{k=0}^\infty a_k(x-0)^k=\sum_{k=0}^\infty a_kx^k,
+        \end{equation*}
+        so
+        \begin{equation*}
+            y'(x)=\sum_{k=0}^\infty ka_kx^{k-1},\quad y''(x)=\sum_{k=0}^\infty k(k-1)a_kx^{k-2}.
+        \end{equation*}
+        We may now substitute this into \(F\) to obtain
+        \begin{align*}
+            (1-x)\sum_{k=0}^\infty k(k-1)a_kx^{k-2}+x\sum_{k=0}^\infty ka_kx^{k-1}-\sum_{k=0}^\infty a_kx^k&=0 \\
+            \sum_{k=0}^\infty k(k-1)a_kx^{k-2}-\sum_{k=0}^\infty k(k-1)a_kx^{k-1}+\sum_{k=0}^\infty ka_kx^k-\sum_{k=0}^\infty a_kx^k&= \\
+            \sum_{k=2}^\infty k(k-1)a_kx^{k-2}-\sum_{k=2}^\infty k(k-1)a_kx^{k-1}+\sum_{k=0}^\infty (k-1)a_kx^k&= \\
+            \sum_{k=0}^\infty (k+2)(k+1)a_{k+2}x^k-\sum_{k=0}^\infty k(k+1)a_{k+1}x^k+\sum_{k=0}^\infty (k-1)a_kx^k&=
+        \end{align*}
+        Then,
+        \begin{equation*}
+            \sum_{k=0}^\infty ((k-1)a_k-k(k+1)a_{k+1}+(k+2)(k+1)a_{k+2})x^k=0\simeq\sum_{k=0}^\infty 0x^k.
+        \end{equation*}
+        We now have the equation \((k-1)a_k-k(k+1)a_{k+1}+(k+2)(k+1)a_{k+2}=0\), a recurrence relation. We test small values of \(k\) to see if we can find a pattern. We wish to identify all coefficients in terms of \(a_0\).
+        \begin{itemize}
+            \item \(k=0\): \(a_0-0+2\cdot1\cdot a_2=0\) so \(2a_2=a_0\).
+            \item \(k=1\): \(-2\cdot1\cdot a_2+6a_3=0\) so \(a_3=\frac{1}{3}a_2=\frac{1}{6}a_0\).
+            \item \(k=2\): \(a_2-6a_3+4\cdot3 a_4=0\) so \(a_4=\frac{1}{2}a_3-\frac{1}{12}a_2=\frac{1}{24}a_0\).
+            \item \(\cdots\): \(\cdots\) so \(\cdots\).
+            \item \(k=n\): \(\cdots\) so \(a_{n+2}=\frac{1}{(n+2)!}a_0\).
+        \end{itemize}
+        \vphantom
+        \\
+        \\
+        Note that \(a_1\) is arbitrary and is not dependent on any other \(a_k\). Thus, on \((-1,1)\),
+        \begin{equation*}
+            y(x)\simeq \sum_{k=0}^\infty a_kx^k=a_0+a_1x+\sum_{k=2}^\infty \frac{a_k}{k!}x^k=a_0+a_0x+(a_1-a_0)x+\sum_{k=2}^\infty \frac{a_0}{k!}x^k=(a_1-a_0)x+\sum_{k=0}^\infty \frac{a_0}{k!}a^k=\tilde{a_1}x+a_0e^x.
+        \end{equation*}
+    \end{example}
+
+\pagebreak
+
+\section{Lecture 35: April 24, 2023}
+
+    \subsection{Frobenius Equations and Series Solutions: Part II}
+
+        We now proceed by working out more examples.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Finding Power Series Coefficients 2}{findpowerseriescoeffs2}
+            
+            Consider \(F(x,y,y',y'')=x^2y''-3xy'+2y=0:x_0=0\).
+            \\
+            \\
+            We first determine the nature of \(x_0=0\), by first writing \(F\) in standard form. We obtain
+            \begin{equation*}
+                y''-\frac{3}{x}y'+\frac{2}{x^2}y=0.
+            \end{equation*} 
+            Note that \(f_0(x)=\frac{2}{x^2}\). Since \(f_0(x)\) is not defined at \(x_0=0\), it cannot by analytic at \(x_0\). Thus, \(x_0\) is a singular point by Definition \ref{def:singularities}. Then, we construct \(g_0(x)=f_0(x)(x-x_0)^2=\frac{2}{x^2}x^2=2\), \(g_1(x)=f_1(x)(x-x_0)^2=-\frac{3}{x}x=-3\). Since both \(g_0\) and \(g_1\) are constant, they are analytic everythere. Thus, \(F\) has a Frobenius solution valid on \(\mathbb{R}\), except perhaps at \(x=0\). We have a regular singularity at \(x_0=0\). Now, we consider the Frobenius equation 
+            \begin{align*}
+                F(x,y,y',y'')_{\text{frob}}&=(x-x_0)^2F(x,y,y',y'') \\
+                &=x^2\left(y''-\frac{3}{x}y'+\frac{2}{x^2}\right)=0 \\
+                &=x^2-3xy'+2y=0.
+            \end{align*}
+            Note that in this case, \(F_{\text{frob}}\) is the same as \(F\), but this is not true in general. Now, we suppose
+            \begin{equation*}
+                y(x)=\sum_{k=0}^\infty a_{k,m}(x-x_0)^{k+m}=\sum_{k=0}^\infty a_{k,m}x^{k+m},
+            \end{equation*}
+            where \(a_{0,m}\neq0\) and \(m\in\mathbb{C}\). Then,
+            \begin{equation*}
+                y'(x)=\sum_{k=0}^\infty a_{k,m}(k+m)a_{k,m}x^{k+m-1}
+            \end{equation*}
+            and
+            \begin{equation*}
+                y''(x)=\sum_{k=0}^\infty a_{k,m}(k+m)(k+m-1)x^{k+m-2}.
+            \end{equation*}
+            Substituting into \(F_{\text{frob}}\), we have
+            \begin{align*}
+                x^2\sum_{k=0}^\infty a_{k,m}(k+m)(k+m-1)x^{k+m-2}-3x\sum_{k=0}^\infty a_{k,m}(k+m)a_{k,m}x^{k+m-1}+2\sum_{k=0}^\infty a_{k,m}(x-x_0)^{k+m}=0.
+            \end{align*}
+            We can simplify the above to produce
+            \begin{align*}
+                \sum_{k=0}^\infty a_{k,m}(k+m)(k+m-1)x^{k+m}-3\sum_{k=0}^\infty a_{k,m}(k+m)a_{k,m}x^{k+m}+2\sum_{k=0}^\infty a_{k,m}(x-x_0)^{k+m}=0.
+            \end{align*}
+            Now, we can combine terms to obtain
+            \begin{equation*}
+                \sum_{k=0}^\infty ((k+m)(k+m-1)-3(k+m)+2)a_{k,m}x^{k+m}=0\simeq \sum_{k=0}^\infty 0x^{k+m}.
+            \end{equation*}
+            Thus, \(((k+m)(k+m-1)-3(k+m)+2)a_{k,m}=0\). Since \(a_{0,m}\neq0\), evaluating at \(k=0\), we get
+            \begin{equation*}
+                (m(m-1)-3m+2)a_{0,m}=0,
+            \end{equation*}
+            meaning \(m^2-4m+2=0\), which is true for \(m_1=2+\sqrt{2}\) and \(m_2=2-\sqrt{2}\). For \(m_1\), and \(k\geq 1\), we have
+            \begin{equation*}
+                ((k+2+\sqrt{2})(k+1+\sqrt{2})-3(k+2+\sqrt{2})+2)a_{k,m_1}=0
+            \end{equation*}
+            which has no integer roots for \(k\). Thus, \(a_{k,m_1}=0\) for all \(k\geq 1\). For \(m_2\), and \(k\geq 1\), we have
+            \begin{equation*}
+                ((k+2-\sqrt{2})(k+1-\sqrt{2})-3(k+2-\sqrt{2})+2)a_{k,m_2}=0
+            \end{equation*}
+            which has no integer roots for \(k\). Thus, \(a_{k,m_2}=0\) for all \(k\geq 1\). THus, for \(m_1\), we obtain the series
+            \begin{equation*}
+                y_1(x)\simeq a_{0,m_1}x^{0+m_1}+\sum_{k=1}^\infty 0x^{k+m},
+            \end{equation*}
+            so
+            \begin{equation*}
+                y_1(x)=a_{0,m_1}x^{2+\sqrt{2}}.
+            \end{equation*}
+            Similarly, for \(m_2\), we have
+            \begin{equation*}
+                y_2(x)=a_{0,m_2}x^{2-\sqrt{2}}.
+            \end{equation*}
+            Since both \(y_1\) and \(y_2\) are both linearly independent \(1\)-parameter families of solutions, the existence and uniqueness for linear equations gives
+            \begin{equation*}
+                y(x)=a_{0,m_1}x^{2+\sqrt{2}}+a_{0,m_2}x^{2-\sqrt{2}}
+            \end{equation*}
+            where \(a_{0,m_i}\in\mathbb{C}\). We must check this solution at \(x=0\). This is valid since \(y(x)\) is well-defined at \(x=0\) and so was the original equation \(F\).
+        \end{example}
