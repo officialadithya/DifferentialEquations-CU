@@ -130,7 +130,7 @@
             \begin{equation*}
                 g_i(x)=f_i(x)(x-x_0)^{n-i}.
             \end{equation*}
-            A singularity is regular if and only if it is not regular.
+            A singularity is irregular if and only if it is not regular.
         \end{definition}
 
 \section{Lecture 33: April 19, 2023}
@@ -220,15 +220,15 @@
             Consider \(F(x,y,y',y'')=x^2y''-3xy'+2y=0:x_0=0\).
             \\
             \\
-            We first determine the nature of \(x_0=0\), by first writing \(F\) in standard form. We obtain
+            We first determine the nature of \(x_0=0\) by first writing \(F\) in standard form. We obtain
             \begin{equation*}
                 y''-\frac{3}{x}y'+\frac{2}{x^2}y=0.
             \end{equation*} 
-            Note that \(f_0(x)=\frac{2}{x^2}\). Since \(f_0(x)\) is not defined at \(x_0=0\), it cannot by analytic at \(x_0\). Thus, \(x_0\) is a singular point by Definition \ref{def:singularities}. Then, we construct \(g_0(x)=f_0(x)(x-x_0)^2=\frac{2}{x^2}x^2=2\), \(g_1(x)=f_1(x)(x-x_0)^2=-\frac{3}{x}x=-3\). Since both \(g_0\) and \(g_1\) are constant, they are analytic everythere. Thus, \(F\) has a Frobenius solution valid on \(\mathbb{R}\), except perhaps at \(x=0\). We have a regular singularity at \(x_0=0\). Now, we consider the Frobenius equation 
+            Note that \(f_0(x)=\frac{2}{x^2}\). Since \(f_0(x)\) is not defined at \(x_0=0\), it cannot ba analytic at \(x_0\). Thus, \(x_0\) is a singular point by Definition \ref{def:singularities}. Then, we construct \(g_0(x)=f_0(x)(x-x_0)^2=\frac{2}{x^2}x^2=2\), \(g_1(x)=f_1(x)(x-x_0)^2=-\frac{3}{x}x=-3\). Since both \(g_0\) and \(g_1\) are constant, they are analytic everythere. Thus, \(F\) has a Frobenius solution valid on \(\mathbb{R}\), except perhaps at \(x=0\). We have a regular singularity at \(x_0=0\). Now, we consider the Frobenius equation 
             \begin{align*}
                 F(x,y,y',y'')_{\text{frob}}&=(x-x_0)^2F(x,y,y',y'') \\
                 &=x^2\left(y''-\frac{3}{x}y'+\frac{2}{x^2}\right)=0 \\
-                &=x^2-3xy'+2y=0.
+                &=x^2y''-3xy'+2y=0.
             \end{align*}
             Note that in this case, \(F_{\text{frob}}\) is the same as \(F\), but this is not true in general. Now, we suppose
             \begin{equation*}
@@ -266,7 +266,7 @@
             \begin{equation*}
                 ((k+2-\sqrt{2})(k+1-\sqrt{2})-3(k+2-\sqrt{2})+2)a_{k,m_2}=0
             \end{equation*}
-            which has no integer roots for \(k\). Thus, \(a_{k,m_2}=0\) for all \(k\geq 1\). THus, for \(m_1\), we obtain the series
+            which has no integer roots for \(k\). Thus, \(a_{k,m_2}=0\) for all \(k\geq 1\). Thus, \(m_1\), we obtain the series
             \begin{equation*}
                 y_1(x)\simeq a_{0,m_1}x^{0+m_1}+\sum_{k=1}^\infty 0x^{k+m},
             \end{equation*}
@@ -283,4 +283,69 @@
                 y(x)=a_{0,m_1}x^{2+\sqrt{2}}+a_{0,m_2}x^{2-\sqrt{2}}
             \end{equation*}
             where \(a_{0,m_i}\in\mathbb{C}\). We must check this solution at \(x=0\). This is valid since \(y(x)\) is well-defined at \(x=0\) and so was the original equation \(F\).
+        \end{example}
+
+\pagebreak
+
+\section{Lecture 35: April 24, 2023}
+
+    \subsection{Frobenius Equations and Series Solutions: Part III}
+
+        In the best case, where the roots of the indical polynomial differ by more than an integer, each root \(m_i\) gives rise to at least one \(1\)-parameter family of solutions. Sometimes, with repeated roots, we can get a \(k\)-parameter family from a single root for \(k\geq 2\).
+        \\
+        \\
+        However, when \(m_i-m_j\in\mathbb{Z}-\{0\}\), it is possible that a ``logarithmic'' family exists not obtainable in the standard way. To illustrate, consider the following example.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Finding Power Series Coefficients 3}{findpowerseriescoeffs3}
+            
+            Consider \(F(x,y,y',y'',y''')=x^2y'''-2xy''-4y'=0:x_0=0\).
+            \\
+            \\
+            We first deterine the nature of \(x_0=0\) by first writing \(F\) in standard form. We obtain
+            \begin{equation*}
+                y'''-\frac{2}{x}y''-\frac{4}{x^2}y'=0.
+            \end{equation*}
+            Note that \(f_1(x)=-\frac{4}{x^2}\). Since \(f_1(x)\) is not defined at \(x_0=0\), it cannot be analytic at \(x_0\). Thus \(x_0\) is a singular point by Definition \ref{def:singularities}. Then, we construct \(g_0(x)=0\), \(g_1(x)=-\frac{4}{x^2}x^2=-4\), \(g_2=(x)=-\frac{2}{x}x=-2\). Since all \(g_i\) are constant, they are analytic everywhere. Thus, \(F\) has a Fronbenius solution valid on \(\mathbb{R}\), except perhaps at \(x=0\). We have a regular singularity at \(x_0=0\). Now, we consider the Frobenius equation
+            \begin{align*}
+                F(x,y,y',y'',y''')_{\text{frob}}&=(x-x_0)^3F(x,y,y',y'',y''') \\
+                &=x^3y'''-2x^2y''-4xy'=0.
+            \end{align*}
+            Now, we suppose
+            \begin{equation*}
+                y(x)=\sum_{k=0}^\infty a_{k,m}x^{k+m}
+            \end{equation*}
+            where \(a_{0,m}\neq0\) and \(m\in\mathbb{C}\). Then,
+            \begin{equation*}
+                y'(x)=\sum_{k=0}^\infty a_{k,m}(k+m)x^{k+m-1},\quad y''(x)=\sum_{k=0}^\infty a_{k,m}(k+m)(k+m-1)x^{k+m-2},
+            \end{equation*}
+            and
+            \begin{equation*}
+                y'''(x)=\sum_{k=0}^\infty a_{k,m}(k+m)(k+m-1)(k+m-2)x^{k+m-3}.
+            \end{equation*}
+            Substituting into \(F_{\text{frob}}\), we have
+            \begin{align*}
+                x^3\sum_{k=0}^\infty a_{k,m}(k+m)(k+m-1)(k+m-2)x^{k+m-3}&-2x^2\sum_{k=0}^\infty a_{k,m}(k+m)(k+m-1)x^{k+m-2}\\
+                &-4x\sum_{k=0}^\infty a_{k,m}(k+m)x^{k+m-1}=0
+            \end{align*}
+            or, equivalently,
+            \begin{align*}
+                \sum_{k=0}^\infty a_{k,m}(k+m)(k+m-1)(k+m-2)x^{k+m}&-2\sum_{k=0}^\infty a_{k,m}(k+m)(k+m-1)x^{k+m}\\
+                &-4\sum_{k=0}^\infty a_{k,m}(k+m)x^{k+m}=0.
+            \end{align*}
+            Now we can combine terms to obtain
+            \begin{equation*}
+                \sum_{k=0}^\infty ((k+m)(k+m-1)(k+m-2)-2(k+m)(k+m-1)-4(k+m))a_{k,m}x^{k+m}=0\simeq \sum_{k=0}^\infty 0x^{k+m}.
+            \end{equation*}
+            Thus, \(((k+m)(k+m-1)(k+m-2)-2(k+m)(k+m-1)-4(k+m))a_{k,m}=0\). Since \(a_{0,m}\neq0\), evaluating at \(k=0\), we get
+            \begin{equation*}
+                (m(m-1)(m-2)-2m(m-1)-4m)a_{0,m}=0,
+            \end{equation*}
+            meaning \(m^2(m-5)=0\), which is true for \(m_1=0\) and \(m_2=5\). For \(m_1\), and \(k\geq 1\), we have
+            \begin{equation*}
+                (k(k-1)(k-2)-2k(k-1)-4k)a_{k,m_1}=k^2(k-5)a_{k,m_1}=0.
+            \end{equation*}
+            For \(k=5\), \(a_{5,m_1}\in\mathbb{C}\), but for \(k\neq5\), \(a_{k,m_1}=0\). Thus, \(y_1(x)\simeq a_{0,m_1}x^{0+m_1}+\sum_{k=1}^\infty a_{k,m_1}x^{k+m_1}=a_{0,m_1}x^0+a_{5,m_1}x^5=a_{0,m_1}+a_{5,m_1}x^5\). For \(m_2\), and \(k\geq 1\), we have
+            \begin{equation*}
+                ((k+5)(k+4)(k+3)-2(k+5)(k+4)-4(k+5))a_{k,m_2}=k(k+5)^2.
+            \end{equation*}
+            Thus, \(y_2(x)=a_{0,m_2}x^{0+m_2}+\sum_{k=1}^\infty a_{k,m_2}x^{k+m_2}=a_{0,m_2}x^5\). This is information we had previously. We must find some third linearly independent \(1\)-parameter family solutions, since \(F\) is of order \(3\). A fact is \(y_3(x)=\log x\).
         \end{example}
